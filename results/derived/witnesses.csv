@@ -1,0 +1,73 @@
+carrier,defect_id,operator,fault_class,first_relation,detail
+section,M01,embed_noop,embedding,MR01,exception:ExtractionError:custom section .wmrec not found
+section,M02,truncate_payload,embedding,MR01,extracted=b'Morph-0'
+section,M03,flip_payload,embedding,MR01,extracted=b'Lorph-01'
+section,M04,fixed_payload,state,MR01,extracted=b'fixed-payload'
+section,M05,lower_payload,normalization,MR01,extracted=b'morph-01'
+section,M06,key_ignored,authentication,MR04,accepted:b'Morph-01'
+section,M07,sidecar_oracle,artifact binding,MR08,exception:ExtractionError:adjacent sidecar is missing
+section,M08,global_cache_oracle,state,MR04,accepted:b'Morph-01'
+section,M09,unmarked_default,false positive,MR03,accepted:b'Morph-01'
+section,M10,semantic_plus_one,semantic corruption,MR02,mismatch_count=6
+section,M11,semantic_input13,semantic corruption,MR02,mismatch_count=1
+section,M12,compile_original,stage routing,MR01,exception:ExtractionError:custom section .wmrec not found
+section,M13,force_gcc,configuration,MR11,requested=clang/Os;actual=gcc/Os
+section,M14,force_O0,configuration,MR11,requested=clang/Os;actual=clang/O0
+section,M15,transform_noop,transformation,MR09,spurious robustness:accepted:b'Morph-01'
+section,M16,checksum_bypass,integrity,MR10,corruption accepted:accepted:b'Morph-01'
+section,M17,filename_bound,artifact binding,MR08,exception:ExtractionError:artifact path is not an original build path
+section,M18,stale_binary,state,MR05,first=b'Morph-01';second=b'Morph-01'
+section,M19,extractor_prefix,extraction,MR01,extracted=b'Morph-0'
+section,M20,interleaved_collision,state,MR12,parallel_isolation_clause_violated
+section,M21,alternate_compiler_corruption,configuration,MR06,"payloads=b'Morph-01',b'Lorph-01';semantic_equal=True"
+section,M22,size_optimization_corruption,configuration,MR07,"payloads=['Morph-01', 'Morph-01', 'Lorph-01'];semantic_equal=True"
+section,M23,revisit_state_contamination,state,MR13,before=b'Morph-01';intervening=b'Second-2';after=b'Second-2'
+section,M24,second_identical_build_corruption,state,MR14,first=b'Morph-01';second=b'Lorph-01'
+string,M01,embed_noop,embedding,MR01,exception:ExtractionError:logical record magic not found
+string,M02,truncate_payload,embedding,MR01,extracted=b'Morph-0'
+string,M03,flip_payload,embedding,MR01,extracted=b'Lorph-01'
+string,M04,fixed_payload,state,MR01,extracted=b'fixed-payload'
+string,M05,lower_payload,normalization,MR01,extracted=b'morph-01'
+string,M06,key_ignored,authentication,MR04,accepted:b'Morph-01'
+string,M07,sidecar_oracle,artifact binding,MR08,exception:ExtractionError:adjacent sidecar is missing
+string,M08,global_cache_oracle,state,MR04,accepted:b'Morph-01'
+string,M09,unmarked_default,false positive,MR03,accepted:b'Morph-01'
+string,M10,semantic_plus_one,semantic corruption,MR02,mismatch_count=6
+string,M11,semantic_input13,semantic corruption,MR02,mismatch_count=1
+string,M12,compile_original,stage routing,MR01,exception:ExtractionError:logical record magic not found
+string,M13,force_gcc,configuration,MR11,requested=clang/Os;actual=gcc/Os
+string,M14,force_O0,configuration,MR11,requested=clang/Os;actual=clang/O0
+string,M15,transform_noop,transformation,MR09,spurious robustness:accepted:b'Morph-01'
+string,M16,checksum_bypass,integrity,MR10,corruption accepted:accepted:b'Morph-01'
+string,M17,filename_bound,artifact binding,MR08,exception:ExtractionError:artifact path is not an original build path
+string,M18,stale_binary,state,MR05,first=b'Morph-01';second=b'Morph-01'
+string,M19,extractor_prefix,extraction,MR01,extracted=b'Morph-0'
+string,M20,interleaved_collision,state,MR12,parallel_isolation_clause_violated
+string,M21,alternate_compiler_corruption,configuration,MR06,"payloads=b'Morph-01',b'Lorph-01';semantic_equal=True"
+string,M22,size_optimization_corruption,configuration,MR07,"payloads=['Morph-01', 'Morph-01', 'Lorph-01'];semantic_equal=True"
+string,M23,revisit_state_contamination,state,MR13,before=b'Morph-01';intervening=b'Second-2';after=b'Second-2'
+string,M24,second_identical_build_corruption,state,MR14,first=b'Morph-01';second=b'Lorph-01'
+symbol,M01,embed_noop,embedding,MR01,exception:ExtractionError:watermark symbols not found
+symbol,M02,truncate_payload,embedding,MR01,extracted=b'Morph-0'
+symbol,M03,flip_payload,embedding,MR01,extracted=b'Lorph-01'
+symbol,M04,fixed_payload,state,MR01,extracted=b'fixed-payload'
+symbol,M05,lower_payload,normalization,MR01,extracted=b'morph-01'
+symbol,M06,key_ignored,authentication,MR04,accepted:b'Morph-01'
+symbol,M07,sidecar_oracle,artifact binding,MR08,exception:ExtractionError:adjacent sidecar is missing
+symbol,M08,global_cache_oracle,state,MR04,accepted:b'Morph-01'
+symbol,M09,unmarked_default,false positive,MR03,accepted:b'Morph-01'
+symbol,M10,semantic_plus_one,semantic corruption,MR02,mismatch_count=6
+symbol,M11,semantic_input13,semantic corruption,MR02,mismatch_count=1
+symbol,M12,compile_original,stage routing,MR01,exception:ExtractionError:watermark symbols not found
+symbol,M13,force_gcc,configuration,MR11,requested=clang/Os;actual=gcc/Os
+symbol,M14,force_O0,configuration,MR11,requested=clang/Os;actual=clang/O0
+symbol,M15,transform_noop,transformation,MR09,spurious robustness:accepted:b'Morph-01'
+symbol,M16,checksum_bypass,integrity,MR10,corruption accepted:accepted:b'Morph-01'
+symbol,M17,filename_bound,artifact binding,MR08,exception:ExtractionError:artifact path is not an original build path
+symbol,M18,stale_binary,state,MR05,first=b'Morph-01';second=b'Morph-01'
+symbol,M19,extractor_prefix,extraction,MR01,extracted=b'Morph-0'
+symbol,M20,interleaved_collision,state,MR12,parallel_isolation_clause_violated
+symbol,M21,alternate_compiler_corruption,configuration,MR06,"payloads=b'Morph-01',b'Lorph-01';semantic_equal=True"
+symbol,M22,size_optimization_corruption,configuration,MR07,"payloads=['Morph-01', 'Morph-01', 'Lorph-01'];semantic_equal=True"
+symbol,M23,revisit_state_contamination,state,MR13,before=b'Morph-01';intervening=b'Second-2';after=b'Second-2'
+symbol,M24,second_identical_build_corruption,state,MR14,first=b'Morph-01';second=b'Lorph-01'

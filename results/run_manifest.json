@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "path": "specs/mrspec.json",
+      "sha256": "28cba17a9d87e412ad4252c044e6e8b257057a167bac7bf02d26738c9bf126b5",
+      "bytes": 8349
+    },
+    {
+      "path": "specs/mutants.json",
+      "sha256": "96dba7540463212236c7f76bbcea703d71ca97251a3af00d84a13b487c167cfe",
+      "bytes": 5199
+    },
+    {
+      "path": "results/raw/catalog_matrix.csv",
+      "sha256": "b6b193bdca3144ea33e83449ce51855dbd5f811064c75cd9db7c486cc87e0f21",
+      "bytes": 422531
+    },
+    {
+      "path": "results/raw/breadth_matrix.csv",
+      "sha256": "c4601fb7ccaaf5440b804b3b927ec5d642182a5eef00c18d145899ada1fa2ded",
+      "bytes": 101600
+    },
+    {
+      "path": "results/raw/pilot_matrix.csv",
+      "sha256": "4542d1c85b255a3a8a465c43a4b360b966e32d0ea90d316b768d22aa03b6058c",
+      "bytes": 409829
+    },
+    {
+      "path": "results/derived/relation_sensitivity.csv",
+      "sha256": "a0ad70e13103b764b42d4bc3f97ddc480cec77680f4c6518de1177c80f48cb9c",
+      "bytes": 643
+    },
+    {
+      "path": "results/derived/suite_sensitivity.csv",
+      "sha256": "62552f0e8e922815bf01817cec62adf23a030bd67796da275b9c394a4acca119",
+      "bytes": 286
+    },
+    {
+      "path": "results/derived/fault_class_summary.csv",
+      "sha256": "16cd04445b9875c1d4f517b3e0f5332a4ce8489e908b372b8e6c9abb9f5ca154",
+      "bytes": 370
+    },
+    {
+      "path": "results/derived/witnesses.csv",
+      "sha256": "3ffac7d92bc8f641dc5ef57ed14a80945d79532043f69c785e649b4960f05d2a",
+      "bytes": 6118
+    },
+    {
+      "path": "results/derived/greedy_cover.json",
+      "sha256": "8528289cc9dbf3641e11633ac6d4e98da836769ad95a6a49746f87edf1630c20",
+      "bytes": 7368
+    }
+  ]
+}

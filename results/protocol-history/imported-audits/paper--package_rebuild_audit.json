@@ -1,0 +1,63 @@
+{
+  "schema_version": "13.0",
+  "audit_date": "2026-07-28",
+  "build_environment": "TeX Live 2025/dev with pdfTeX 1.40.26 and BibTeX 0.99d",
+  "source_date_epoch": 1784678400,
+  "force_source_date": true,
+  "files": {
+    "main.pdf": {
+      "packaged_sha256": "58d766fe13dbc0c48b84463295979fa91e0edb334faddc8274d4f9c7a44e7db0",
+      "clean_rebuild_sha256": "58d766fe13dbc0c48b84463295979fa91e0edb334faddc8274d4f9c7a44e7db0",
+      "bytes_identical": true,
+      "packaged_bytes": 768826,
+      "clean_rebuild_bytes": 768826
+    },
+    "submission-manuscript.pdf": {
+      "packaged_sha256": "ca896ea6516946d207c7e9c75c7360e206338c846ebb7242e9e878ce9a8bc8e7",
+      "clean_rebuild_sha256": "ca896ea6516946d207c7e9c75c7360e206338c846ebb7242e9e878ce9a8bc8e7",
+      "bytes_identical": true,
+      "packaged_bytes": 759887,
+      "clean_rebuild_bytes": 759887
+    },
+    "online-supplement.pdf": {
+      "packaged_sha256": "f7e531d1e95b48758b950e9b99c8ffaa615f54868c39da134e57a370a4250a52",
+      "clean_rebuild_sha256": "f7e531d1e95b48758b950e9b99c8ffaa615f54868c39da134e57a370a4250a52",
+      "bytes_identical": true,
+      "packaged_bytes": 237511,
+      "clean_rebuild_bytes": 237511
+    },
+    "main.bbl": {
+      "packaged_sha256": "cbf9343499ed9bd69111800f3008125aaf67412925ae53c3d98ee63676c6db4e",
+      "clean_rebuild_sha256": "cbf9343499ed9bd69111800f3008125aaf67412925ae53c3d98ee63676c6db4e",
+      "bytes_identical": true,
+      "packaged_bytes": 48205,
+      "clean_rebuild_bytes": 48205
+    },
+    "submission-manuscript.bbl": {
+      "packaged_sha256": "cbf9343499ed9bd69111800f3008125aaf67412925ae53c3d98ee63676c6db4e",
+      "clean_rebuild_sha256": "cbf9343499ed9bd69111800f3008125aaf67412925ae53c3d98ee63676c6db4e",
+      "bytes_identical": true,
+      "packaged_bytes": 48205,
+      "clean_rebuild_bytes": 48205
+    }
+  },
+  "page_counts": {
+    "main_packaged": 48,
+    "main_clean": 48,
+    "submission_packaged": 46,
+    "submission_clean": 46,
+    "supplement_packaged": 6,
+    "supplement_clean": 6
+  },
+  "source_derivation": {
+    "submission_differs_only_by_documentclass": true
+  },
+  "checks": {
+    "all_five_outputs_byte_identical": true,
+    "page_counts_48_46_6": true,
+    "submission_source_mechanically_derived": true,
+    "main_and_submission_bibliographies_identical": true,
+    "audit_hashes_match_current_packaged_outputs": true
+  },
+  "verdict": "PASS"
+}

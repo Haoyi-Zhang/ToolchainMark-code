@@ -1,0 +1,53 @@
+{
+  "catalog_rows": 1050,
+  "clean_rows": 42,
+  "clean_passes": 42,
+  "mutant_rows": 1008,
+  "failing_mutant_rows": 248,
+  "defect_units": 72,
+  "full_suite_killed": 72,
+  "breadth_rows": 216,
+  "breadth_passes": 216,
+  "suite_counts": {
+    "B0-Roundtrip": 21,
+    "B1-Conventional": 27,
+    "B2-Differential": 33,
+    "Full": 72
+  },
+  "relation_counts": {
+    "MR01": 21,
+    "MR02": 6,
+    "MR03": 3,
+    "MR04": 9,
+    "MR05": 27,
+    "MR06": 24,
+    "MR07": 24,
+    "MR08": 27,
+    "MR09": 9,
+    "MR10": 11,
+    "MR11": 6,
+    "MR12": 27,
+    "MR13": 30,
+    "MR14": 24
+  },
+  "greedy_order": [
+    "MR13",
+    "MR02",
+    "MR04",
+    "MR08",
+    "MR11",
+    "MR06",
+    "MR07",
+    "MR09",
+    "MR10",
+    "MR12",
+    "MR14"
+  ],
+  "pilot": {
+    "unit_count": 72,
+    "full_suite_killed": 65,
+    "MR02_killed": 0,
+    "MR10_killed": 10,
+    "final_full_suite_killed": 72
+  }
+}

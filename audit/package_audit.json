@@ -1,0 +1,52 @@
+{
+  "schema_version": "2.0",
+  "project_root": "/mnt/data/TOSEM02_FIX_WORK/TOSEM-02",
+  "checks": {
+    "root_entries_exact": true,
+    "no_symlinks": true,
+    "no_shared_hardlinks": true,
+    "no_cache_aux_backup_archive_debris": true,
+    "no_private_runtime_paths": false,
+    "no_prompt_or_model_process_trace": false,
+    "manifest_covers_every_file_except_itself": true,
+    "manifest_hash_size_mode_match": true,
+    "science_audit_pass": false,
+    "repair_audit_pass": false,
+    "protocol_audit_pass": false,
+    "recompute_audit_pass": false,
+    "recheck_audit_pass": true,
+    "paper_consistency_audit_pass": false,
+    "visual_audit_pass": false,
+    "page_fit_audit_pass": true,
+    "font_audit_pass": false,
+    "rebuild_audit_pass": true,
+    "references_audit_pass": false,
+    "citation_shape_audit_pass": false,
+    "science_verifier_has_no_paper_dependency": true,
+    "verify_defaults_to_science_only": true,
+    "paper_build_is_optional_and_portable": true
+  },
+  "details": {
+    "project_files_including_manifest": 260,
+    "project_directories_including_root": 41,
+    "manifest_rows": 259,
+    "forbidden": [],
+    "private_paths": [
+      "artifact/scripts/verify_package.py"
+    ],
+    "prompt_traces": [
+      "artifact/scripts/verify_package.py"
+    ],
+    "manifest_mismatches": [],
+    "audit_verdicts": {
+      "recheck": "PASS",
+      "paper_consistency": null,
+      "visual": "PASS_VISUAL_WITH_DECLARED_DRAFT_METADATA_LIMITS",
+      "page_fit": "PASS",
+      "rebuild": "PASS",
+      "references": "PASS_STRUCTURAL_WITH_DISCLOSED_REVIEW_LIMITS",
+      "citation_shape": null
+    }
+  },
+  "verdict": "FAIL"
+}

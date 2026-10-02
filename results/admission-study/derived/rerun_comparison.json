@@ -1,0 +1,25 @@
+{
+  "all_durations_positive": true,
+  "compared_fields": [
+    "host",
+    "host_sha256",
+    "carrier",
+    "defect_id",
+    "relation_id",
+    "verdict",
+    "exposed",
+    "reason",
+    "phase",
+    "admission_json",
+    "observations_json"
+  ],
+  "differences": 0,
+  "examples": [],
+  "field_comparisons": 207900,
+  "first_sha256": "f9b77a0e93ea0ba33878d6ac088d4ed33e3919a16102ef91c721994731e19264",
+  "identical_key_sets": true,
+  "rerun_rows": 18900,
+  "rows": 18900,
+  "second_sha256": "fffdc3c3a87fb9924465a9e5833e0024961836310e0664b53ed3d5dda431aab7",
+  "verdict": "PASS"
+}

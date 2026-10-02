@@ -1,0 +1,26 @@
+{
+  "schema_version": "2.0",
+  "manuscript_sha256": "36502b652cb3570092133f949687fd3538eeccfce67eac66030be38da961f9c0",
+  "rendered_pdf_sha256": "58d766fe13dbc0c48b84463295979fa91e0edb334faddc8274d4f9c7a44e7db0",
+  "citation_commands": 77,
+  "citation_occurrences": 77,
+  "unique_citation_keys": 73,
+  "bibliography_entries": 73,
+  "multi_key_commands": 0,
+  "adjacent_citation_piles": 0,
+  "numeric_ranges_in_source_body": 0,
+  "sentences_with_multiple_citation_commands": 0,
+  "multiple_citation_sentence_examples": [],
+  "uncited_bibliography_keys": [],
+  "missing_bibliography_keys": [],
+  "checks": {
+    "seventy_three_bibliography_entries": true,
+    "seventy_three_unique_keys_cited": true,
+    "all_bibliography_entries_cited": true,
+    "zero_multi_key_commands": true,
+    "zero_adjacent_citation_piles": true,
+    "zero_numeric_citation_ranges": true,
+    "zero_sentences_with_multiple_citation_commands": true
+  },
+  "verdict": "PASS"
+}

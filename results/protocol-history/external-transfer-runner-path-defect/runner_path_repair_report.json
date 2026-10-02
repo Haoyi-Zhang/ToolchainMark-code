@@ -1,0 +1,60 @@
+{
+  "audit_date": "2026-07-25",
+  "defect": "The packaged external-transfer runner referenced the retired filename compat.h although the packaged symmetric compatibility header was named compatibility_header.h.",
+  "failed_evidence_retained": true,
+  "failed_packaged_rerun": {
+    "classification": "REEXECUTION_HARNESS_DEFECT_NOT_EXTERNAL_IMPLEMENTATION_VERDICT",
+    "compatibility_compiles_failed": 60,
+    "compatibility_exit_only_satisfied": 0,
+    "compatibility_host_semantic_satisfied": 0,
+    "relocation_admitted": 50,
+    "sanitizer_clean": 0
+  },
+  "regenerated": {
+    "diagnostic_text_excluded": [
+      "compile_stderr"
+    ],
+    "differences": [],
+    "exact_derived_files": {
+      "case_summary.csv": {
+        "bytes_identical": true,
+        "previous_sha256": "3aafaaf9fa67bde2089fd96308ef879f93aeb467e56a37f0f4d83c9a855400e7",
+        "regenerated_sha256": "3aafaaf9fa67bde2089fd96308ef879f93aeb467e56a37f0f4d83c9a855400e7"
+      },
+      "relation_verdicts.csv": {
+        "bytes_identical": true,
+        "previous_sha256": "b6c82927a0e235a1362e244359126dc58ce5aff4a036d13023802746b4d645da",
+        "regenerated_sha256": "b6c82927a0e235a1362e244359126dc58ce5aff4a036d13023802746b4d645da"
+      },
+      "sanitizer_rows.csv": {
+        "bytes_identical": true,
+        "previous_sha256": "40838033b57405c35c5a2b12e6a1791c54097661bc34f983e0d16458c9d072ea",
+        "regenerated_sha256": "40838033b57405c35c5a2b12e6a1791c54097661bc34f983e0d16458c9d072ea"
+      },
+      "summary.json": {
+        "bytes_identical": true,
+        "previous_sha256": "2c4f7ce2c6144031405ce52b686cc7ecfb87da6f9cbf0aaab2f986bc58159cc6",
+        "regenerated_sha256": "2c4f7ce2c6144031405ce52b686cc7ecfb87da6f9cbf0aaab2f986bc58159cc6"
+      }
+    },
+    "execution_rows": 120,
+    "scientific_field_comparisons": 1560,
+    "scientific_field_differences": 0,
+    "scientific_fields_compared_per_row": 13,
+    "source_identity_mismatches": 0,
+    "timing_fields_excluded": [
+      "compile_seconds",
+      "run_seconds"
+    ],
+    "verdict": "PASS"
+  },
+  "repair": {
+    "compatibility_header_applied_symmetrically": true,
+    "external_source_paths_normalized_to_stable_token": true,
+    "external_sources_edited": false,
+    "header_presence_asserted_before_execution": true,
+    "runner_uses_existing_packaged_header": true
+  },
+  "schema_version": "1.0",
+  "verdict": "PASS"
+}

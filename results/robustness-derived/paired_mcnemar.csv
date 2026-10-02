@@ -1,0 +1,6 @@
+larger_suite,smaller_suite,larger_only,smaller_only,net_gain,exact_two_sided_p
+host_semantics,round_trip,6,0,6,0.03125
+compiler_differential,host_semantics,6,0,6,0.03125
+complete_catalog,round_trip,51,0,51,8.881784197e-16
+complete_catalog,host_semantics,45,0,45,5.68434188608e-14
+complete_catalog,compiler_differential,39,0,39,3.63797880709e-12

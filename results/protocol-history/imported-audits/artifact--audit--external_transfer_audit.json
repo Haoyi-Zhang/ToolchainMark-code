@@ -1,0 +1,92 @@
+{
+  "audit_date": "2026-07-25",
+  "baseline": "successful compilation and zero exit status for both variants",
+  "checks": {
+    "compatibility_exit_baseline_thirty_of_thirty": true,
+    "compatibility_host_twenty_satisfied_ten_inconsistent": true,
+    "fixed_identity_acquisition_helper_present": true,
+    "native_inadmissible_ten": true,
+    "no_external_source_redistributed": true,
+    "packaged_runner_reexecution_pass": true,
+    "pair_level_three_exit_two_semantic_one_inconsistent": true,
+    "payload_recovery_inadmissible": true,
+    "relocation_admitted_110_of_110": true,
+    "sanitizer_twelve_of_twelve": true,
+    "source_identity_six_of_six": true,
+    "two_compilers_five_optimizations": true
+  },
+  "commit": "f63f49a770e3b0dc4f1d092cfa22ec2610eb13f8",
+  "comparison_scope": "three fixed labeled source pairs; two compilers; five optimization levels; native and symmetric compatibility modes; relocation; sanitizers",
+  "contract_observation": "pair-specific deterministic host output equivalence",
+  "files": {
+    "case_summary.csv": "3aafaaf9fa67bde2089fd96308ef879f93aeb467e56a37f0f4d83c9a855400e7",
+    "execution_rows.csv": "7c629c8493851ab694eea99cc2125c054ff743492eef58dde8eb21167b44459e",
+    "relation_verdicts.csv": "b6c82927a0e235a1362e244359126dc58ce5aff4a036d13023802746b4d645da",
+    "sanitizer_rows.csv": "40838033b57405c35c5a2b12e6a1791c54097661bc34f983e0d16458c9d072ea",
+    "summary.json": "2c4f7ce2c6144031405ce52b686cc7ecfb87da6f9cbf0aaab2f986bc58159cc6"
+  },
+  "limitations": [
+    "The public snapshot supplies examples rather than a production watermark product or historical defect corpus.",
+    "The source-to-payload extraction relation is inadmissible on this fixed example surface.",
+    "A symmetric compatibility header is required for one legacy example; native failure is retained separately.",
+    "Upstream source is not redistributed because the fixed commit has no explicit repository license."
+  ],
+  "repository": "felipeasimos/software-watermark",
+  "results": {
+    "commit": "f63f49a770e3b0dc4f1d092cfa22ec2610eb13f8",
+    "compatibility_execution_rows": 60,
+    "compatibility_exit_only_checks": 30,
+    "compatibility_exit_only_satisfied": 30,
+    "compatibility_host_semantic_checks": 30,
+    "compatibility_host_semantic_inconsistent": 10,
+    "compatibility_host_semantic_satisfied": 20,
+    "compatibility_intervention": "The same forced-include header maps the obsolete isnanf spelling to the standard isnan predicate for every source variant; no external source is edited.",
+    "compatibility_pair_exit_only_pass": 3,
+    "compatibility_pair_host_semantic_inconsistent": 1,
+    "compatibility_pair_host_semantic_pass": 2,
+    "compilers": [
+      "gcc",
+      "clang"
+    ],
+    "execution_rows": 120,
+    "external_repository": "felipeasimos/software-watermark",
+    "modes": [
+      "native",
+      "compatibility"
+    ],
+    "native_execution_rows": 60,
+    "native_semantic_checks": 30,
+    "native_semantic_inadmissible": 10,
+    "optimization_levels": [
+      "O0",
+      "O1",
+      "O2",
+      "O3",
+      "Os"
+    ],
+    "payload_recovery_reason": "No automated source-to-payload extraction interface is present in the fixed public example surface; filenames are not treated as an oracle.",
+    "payload_recovery_verdict": "INADMISSIBLE",
+    "redistribution": "SOURCE_NOT_PACKAGED_NO_EXPLICIT_REPOSITORY_LICENSE_AT_FIXED_COMMIT",
+    "relocation_admitted": 110,
+    "relocation_attempts": 120,
+    "relocation_inadmissible": 10,
+    "relocation_satisfied": 110,
+    "sanitizer_checks": 12,
+    "sanitizer_clean": 12,
+    "scholarly_doi": "10.1109/MetroInd4.0IoT54413.2022.9831668",
+    "source_files": 6,
+    "source_identity_checks": 6,
+    "source_identity_mismatches": 0,
+    "source_pairs": 3
+  },
+  "runner": {
+    "acquisition_helper_sha256": "fa44d0186c8878a6306bf93cfa44260cd54adcec80d5cec08c21a7a0c60d4813",
+    "compatibility_header_sha256": "86649295ec4bfea85c75e82d5ac98739ea3fa674c13789a18901379676f325e7",
+    "fresh_reexecution_pass": true,
+    "repair_report": "audit/external_transfer_rerun_report.json",
+    "sha256": "8922759ca1fe839221d2c39e0752f43c50642bb02cd035756b755fe283b0c86e"
+  },
+  "schema_version": "1.1",
+  "scholarly_doi": "10.1109/MetroInd4.0IoT54413.2022.9831668",
+  "verdict": "PASS"
+}

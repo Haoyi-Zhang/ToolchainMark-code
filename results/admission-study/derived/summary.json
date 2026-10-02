@@ -1,0 +1,165 @@
+{
+  "bootstrap": {
+    "median": 0.9583333333333334,
+    "minimum": 0.6,
+    "nonempty_out_of_bag": 10000,
+    "perfect": 1884,
+    "replicates": 10000,
+    "seed": 20260923,
+    "selection_counts": {
+      "MR02": 10000,
+      "MR04": 10000,
+      "MR05": 379,
+      "MR06": 9688,
+      "MR07": 9700,
+      "MR10": 10000,
+      "MR11": 9999,
+      "MR12": 9614,
+      "MR13": 9611,
+      "MR14": 9626
+    },
+    "suite_size_median": 9.0
+  },
+  "clean": {
+    "SATISFIED": 756
+  },
+  "clean_rows": 756,
+  "defect_rows": 18144,
+  "defect_verdicts": {
+    "INADMISSIBLE": 1008,
+    "INCONSISTENT": 4266,
+    "SATISFIED": 12870
+  },
+  "design_exposed": 69,
+  "design_units": 72,
+  "direct_exclusive_units": 594,
+  "legacy_transitions": [
+    {
+      "evidence_gated": "INADMISSIBLE",
+      "legacy": "FAIL",
+      "rows": 468
+    },
+    {
+      "evidence_gated": "INCONSISTENT",
+      "legacy": "FAIL",
+      "rows": 3996
+    },
+    {
+      "evidence_gated": "INADMISSIBLE",
+      "legacy": "PASS",
+      "rows": 540
+    },
+    {
+      "evidence_gated": "INCONSISTENT",
+      "legacy": "PASS",
+      "rows": 270
+    },
+    {
+      "evidence_gated": "SATISFIED",
+      "legacy": "PASS",
+      "rows": 13626
+    }
+  ],
+  "matrix_sha256": "f9b77a0e93ea0ba33878d6ac088d4ed33e3919a16102ef91c721994731e19264",
+  "protocol": "evidence-gated-v1",
+  "reasons": {
+    "carrier_removed": 54,
+    "integrity_corruption_established": 36,
+    "requested_branches_executed": 270,
+    "source_carrier_valid": 108,
+    "source_payload_recovered": 540
+  },
+  "rerun": {
+    "all_durations_positive": true,
+    "compared_fields": [
+      "host",
+      "host_sha256",
+      "carrier",
+      "defect_id",
+      "relation_id",
+      "verdict",
+      "exposed",
+      "reason",
+      "phase",
+      "admission_json",
+      "observations_json"
+    ],
+    "differences": 0,
+    "examples": [],
+    "field_comparisons": 207900,
+    "first_sha256": "f9b77a0e93ea0ba33878d6ac088d4ed33e3919a16102ef91c721994731e19264",
+    "identical_key_sets": true,
+    "rerun_rows": 18900,
+    "rows": 18900,
+    "second_sha256": "fffdc3c3a87fb9924465a9e5833e0024961836310e0664b53ed3d5dda431aab7",
+    "verdict": "PASS"
+  },
+  "rows": 18900,
+  "run_timing": {
+    "maximum": 0.535664,
+    "median": 0.07228499999999999
+  },
+  "subject_replay": {
+    "killsets": 1224,
+    "killsets_equal": 1224,
+    "matches": 17136,
+    "rows": 17136
+  },
+  "suites": [
+    {
+      "design_exposed": 21,
+      "design_units": 72,
+      "expanded_exposed": 378,
+      "expanded_units": 1296,
+      "expanded_units_with_admitted_case": 1296,
+      "suite": "round_trip"
+    },
+    {
+      "design_exposed": 27,
+      "design_units": 72,
+      "expanded_exposed": 486,
+      "expanded_units": 1296,
+      "expanded_units_with_admitted_case": 1296,
+      "suite": "host_semantics"
+    },
+    {
+      "design_exposed": 33,
+      "design_units": 72,
+      "expanded_exposed": 594,
+      "expanded_units": 1296,
+      "expanded_units_with_admitted_case": 1296,
+      "suite": "compiler_differential"
+    },
+    {
+      "design_exposed": 69,
+      "design_units": 72,
+      "expanded_exposed": 1242,
+      "expanded_units": 1296,
+      "expanded_units_with_admitted_case": 1296,
+      "suite": "complete_catalog"
+    }
+  ],
+  "unit_count": 1296,
+  "units_exposed": 1242,
+  "units_with_admitted_case": 1296,
+  "unrevealed_operators": [
+    "M15"
+  ],
+  "zero_sensitivity_classes": [
+    "authentication",
+    "configuration",
+    "integrity",
+    "semantic corruption",
+    "transformation"
+  ],
+  "zero_sensitivity_operators": [
+    "M06",
+    "M15",
+    "M16",
+    "M20",
+    "M21",
+    "M22",
+    "M23",
+    "M24"
+  ]
+}

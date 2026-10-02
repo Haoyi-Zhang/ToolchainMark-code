@@ -1,0 +1,377 @@
+{
+  "schema_version": "1.0",
+  "protocol": "evidence-gated-v1",
+  "scope": "Explicit interface contract for the revised executor; matching labels are not a proof of semantic correctness.",
+  "relations": [
+    {
+      "id": "MR01",
+      "name": "Round-trip fidelity",
+      "polarity": "preserve",
+      "stages": [
+        "embed",
+        "compile",
+        "extract"
+      ],
+      "applicability": [
+        "selected carrier and key are supported"
+      ],
+      "required_admission_facts": [
+        "isolated_workspace",
+        "subject_exists"
+      ],
+      "observation_keys": [
+        "extraction"
+      ],
+      "observer_boundary": "declared trace and/or selected host and payload observations",
+      "predicate": "The extracted bytes equal p exactly.",
+      "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
+    },
+    {
+      "id": "MR02",
+      "name": "Host-semantic preservation",
+      "polarity": "preserve",
+      "stages": [
+        "compile",
+        "execute"
+      ],
+      "applicability": [
+        "embedding is declared semantics-preserving for the selected observations"
+      ],
+      "required_admission_facts": [
+        "both_hosts_terminate",
+        "isolated_workspace",
+        "subject_exists"
+      ],
+      "observation_keys": [
+        "mismatches"
+      ],
+      "observer_boundary": "declared trace and/or selected host and payload observations",
+      "predicate": "Every normalized marked output equals its unmarked counterpart.",
+      "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
+    },
+    {
+      "id": "MR03",
+      "name": "Unmarked rejection",
+      "polarity": "reject",
+      "stages": [
+        "compile",
+        "extract"
+      ],
+      "applicability": [
+        "absence is not an accepted public default"
+      ],
+      "required_admission_facts": [
+        "carrier_absent",
+        "isolated_workspace",
+        "subject_exists"
+      ],
+      "observation_keys": [
+        "carrier",
+        "extraction"
+      ],
+      "observer_boundary": "seed-free pipeline instance sharing the record parser",
+      "predicate": "Extraction returns a normalized rejection outcome.",
+      "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
+    },
+    {
+      "id": "MR04",
+      "name": "Wrong-key rejection",
+      "polarity": "reject",
+      "stages": [
+        "embed",
+        "compile",
+        "extract"
+      ],
+      "applicability": [
+        "k1 and k2 are distinct",
+        "key identity is contractually relevant"
+      ],
+      "required_admission_facts": [
+        "isolated_workspace",
+        "keys_distinct",
+        "source_payload_recovered",
+        "subject_exists"
+      ],
+      "observation_keys": [
+        "followup",
+        "source"
+      ],
+      "observer_boundary": "declared trace and/or selected host and payload observations",
+      "predicate": "The distinct key is rejected.",
+      "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
+    },
+    {
+      "id": "MR05",
+      "name": "Payload separation",
+      "polarity": "separate",
+      "stages": [
+        "embed",
+        "compile",
+        "extract"
+      ],
+      "applicability": [
+        "p1 and p2 are distinct"
+      ],
+      "required_admission_facts": [
+        "isolated_workspace",
+        "subject_exists"
+      ],
+      "observation_keys": [
+        "execution_order",
+        "first",
+        "second"
+      ],
+      "observer_boundary": "declared trace and/or selected host and payload observations",
+      "predicate": "a1 yields p1, a2 yields p2, and the extracted values differ.",
+      "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
+    },
+    {
+      "id": "MR06",
+      "name": "Cross-compiler invariance",
+      "polarity": "preserve",
+      "stages": [
+        "embed",
+        "compile",
+        "execute",
+        "extract"
+      ],
+      "applicability": [
+        "GCC and Clang are supported for the selected host and carrier"
+      ],
+      "required_admission_facts": [
+        "branch_hosts_terminate",
+        "isolated_workspace",
+        "requested_branches_executed",
+        "subject_exists"
+      ],
+      "observation_keys": [
+        "builds",
+        "extractions",
+        "host_outputs_agree"
+      ],
+      "observer_boundary": "declared trace and/or selected host and payload observations",
+      "predicate": "Both extract p and their host observations agree.",
+      "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
+    },
+    {
+      "id": "MR07",
+      "name": "Optimization invariance",
+      "polarity": "preserve",
+      "stages": [
+        "embed",
+        "compile",
+        "execute",
+        "extract"
+      ],
+      "applicability": [
+        "O0, O2, and Os are supported"
+      ],
+      "required_admission_facts": [
+        "branch_hosts_terminate",
+        "isolated_workspace",
+        "requested_branches_executed",
+        "subject_exists"
+      ],
+      "observation_keys": [
+        "builds",
+        "extractions",
+        "host_outputs_agree"
+      ],
+      "observer_boundary": "declared trace and/or selected host and payload observations",
+      "predicate": "All three extract p and agree on host observations.",
+      "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
+    },
+    {
+      "id": "MR08",
+      "name": "Clean-room relocation",
+      "polarity": "preserve",
+      "stages": [
+        "embed",
+        "compile",
+        "relocate",
+        "extract"
+      ],
+      "applicability": [
+        "the binary is declared self-contained and path-independent"
+      ],
+      "required_admission_facts": [
+        "artifact_bytes_preserved",
+        "isolated_workspace",
+        "only_artifact_relocated",
+        "relocated_host_terminates",
+        "source_payload_recovered",
+        "subject_exists"
+      ],
+      "observation_keys": [
+        "followup",
+        "host_outputs_agree",
+        "source"
+      ],
+      "observer_boundary": "declared trace and/or selected host and payload observations",
+      "predicate": "The relocated binary still extracts p.",
+      "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
+    },
+    {
+      "id": "MR09",
+      "name": "Carrier-removal rejection",
+      "polarity": "reject",
+      "stages": [
+        "embed",
+        "compile",
+        "transform",
+        "extract"
+      ],
+      "applicability": [
+        "the selected transform removes the only accepted carrier"
+      ],
+      "required_admission_facts": [
+        "carrier_removed",
+        "isolated_workspace",
+        "source_carrier_valid",
+        "source_payload_recovered",
+        "subject_exists"
+      ],
+      "observation_keys": [
+        "followup",
+        "followup_carrier",
+        "source",
+        "source_carrier"
+      ],
+      "observer_boundary": "seed-free pipeline instance sharing the record parser",
+      "predicate": "Extraction rejects after removal.",
+      "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
+    },
+    {
+      "id": "MR10",
+      "name": "Carrier-corruption rejection",
+      "polarity": "reject",
+      "stages": [
+        "embed",
+        "compile",
+        "corrupt",
+        "extract"
+      ],
+      "applicability": [
+        "integrity validation is part of extraction"
+      ],
+      "required_admission_facts": [
+        "integrity_corruption_established",
+        "isolated_workspace",
+        "source_carrier_valid",
+        "source_payload_recovered",
+        "subject_exists"
+      ],
+      "observation_keys": [
+        "followup",
+        "followup_carrier",
+        "source",
+        "source_carrier"
+      ],
+      "observer_boundary": "seed-free pipeline instance sharing the record parser",
+      "predicate": "Extraction rejects the checksum-corrupt carrier.",
+      "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
+    },
+    {
+      "id": "MR11",
+      "name": "Requested/actual trace agreement",
+      "polarity": "trace",
+      "stages": [
+        "request",
+        "compile",
+        "trace"
+      ],
+      "applicability": [
+        "the build emits auditable requested and actual settings"
+      ],
+      "required_admission_facts": [
+        "isolated_workspace",
+        "subject_exists"
+      ],
+      "observation_keys": [
+        "actual",
+        "requested"
+      ],
+      "observer_boundary": "declared trace and/or selected host and payload observations",
+      "predicate": "Actual compiler and optimization equal the request.",
+      "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
+    },
+    {
+      "id": "MR12",
+      "name": "Interleaved artifact isolation",
+      "polarity": "separate",
+      "stages": [
+        "embed",
+        "compile",
+        "state",
+        "extract"
+      ],
+      "applicability": [
+        "two builds may share one process without semantic aliasing"
+      ],
+      "required_admission_facts": [
+        "isolated_workspace",
+        "staging_rendezvous_completed",
+        "subject_exists"
+      ],
+      "observation_keys": [
+        "both_expected",
+        "both_payloads",
+        "execution_order",
+        "outputs_distinct"
+      ],
+      "observer_boundary": "declared trace and/or selected host and payload observations",
+      "predicate": "Each artifact yields its own payload.",
+      "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
+    },
+    {
+      "id": "MR13",
+      "name": "Reordered extraction independence",
+      "polarity": "preserve",
+      "stages": [
+        "embed",
+        "compile",
+        "extract",
+        "state"
+      ],
+      "applicability": [
+        "extraction depends only on declared immutable context"
+      ],
+      "required_admission_facts": [
+        "isolated_workspace",
+        "subject_exists"
+      ],
+      "observation_keys": [
+        "after",
+        "before",
+        "intervening"
+      ],
+      "observer_boundary": "declared trace and/or selected host and payload observations",
+      "predicate": "Both extractions of a1 equal p1.",
+      "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
+    },
+    {
+      "id": "MR14",
+      "name": "Rebuild stability",
+      "polarity": "preserve",
+      "stages": [
+        "embed",
+        "compile",
+        "extract"
+      ],
+      "applicability": [
+        "the two build requests are identical"
+      ],
+      "required_admission_facts": [
+        "isolated_workspace",
+        "subject_exists"
+      ],
+      "observation_keys": [
+        "after",
+        "before"
+      ],
+      "observer_boundary": "declared trace and/or selected host and payload observations",
+      "predicate": "Both artifacts yield p; byte identity is not required.",
+      "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
+    }
+  ]
+}

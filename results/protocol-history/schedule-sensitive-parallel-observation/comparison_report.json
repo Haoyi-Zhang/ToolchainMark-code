@@ -1,0 +1,418 @@
+{
+  "schema_version": "1.0",
+  "comparison": "two complete 18-subject robustness executions under an identical frozen protocol",
+  "first_run": {
+    "path": "results/raw/robustness_matrix.csv",
+    "rows": 18900,
+    "sha256": "806986e6f3a30c1cd27e409236151d4d653b06656ba8a4d4eedd5ea7d2aa06a2"
+  },
+  "second_run": {
+    "path": "results/fresh-rerun-2026-07-24/raw/robustness_matrix.csv",
+    "rows": 18900,
+    "sha256": "fab56751691f893680d24268337b6343f8ed4f82783ca53c402c1e16734e320c"
+  },
+  "row_key_fields": [
+    "surface",
+    "host",
+    "host_sha256",
+    "carrier",
+    "defect_id",
+    "defect_operator",
+    "fault_class",
+    "relation_id",
+    "relation_name",
+    "polarity",
+    "pilot"
+  ],
+  "ignored_nondeterministic_fields": [
+    "duration_seconds"
+  ],
+  "duplicate_keys_first": 0,
+  "duplicate_keys_second": 0,
+  "key_sets_identical": true,
+  "missing_from_first": 0,
+  "missing_from_second": 0,
+  "compared_rows": 18900,
+  "compared_non_timing_fields_per_row": 16,
+  "non_timing_field_comparisons": 302400,
+  "non_timing_differences": 27,
+  "sample_differences": [
+    {
+      "key": [
+        "robustness_mutation",
+        "H01-gcd.c",
+        "bf207a4afdd7e623be4bd0751bdc1917c0ee550af0f38c0531b25bb726d1710c",
+        "string",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H01-gcd.c",
+        "bf207a4afdd7e623be4bd0751bdc1917c0ee550af0f38c0531b25bb726d1710c",
+        "symbol",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H02-fibonacci.c",
+        "212d1fe91cf52f33ed783791c34fc023fdf99dccb0ca341d3844d624ff3a4b70",
+        "section",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H02-fibonacci.c",
+        "212d1fe91cf52f33ed783791c34fc023fdf99dccb0ca341d3844d624ff3a4b70",
+        "symbol",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H03-bitmix.c",
+        "5c27c9eebd7692fad7689408e2fe6584e1fafdbe035b8bf2aaeecea6312deca3",
+        "string",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H03-bitmix.c",
+        "5c27c9eebd7692fad7689408e2fe6584e1fafdbe035b8bf2aaeecea6312deca3",
+        "symbol",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H04-polynomial.c",
+        "d2aec92b283acd9bfc238b742e3966d7868fcb935c1ea8b67926a8941942ffd0",
+        "string",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H05-crc.c",
+        "f4e43543a1f68ad2694da9eded1b815451884dc21de7bc57e541d288ab5519c8",
+        "string",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H06-primecount.c",
+        "5bd3d0ff479b5dea18f8c5cb93f7a3c6311fbfad45eefebdc81a5c064ff2b278",
+        "string",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H06-primecount.c",
+        "5bd3d0ff479b5dea18f8c5cb93f7a3c6311fbfad45eefebdc81a5c064ff2b278",
+        "symbol",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H07-sortfold.c",
+        "f9fce25990cca81313af1ec178ed52e149b59d6b44ba3b93bdd181a9f2b29af7",
+        "section",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H07-sortfold.c",
+        "f9fce25990cca81313af1ec178ed52e149b59d6b44ba3b93bdd181a9f2b29af7",
+        "string",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H09-matrix.c",
+        "6a5f2b049a19ea0f49f3a53409703b691082972c8497a6cffe736079c46e2330",
+        "section",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H09-matrix.c",
+        "6a5f2b049a19ea0f49f3a53409703b691082972c8497a6cffe736079c46e2330",
+        "string",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H10-parser.c",
+        "a4904da4fdc7ab416e8490cb24d999f0d8ce953853d714ca5e2c048e4e33724c",
+        "section",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H10-parser.c",
+        "a4904da4fdc7ab416e8490cb24d999f0d8ce953853d714ca5e2c048e4e33724c",
+        "string",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H10-parser.c",
+        "a4904da4fdc7ab416e8490cb24d999f0d8ce953853d714ca5e2c048e4e33724c",
+        "symbol",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H11-popcount.c",
+        "8880e4292bf4fb3d805bf41dbc11fb0d41e1f60a65847c692325baf9c1965d74",
+        "section",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H12-lcg.c",
+        "4b78026842a34a5cfb9c310023c11f715ffdd0fbbe9f2a28d1ef31a48ea7fec9",
+        "symbol",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}"
+    },
+    {
+      "key": [
+        "robustness_mutation",
+        "H13-zlib.c",
+        "3864196be46b044ec0d4d55ef5869353e1b78af212321b233eddfa5dd5f7890a",
+        "section",
+        "M08",
+        "global_cache_oracle",
+        "state",
+        "MR12",
+        "Interleaved artifact isolation",
+        "separate",
+        "False"
+      ],
+      "field": "observations_json",
+      "first": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"5365636f6e642d32\",\"second_hex\":\"5365636f6e642d32\"}",
+      "second": "{\"execution_order\":\"overlapping-builds-then-extract\",\"first_hex\":\"4d6f7270682d3031\",\"second_hex\":\"4d6f7270682d3031\"}"
+    }
+  ],
+  "sample_missing_from_first": [],
+  "sample_missing_from_second": [],
+  "timing": {
+    "first": {
+      "all_positive": true,
+      "median_seconds": 0.102994,
+      "max_seconds": 0.617014,
+      "sum_seconds": 2362.497014
+    },
+    "second": {
+      "all_positive": true,
+      "median_seconds": 0.1066695,
+      "max_seconds": 8.010129,
+      "sum_seconds": 2865.796453
+    }
+  },
+  "verdict": "FAIL"
+}

@@ -1,0 +1,9 @@
+risk,status,evidence,limit
+invalid_experiments_counted_as_faults,CORRECTED_AND_RERUN,src/tosem02/admission.py,Explicit gate facts; no-op removal remains unexposed as an extractor defect.
+typed_rejections_collapsed,CORRECTED_AND_REGRESSION_TESTED,tests/test_admission.py,Domain rejection categories are distinguished from infrastructure errors.
+model_reduction_without_separability,FORMAL_PREMISE_CLARIFIED,../paper/main.tex,Conditional arguments remain unmechanized.
+hidden_new_mechanism_overfitting,MEASURED_NOT_ELIMINATED,results/admission-study/derived/class_holdout.csv,5/12 zero class holdouts; 8/24 zero operator holdouts.
+reference_pass_inferred_from_citation_presence,AUDIT_LOGIC_REPLACED,scripts/audit_references.py,73 current record locators are not73 full-text semantic certifications.
+independent_watermark_product_claim,CLAIM_NARROWED,results/external-transfer/summary.json,"Inherited conditional source-pair comparison, not a new complete embed/extract test."
+author_roster_complete,OPEN_BY_REQUEST,../paper/author_plan.json,Three of six positions are intentionally blank.
+current_tosem_portal_rules,OPEN_EXTERNAL,venue-evidence/official-lock.json,General ACM template accessible; live journal-specific rules remain unverified.

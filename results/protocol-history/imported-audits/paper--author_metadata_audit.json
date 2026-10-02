@@ -1,0 +1,144 @@
+{
+  "schema_version": "7.0",
+  "audit_date": "2026-07-28",
+  "source_of_author_order_and_contact_data": "author information supplied for the manuscript",
+  "layout_choice": "four separate native ACM author rows; the first three repeat the shared XJTLU affiliation and the fourth carries the distinct NTU affiliation",
+  "author_count": 4,
+  "native_author_rows": 4,
+  "distinct_affiliations": 2,
+  "affiliation_groups": [
+    {
+      "authors": [
+        "Haoyi Zhang",
+        "Zhaojie Zhang",
+        "Md Maruf Hasan"
+      ],
+      "institution": "Xi'an Jiaotong-Liverpool University",
+      "city": "Suzhou",
+      "country": "China"
+    },
+    {
+      "authors": [
+        "Huaijin Ran"
+      ],
+      "institution": "Nanyang Technological University",
+      "city": "Singapore",
+      "country": "Singapore"
+    }
+  ],
+  "corresponding_author": "Huaijin Ran",
+  "source_hashes": {
+    "main_tex": "36502b652cb3570092133f949687fd3538eeccfce67eac66030be38da961f9c0",
+    "submission_tex": "c61f094d87d71e9bb5f822f24b7f8a0c833bba9aca5ad83dbf41ee299e5e7a8d",
+    "supplement_tex": "74dd64e4961bd973ee426bef7dd82f5e90df2b9f0df36de9dc450e4c18968e01"
+  },
+  "authors": [
+    {
+      "order": 1,
+      "name": "Haoyi Zhang",
+      "email": "hyeliozhang@gmail.com",
+      "orcid": "0009-0009-3693-786X",
+      "affiliation": "Xi'an Jiaotong-Liverpool University, Suzhou, China",
+      "orcid_checksum_valid": true,
+      "public_metadata_status": "USER_SUPPLIED_IDENTITY_AND_CONTACT_DATA; ORCID_OWNERSHIP_NOT_AUTHENTICATED",
+      "authenticated_orcid_assertion": false
+    },
+    {
+      "order": 2,
+      "name": "Zhaojie Zhang",
+      "email": "Zhaojie.Zhang22@student.xjtlu.edu.cn",
+      "orcid": "0009-0006-4801-1739",
+      "affiliation": "Xi'an Jiaotong-Liverpool University, Suzhou, China",
+      "orcid_checksum_valid": true,
+      "public_metadata_status": "USER_SUPPLIED_IDENTITY_AND_CONTACT_DATA; ORCID_OWNERSHIP_NOT_AUTHENTICATED",
+      "authenticated_orcid_assertion": false
+    },
+    {
+      "order": 3,
+      "name": "Md Maruf Hasan",
+      "email": "mdmaruf.hasan@xjtlu.edu.cn",
+      "orcid": "0000-0001-9809-9376",
+      "affiliation": "Xi'an Jiaotong-Liverpool University, Suzhou, China",
+      "orcid_checksum_valid": true,
+      "public_metadata_status": "USER_SUPPLIED_IDENTITY_AND_CONTACT_DATA; ORCID_OWNERSHIP_NOT_AUTHENTICATED",
+      "authenticated_orcid_assertion": false
+    },
+    {
+      "order": 4,
+      "name": "Huaijin Ran",
+      "email": "huaijin003@e.ntu.edu.sg",
+      "orcid": "0009-0009-2482-2344",
+      "affiliation": "Nanyang Technological University, Singapore, Singapore",
+      "corresponding_author": true,
+      "orcid_checksum_valid": true,
+      "public_metadata_status": "USER_SUPPLIED_IDENTITY_AND_CONTACT_DATA; ORCID_OWNERSHIP_NOT_AUTHENTICATED",
+      "authenticated_orcid_assertion": false
+    }
+  ],
+  "pdf_author_surfaces": {
+    "main": {
+      "sha256": "58d766fe13dbc0c48b84463295979fa91e0edb334faddc8274d4f9c7a44e7db0",
+      "pages": 48,
+      "orcid_targets_present": {
+        "https://orcid.org/0009-0009-3693-786X": true,
+        "https://orcid.org/0009-0006-4801-1739": true,
+        "https://orcid.org/0000-0001-9809-9376": true,
+        "https://orcid.org/0009-0009-2482-2344": true
+      },
+      "mailto_targets_present": {
+        "mailto:hyeliozhang@gmail.com": true,
+        "mailto:Zhaojie.Zhang22@student.xjtlu.edu.cn": true,
+        "mailto:mdmaruf.hasan@xjtlu.edu.cn": true,
+        "mailto:huaijin003@e.ntu.edu.sg": true
+      },
+      "rendered_title_page_inspected_pdfium_and_poppler": true,
+      "confirmed_author_block_defects": 0
+    },
+    "submission": {
+      "sha256": "ca896ea6516946d207c7e9c75c7360e206338c846ebb7242e9e878ce9a8bc8e7",
+      "pages": 46,
+      "orcid_targets_present": {
+        "https://orcid.org/0009-0009-3693-786X": true,
+        "https://orcid.org/0009-0006-4801-1739": true,
+        "https://orcid.org/0000-0001-9809-9376": true,
+        "https://orcid.org/0009-0009-2482-2344": true
+      },
+      "mailto_targets_present": {
+        "mailto:hyeliozhang@gmail.com": true,
+        "mailto:Zhaojie.Zhang22@student.xjtlu.edu.cn": true,
+        "mailto:mdmaruf.hasan@xjtlu.edu.cn": true,
+        "mailto:huaijin003@e.ntu.edu.sg": true
+      },
+      "rendered_title_page_inspected_pdfium_and_poppler": true,
+      "confirmed_author_block_defects": 0
+    },
+    "supplement": {
+      "sha256": "f7e531d1e95b48758b950e9b99c8ffaa615f54868c39da134e57a370a4250a52",
+      "pages": 6,
+      "orcid_targets_present": {
+        "https://orcid.org/0009-0009-3693-786X": true,
+        "https://orcid.org/0009-0006-4801-1739": true,
+        "https://orcid.org/0000-0001-9809-9376": true,
+        "https://orcid.org/0009-0009-2482-2344": true
+      },
+      "mailto_targets_present": {
+        "mailto:hyeliozhang@gmail.com": true,
+        "mailto:Zhaojie.Zhang22@student.xjtlu.edu.cn": true,
+        "mailto:mdmaruf.hasan@xjtlu.edu.cn": true,
+        "mailto:huaijin003@e.ntu.edu.sg": true
+      },
+      "rendered_title_page_inspected_pdfium_and_poppler": true,
+      "confirmed_author_block_defects": 0
+    }
+  },
+  "checks": {
+    "four_individual_author_rows_in_all_sources": true,
+    "two_distinct_institutions": true,
+    "class_native_corresponding_author": true,
+    "all_orcid_checksums_valid": true,
+    "all_links_present": true,
+    "rendered_author_rows_zero_defects": true,
+    "second_author_name_and_email_consistent": true
+  },
+  "verdict": "PASS"
+}

@@ -1,0 +1,356 @@
+{
+  "schema_version": "1.0",
+  "relations": [
+    {
+      "id": "MR01",
+      "name": "Round-trip fidelity",
+      "polarity": "preserve",
+      "stages": [
+        "embed",
+        "compile",
+        "extract"
+      ],
+      "preconditions": [
+        "selected carrier and key are supported"
+      ],
+      "source_case": "Build one marked artifact for payload p under key k.",
+      "follow_up": "Extract from that artifact under k.",
+      "oracle": "The extracted bytes equal p exactly.",
+      "handler": "mr01_roundtrip",
+      "claim_ids": [
+        "C-CLEAN",
+        "C-ROUNDTRIP",
+        "C-FULL"
+      ]
+    },
+    {
+      "id": "MR02",
+      "name": "Host-semantic preservation",
+      "polarity": "preserve",
+      "stages": [
+        "compile",
+        "execute"
+      ],
+      "preconditions": [
+        "embedding is declared semantics-preserving for the selected observations"
+      ],
+      "source_case": "Compile an unmarked host.",
+      "follow_up": "Independently build and execute the marked host on the frozen inputs.",
+      "oracle": "Every normalized marked output equals its unmarked counterpart.",
+      "handler": "mr02_semantics",
+      "claim_ids": [
+        "C-CLEAN",
+        "C-CONVENTIONAL",
+        "C-BREADTH",
+        "C-FULL"
+      ]
+    },
+    {
+      "id": "MR03",
+      "name": "Unmarked rejection",
+      "polarity": "reject",
+      "stages": [
+        "compile",
+        "extract"
+      ],
+      "preconditions": [
+        "absence is not an accepted public default"
+      ],
+      "source_case": "Compile an unmarked host.",
+      "follow_up": "Attempt extraction with a syntactically valid key.",
+      "oracle": "Extraction returns a normalized rejection outcome.",
+      "handler": "mr03_unmarked_rejection",
+      "claim_ids": [
+        "C-CLEAN",
+        "C-FULL"
+      ]
+    },
+    {
+      "id": "MR04",
+      "name": "Wrong-key rejection",
+      "polarity": "reject",
+      "stages": [
+        "embed",
+        "compile",
+        "extract"
+      ],
+      "preconditions": [
+        "k1 and k2 are distinct",
+        "key identity is contractually relevant"
+      ],
+      "source_case": "Construct and independently validate a carrier for p under k1.",
+      "follow_up": "Invoke the subject extractor on the same artifact under k2.",
+      "oracle": "The distinct key is rejected.",
+      "handler": "mr04_wrong_key",
+      "claim_ids": [
+        "C-FULL",
+        "C-GREEDY"
+      ],
+      "upstream_guard": {
+        "operators": [
+          "M01",
+          "M02",
+          "M03",
+          "M04",
+          "M05",
+          "M12"
+        ],
+        "row_class": "STAGE_ISOLATION",
+        "interpretation": "The upstream operator is disabled to isolate the negative antecedent. These rows are admitted antecedent checks, not fault-active executions."
+      },
+      "required_rejection_type": "WRONG_KEY"
+    },
+    {
+      "id": "MR05",
+      "name": "Payload separation",
+      "polarity": "separate",
+      "stages": [
+        "embed",
+        "compile",
+        "extract"
+      ],
+      "preconditions": [
+        "p1 and p2 are distinct"
+      ],
+      "source_case": "Build artifact a1 for p1 under k.",
+      "follow_up": "Build a2 for p2 under k and extract both artifacts.",
+      "oracle": "a1 yields p1, a2 yields p2, and the extracted values differ.",
+      "handler": "mr05_payload_separation",
+      "claim_ids": [
+        "C-FULL",
+        "C-GREEDY"
+      ]
+    },
+    {
+      "id": "MR06",
+      "name": "Cross-compiler invariance",
+      "polarity": "preserve",
+      "stages": [
+        "embed",
+        "compile",
+        "execute",
+        "extract"
+      ],
+      "preconditions": [
+        "GCC and Clang are supported for the selected host and carrier"
+      ],
+      "source_case": "Build with GCC at O2.",
+      "follow_up": "Build the same request with Clang at O2.",
+      "oracle": "Both extract p and their host observations agree.",
+      "handler": "mr06_cross_compiler",
+      "claim_ids": [
+        "C-CLEAN",
+        "C-DIFFERENTIAL",
+        "C-BREADTH",
+        "C-FULL"
+      ],
+      "admission": "Both requested compiler configurations must be supported and actually realized."
+    },
+    {
+      "id": "MR07",
+      "name": "Optimization invariance",
+      "polarity": "preserve",
+      "stages": [
+        "embed",
+        "compile",
+        "execute",
+        "extract"
+      ],
+      "preconditions": [
+        "O0, O2, and Os are supported"
+      ],
+      "source_case": "Build at O0.",
+      "follow_up": "Rebuild at O2 and Os.",
+      "oracle": "All three extract p and agree on host observations.",
+      "handler": "mr07_optimization",
+      "claim_ids": [
+        "C-CLEAN",
+        "C-DIFFERENTIAL",
+        "C-BREADTH",
+        "C-FULL"
+      ]
+    },
+    {
+      "id": "MR08",
+      "name": "Clean-room relocation",
+      "polarity": "preserve",
+      "stages": [
+        "embed",
+        "compile",
+        "relocate",
+        "extract"
+      ],
+      "preconditions": [
+        "the binary is declared self-contained and path-independent"
+      ],
+      "source_case": "Build and validate one marked artifact.",
+      "follow_up": "Copy and rename only the binary into a clean directory.",
+      "oracle": "The relocated binary still extracts p.",
+      "handler": "mr08_relocation",
+      "claim_ids": [
+        "C-FULL",
+        "C-GREEDY"
+      ],
+      "predicate_components": [
+        "payload_fidelity",
+        "host_observation_equivalence"
+      ]
+    },
+    {
+      "id": "MR09",
+      "name": "Carrier-removal rejection",
+      "polarity": "reject",
+      "stages": [
+        "embed",
+        "compile",
+        "transform",
+        "extract"
+      ],
+      "preconditions": [
+        "the selected transform removes the only accepted carrier"
+      ],
+      "source_case": "Construct a valid antecedent carrier under an upstream guard.",
+      "follow_up": "Apply carrier-specific removal and invoke the subject extractor.",
+      "oracle": "Extraction rejects after removal.",
+      "handler": "mr09_removal",
+      "claim_ids": [
+        "C-FULL",
+        "C-GREEDY"
+      ],
+      "upstream_guard": {
+        "operators": [
+          "M01",
+          "M02",
+          "M03",
+          "M04",
+          "M05",
+          "M12"
+        ],
+        "row_class": "STAGE_ISOLATION",
+        "interpretation": "The upstream operator is disabled to isolate the negative antecedent. These rows are admitted antecedent checks, not fault-active executions."
+      },
+      "required_rejection_type": "CARRIER_ABSENT"
+    },
+    {
+      "id": "MR10",
+      "name": "Carrier-corruption rejection",
+      "polarity": "reject",
+      "stages": [
+        "embed",
+        "compile",
+        "corrupt",
+        "extract"
+      ],
+      "preconditions": [
+        "integrity validation is part of extraction"
+      ],
+      "source_case": "Construct a valid antecedent carrier under an upstream guard.",
+      "follow_up": "Change checksum material without changing the intended payload.",
+      "oracle": "Extraction rejects the checksum-corrupt carrier.",
+      "handler": "mr10_corruption",
+      "claim_ids": [
+        "C-FULL",
+        "C-GREEDY"
+      ],
+      "upstream_guard": {
+        "operators": [
+          "M01",
+          "M02",
+          "M03",
+          "M04",
+          "M05",
+          "M12"
+        ],
+        "row_class": "STAGE_ISOLATION",
+        "interpretation": "The upstream operator is disabled to isolate the negative antecedent. These rows are admitted antecedent checks, not fault-active executions."
+      },
+      "required_rejection_type": "INTEGRITY_FAILURE"
+    },
+    {
+      "id": "MR11",
+      "name": "Requested/actual trace agreement",
+      "polarity": "trace",
+      "stages": [
+        "request",
+        "compile",
+        "trace"
+      ],
+      "preconditions": [
+        "the build emits auditable requested and actual settings"
+      ],
+      "source_case": "Request Clang at Os.",
+      "follow_up": "Read the resulting build trace.",
+      "oracle": "Actual compiler and optimization equal the request.",
+      "handler": "mr11_trace",
+      "claim_ids": [
+        "C-FULL",
+        "C-GREEDY"
+      ],
+      "direct_verdict": "Requested and realized compiler/optimization fields must agree; this relation directly judges configuration fidelity."
+    },
+    {
+      "id": "MR12",
+      "name": "Interleaved artifact isolation",
+      "polarity": "separate",
+      "stages": [
+        "embed",
+        "compile",
+        "state",
+        "extract"
+      ],
+      "preconditions": [
+        "two builds may share one process without semantic aliasing"
+      ],
+      "source_case": "Build a1 for p1.",
+      "follow_up": "Build a2 for p2 before extracting either artifact, then extract both.",
+      "oracle": "Each artifact yields its own payload.",
+      "handler": "mr12_interleaved",
+      "claim_ids": [
+        "C-FULL"
+      ]
+    },
+    {
+      "id": "MR13",
+      "name": "Reordered extraction independence",
+      "polarity": "preserve",
+      "stages": [
+        "embed",
+        "compile",
+        "extract",
+        "state"
+      ],
+      "preconditions": [
+        "extraction depends only on declared immutable context"
+      ],
+      "source_case": "Build and extract a1 for p1.",
+      "follow_up": "Build an unrelated artifact and re-extract a1.",
+      "oracle": "Both extractions of a1 equal p1.",
+      "handler": "mr13_reordered",
+      "claim_ids": [
+        "C-FULL"
+      ],
+      "evidence_source": "current_handler_action_trace",
+      "sequence_contract": "Build two independently requested artifacts; extract in the opposite order from the build order; retain payload, key, compiler, optimization, artifact identity, and action trace for both artifacts."
+    },
+    {
+      "id": "MR14",
+      "name": "Rebuild stability",
+      "polarity": "preserve",
+      "stages": [
+        "embed",
+        "compile",
+        "extract"
+      ],
+      "preconditions": [
+        "the two build requests are identical"
+      ],
+      "source_case": "Build a1 for request r.",
+      "follow_up": "Repeat r to build a2 and extract both.",
+      "oracle": "Both artifacts yield p; byte identity is not required.",
+      "handler": "mr14_rebuild",
+      "claim_ids": [
+        "C-FULL"
+      ]
+    }
+  ]
+}

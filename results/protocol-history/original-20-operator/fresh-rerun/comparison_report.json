@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "comparison": "two complete 18-subject robustness executions under an identical frozen protocol",
+  "first_run": {
+    "path": "results/raw/robustness_matrix.csv",
+    "rows": 15876,
+    "sha256": "277470a01a9307fd934fb7ffc775e8666d4a7ba01b24533a1a1376722bc7ec63"
+  },
+  "second_run": {
+    "path": "results/fresh-rerun-2026-07-22/raw/robustness_matrix.csv",
+    "rows": 15876,
+    "sha256": "d74abb794e0fa56598ef2e65d2e3b7a119db186c85c19f5eb42b2db9f39f5004"
+  },
+  "row_key_fields": [
+    "surface",
+    "host",
+    "host_sha256",
+    "carrier",
+    "defect_id",
+    "defect_operator",
+    "fault_class",
+    "relation_id",
+    "relation_name",
+    "polarity",
+    "pilot"
+  ],
+  "ignored_nondeterministic_fields": [
+    "duration_seconds"
+  ],
+  "duplicate_keys_first": 0,
+  "duplicate_keys_second": 0,
+  "key_sets_identical": true,
+  "missing_from_first": 0,
+  "missing_from_second": 0,
+  "compared_rows": 15876,
+  "compared_non_timing_fields_per_row": 16,
+  "non_timing_field_comparisons": 254016,
+  "non_timing_differences": 0,
+  "sample_differences": [],
+  "sample_missing_from_first": [],
+  "sample_missing_from_second": [],
+  "timing": {
+    "first": {
+      "all_positive": true,
+      "median_seconds": 0.112989,
+      "max_seconds": 2.773166,
+      "sum_seconds": 2186.299197
+    },
+    "second": {
+      "all_positive": true,
+      "median_seconds": 0.10895450000000001,
+      "max_seconds": 0.746852,
+      "sum_seconds": 2037.329316
+    }
+  },
+  "verdict": "PASS"
+}

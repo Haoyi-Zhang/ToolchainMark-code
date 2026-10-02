@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "rows": 378,
+  "passes": 360,
+  "violations": 18,
+  "violations_by_operation": {
+    "llvm_full_strip": 18
+  },
+  "violations_by_carrier": {
+    "section": 18
+  },
+  "all_durations_positive": true
+}

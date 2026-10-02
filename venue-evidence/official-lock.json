@@ -1,0 +1,28 @@
+{
+  "schema_version": "revision-20260923",
+  "retrieval_date": "2026-09-23",
+  "status": "PARTIAL_PRIMARY_GUIDANCE_SUBMISSION_HOLD",
+  "sources": [
+    {
+      "url": "https://www.overleaf.com/latex/templates/association-for-computing-machinery-acm-small-standard-format-template/sksvmbxyfhnw",
+      "scope": "Official ACM template: TOSEM included, single-column manuscript review mode, separate author declarations.",
+      "last_checked": "2026-09-23"
+    },
+    {
+      "url": "https://tei.acm.org/2027/cfp-wip.html",
+      "scope": "ACM-hosted summary of May2026 policy; scientific use distinguished from writing-only assistance."
+    },
+    {
+      "url": "https://www.uni.lu/en/about/campuses/",
+      "scope": "University has multiple campuses; no inference of Tang city from university alone."
+    }
+  ],
+  "direct_guide_access": "Final read-only retry: TOSEM author.html inaccessible; central ACM authorship and submissions endpoints returned403. No venue-specific rule is inferred from failed access.",
+  "required_human_gates": [
+    "complete actual roster",
+    "actual contributions and final approval",
+    "Tang city/campus and ORCID if required",
+    "live TOSEM anonymity and upload fields",
+    "truthful applicable scientific-tool disclosure"
+  ]
+}

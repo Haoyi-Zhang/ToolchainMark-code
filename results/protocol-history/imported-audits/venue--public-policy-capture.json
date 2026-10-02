@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.1",
+  "captured_at_asia_seoul": "2026-07-27",
+  "capture_method": "read-only public browser extraction; no login, upload, or contact",
+  "sources": [
+    {
+      "url": "https://www.overleaf.com/latex/templates/association-for-computing-machinery-acm-small-standard-format-template/sksvmbxyfhnw",
+      "title": "Association for Computing Machinery (ACM) - Small Standard Format Template",
+      "publisher_or_author": "Association for Computing Machinery (ACM)",
+      "page_label": "Official",
+      "observed_version": "acmart 2.18 (2026/06/01) on current ACM-provided official mirror; project uses supplied acmart 2.19 (2026/06/27)",
+      "locators": [
+        "submission-version notice",
+        "source comment above documentclass",
+        "Authors and Affiliations section",
+        "sample author block"
+      ],
+      "extracted_facts": [
+        "TOSEM is listed among the journals using the ACM small standard format.",
+        "The review version is generated with manuscript, screen, review options and is single column.",
+        "Each author is declared separately; multiple authors may share one affiliation; e-mail addresses should be supplied; the sample uses class-native correspondingauthor.",
+        "The sample uses the class-native correspondingauthor command."
+      ]
+    },
+    {
+      "url": "https://conf.researchr.org/home/icse-2026/jaws-2026",
+      "corroborating_url": "https://conf.researchr.org/home/ase-2026/jaws-2-2026",
+      "title": "Journal Ahead Workshop 2026",
+      "relationship": "organized with ACM TOSEM and IEEE TSE editors; not the direct TOSEM author guide",
+      "locators": [
+        "Submissions",
+        "Review process"
+      ],
+      "extracted_facts": [
+        "The TOSEM/TSE-linked process is described as single-anonymous or single-blind.",
+        "The linked workshop instructions say author names and affiliations need not be hidden."
+      ],
+      "applicability": "provisional corroboration only",
+      "retrieval_date": "2026-07-27"
+    }
+  ],
+  "limitations": [
+    "Direct TOSEM author-guide and portal pages returned HTTP 403 on the same date (2026-07-27).",
+    "No raw HTML page snapshot was available from the browser interface, so this file hashes the structured extraction rather than the remote page bytes."
+  ]
+}

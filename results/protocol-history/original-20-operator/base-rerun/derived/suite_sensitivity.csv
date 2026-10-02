@@ -1,0 +1,5 @@
+suite,relations,killed_units,survived_units,total_units,score_percent
+B0-Roundtrip,MR01,21,39,60,35.0
+B1-Conventional,MR01 MR02,27,33,60,45.0
+B2-Differential,MR01 MR02 MR06 MR07,27,33,60,45.0
+Full,MR01 MR02 MR03 MR04 MR05 MR06 MR07 MR08 MR09 MR10 MR11 MR12 MR13 MR14,60,0,60,100.0

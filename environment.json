@@ -1,0 +1,18 @@
+{
+  "python": "3.13.5",
+  "platform": "Linux-6.12.13-x86_64-with-glibc2.41",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "clang": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+  "objcopy": "GNU objcopy (GNU Binutils for Debian) 2.44",
+  "nm": "GNU nm (GNU Binutils for Debian) 2.44",
+  "strip": "GNU strip (GNU Binutils for Debian) 2.44",
+  "executables": {
+    "python3": "PATH:python3",
+    "gcc": "PATH:gcc",
+    "clang": "PATH:clang",
+    "objcopy": "PATH:objcopy",
+    "nm": "PATH:nm",
+    "strip": "PATH:strip"
+  },
+  "path_recording_policy": "Command names are recorded; machine-local absolute executable paths are intentionally omitted."
+}

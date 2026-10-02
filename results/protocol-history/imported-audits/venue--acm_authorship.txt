@@ -1,0 +1,1 @@
+The official ACM authorship-policy endpoint returned HTTP 403 during the final read-only recheck on 2026-07-27. No submission action was taken; authorship eligibility and disclosure remain under policy hold.

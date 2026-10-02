@@ -1,0 +1,301 @@
+{
+  "steps": [
+    {
+      "step": 1,
+      "relation_id": "MR05",
+      "new_units": 30,
+      "remaining_after": 30,
+      "units": [
+        {
+          "carrier": "section",
+          "defect_id": "M01"
+        },
+        {
+          "carrier": "section",
+          "defect_id": "M02"
+        },
+        {
+          "carrier": "section",
+          "defect_id": "M03"
+        },
+        {
+          "carrier": "section",
+          "defect_id": "M04"
+        },
+        {
+          "carrier": "section",
+          "defect_id": "M05"
+        },
+        {
+          "carrier": "section",
+          "defect_id": "M08"
+        },
+        {
+          "carrier": "section",
+          "defect_id": "M12"
+        },
+        {
+          "carrier": "section",
+          "defect_id": "M18"
+        },
+        {
+          "carrier": "section",
+          "defect_id": "M19"
+        },
+        {
+          "carrier": "section",
+          "defect_id": "M20"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M01"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M02"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M03"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M04"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M05"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M08"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M12"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M18"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M19"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M20"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M01"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M02"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M03"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M04"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M05"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M08"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M12"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M18"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M19"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M20"
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "relation_id": "MR02",
+      "new_units": 6,
+      "remaining_after": 24,
+      "units": [
+        {
+          "carrier": "section",
+          "defect_id": "M10"
+        },
+        {
+          "carrier": "section",
+          "defect_id": "M11"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M10"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M11"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M10"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M11"
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "relation_id": "MR04",
+      "new_units": 6,
+      "remaining_after": 18,
+      "units": [
+        {
+          "carrier": "section",
+          "defect_id": "M06"
+        },
+        {
+          "carrier": "section",
+          "defect_id": "M09"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M06"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M09"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M06"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M09"
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "relation_id": "MR08",
+      "new_units": 6,
+      "remaining_after": 12,
+      "units": [
+        {
+          "carrier": "section",
+          "defect_id": "M07"
+        },
+        {
+          "carrier": "section",
+          "defect_id": "M17"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M07"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M17"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M07"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M17"
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "relation_id": "MR11",
+      "new_units": 6,
+      "remaining_after": 6,
+      "units": [
+        {
+          "carrier": "section",
+          "defect_id": "M13"
+        },
+        {
+          "carrier": "section",
+          "defect_id": "M14"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M13"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M14"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M13"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M14"
+        }
+      ]
+    },
+    {
+      "step": 6,
+      "relation_id": "MR09",
+      "new_units": 3,
+      "remaining_after": 3,
+      "units": [
+        {
+          "carrier": "section",
+          "defect_id": "M15"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M15"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M15"
+        }
+      ]
+    },
+    {
+      "step": 7,
+      "relation_id": "MR10",
+      "new_units": 3,
+      "remaining_after": 0,
+      "units": [
+        {
+          "carrier": "section",
+          "defect_id": "M16"
+        },
+        {
+          "carrier": "string",
+          "defect_id": "M16"
+        },
+        {
+          "carrier": "symbol",
+          "defect_id": "M16"
+        }
+      ]
+    }
+  ],
+  "uncovered": []
+}

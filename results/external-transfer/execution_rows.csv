@@ -1,0 +1,606 @@
+case,compatibility_header_applied,compile_rc,compile_seconds,compile_stderr,compile_warning_lines,compiler,compiler_version,mode,optimization,output_sha256,relocate_output_sha256,relocate_rc,relocation_match,run_rc,run_seconds,run_stderr,source_git_blob_sha1,source_label,source_sha256,variant
+119,False,0,0.036958,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O0,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.000998,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,False,0,0.037093,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O0,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001087,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,False,1,0.013375,"EXTERNAL_SOURCE/2929_old.c: In function ‘linear_kmeans2’:
+EXTERNAL_SOURCE/2929_old.c:45:6: error: implicit declaration of function ‘isnanf’; did you mean ‘isnan’? [-Wimplicit-function-declaration]
+   45 |   if(isnanf(sum0)) sum0 = 0;
+      |      ^~~~~~
+      |      isnan
+EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable ‘step’ [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+",1,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O0,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,,False,,0.0,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,False,0,0.038501,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O0,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.001592,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,False,0,0.046813,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O0,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001059,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,False,0,0.045425,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O0,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.000929,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,False,0,0.034579,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O1,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.000918,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,False,0,0.03931,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O1,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001026,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,False,1,0.012976,"EXTERNAL_SOURCE/2929_old.c: In function ‘linear_kmeans2’:
+EXTERNAL_SOURCE/2929_old.c:45:6: error: implicit declaration of function ‘isnanf’; did you mean ‘isnan’? [-Wimplicit-function-declaration]
+   45 |   if(isnanf(sum0)) sum0 = 0;
+      |      ^~~~~~
+      |      isnan
+EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable ‘step’ [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+",1,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O1,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,,False,,0.0,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,False,0,0.041152,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O1,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.001002,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,False,0,0.052091,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O1,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.000924,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,False,0,0.051019,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O1,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001176,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,False,0,0.03715,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O2,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.000991,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,False,0,0.042454,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O2,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001062,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,False,1,0.013205,"EXTERNAL_SOURCE/2929_old.c: In function ‘linear_kmeans2’:
+EXTERNAL_SOURCE/2929_old.c:45:6: error: implicit declaration of function ‘isnanf’; did you mean ‘isnan’? [-Wimplicit-function-declaration]
+   45 |   if(isnanf(sum0)) sum0 = 0;
+      |      ^~~~~~
+      |      isnan
+EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable ‘step’ [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+",1,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O2,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,,False,,0.0,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,False,0,0.057147,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O2,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.000974,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,False,0,0.059774,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O2,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001042,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,False,0,0.060699,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O2,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.000887,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,False,0,0.041382,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O3,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.000936,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,False,0,0.044986,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O3,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001194,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,False,1,0.01302,"EXTERNAL_SOURCE/2929_old.c: In function ‘linear_kmeans2’:
+EXTERNAL_SOURCE/2929_old.c:45:6: error: implicit declaration of function ‘isnanf’; did you mean ‘isnan’? [-Wimplicit-function-declaration]
+   45 |   if(isnanf(sum0)) sum0 = 0;
+      |      ^~~~~~
+      |      isnan
+EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable ‘step’ [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+",1,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O3,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,,False,,0.0,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,False,0,0.06044,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O3,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.001023,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,False,0,0.088169,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O3,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.000951,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,False,0,0.107735,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,O3,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001698,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,False,0,0.045065,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,Os,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001068,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,False,0,0.04657,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,Os,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001012,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,False,1,0.014302,"EXTERNAL_SOURCE/2929_old.c: In function ‘linear_kmeans2’:
+EXTERNAL_SOURCE/2929_old.c:45:6: error: implicit declaration of function ‘isnanf’; did you mean ‘isnan’? [-Wimplicit-function-declaration]
+   45 |   if(isnanf(sum0)) sum0 = 0;
+      |      ^~~~~~
+      |      isnan
+EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable ‘step’ [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+",1,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,Os,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,,False,,0.0,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,False,0,0.064278,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,Os,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.00165,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,False,0,0.085144,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,Os,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001227,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,False,0,0.062422,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,native,Os,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.00088,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,False,0,0.045731,"EXTERNAL_SOURCE/119_before.c:14:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   14 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119_before.c:37:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   37 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O0,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001158,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,False,0,0.040884,"EXTERNAL_SOURCE/119.c:20:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   20 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119.c:60:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   60 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O0,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001308,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,False,1,0.026111,"EXTERNAL_SOURCE/2929_old.c:45:6: error: call to undeclared function 'isnanf'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   45 |   if(isnanf(sum0)) sum0 = 0;
+      |      ^
+EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable 'step' [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+EXTERNAL_SOURCE/2929_old.c:53:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   53 | int main() {
+      |         ^
+      |          void
+2 warnings and 1 error generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O0,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,,False,,0.0,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,False,0,0.097484,"EXTERNAL_SOURCE/2929.c:54:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   54 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O0,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.002238,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,False,0,0.097482,"EXTERNAL_SOURCE/363_old.c:26:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   26 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O0,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001078,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,False,0,0.083333,"EXTERNAL_SOURCE/363.c:30:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   30 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O0,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.00148,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,False,0,0.07912,"EXTERNAL_SOURCE/119_before.c:14:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   14 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119_before.c:37:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   37 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O1,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.00102,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,False,0,0.069442,"EXTERNAL_SOURCE/119.c:20:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   20 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119.c:60:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   60 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O1,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.00165,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,False,1,0.046819,"EXTERNAL_SOURCE/2929_old.c:45:6: error: call to undeclared function 'isnanf'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   45 |   if(isnanf(sum0)) sum0 = 0;
+      |      ^
+EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable 'step' [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+EXTERNAL_SOURCE/2929_old.c:53:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   53 | int main() {
+      |         ^
+      |          void
+2 warnings and 1 error generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O1,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,,False,,0.0,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,False,0,0.086405,"EXTERNAL_SOURCE/2929.c:54:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   54 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O1,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.001154,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,False,0,0.08523,"EXTERNAL_SOURCE/363_old.c:26:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   26 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O1,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001127,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,False,0,0.06898,"EXTERNAL_SOURCE/363.c:30:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   30 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O1,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.00091,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,False,0,0.046717,"EXTERNAL_SOURCE/119_before.c:14:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   14 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119_before.c:37:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   37 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O2,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001516,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,False,0,0.0485,"EXTERNAL_SOURCE/119.c:20:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   20 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119.c:60:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   60 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O2,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.000959,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,False,1,0.023121,"EXTERNAL_SOURCE/2929_old.c:45:6: error: call to undeclared function 'isnanf'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   45 |   if(isnanf(sum0)) sum0 = 0;
+      |      ^
+EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable 'step' [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+EXTERNAL_SOURCE/2929_old.c:53:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   53 | int main() {
+      |         ^
+      |          void
+2 warnings and 1 error generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O2,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,,False,,0.0,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,False,0,0.05681,"EXTERNAL_SOURCE/2929.c:54:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   54 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O2,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.001523,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,False,0,0.061402,"EXTERNAL_SOURCE/363_old.c:26:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   26 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O2,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.000942,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,False,0,0.059773,"EXTERNAL_SOURCE/363.c:30:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   30 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O2,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.000939,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,False,0,0.046698,"EXTERNAL_SOURCE/119_before.c:14:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   14 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119_before.c:37:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   37 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O3,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001124,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,False,0,0.049018,"EXTERNAL_SOURCE/119.c:20:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   20 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119.c:60:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   60 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O3,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.000998,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,False,1,0.027002,"EXTERNAL_SOURCE/2929_old.c:45:6: error: call to undeclared function 'isnanf'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   45 |   if(isnanf(sum0)) sum0 = 0;
+      |      ^
+EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable 'step' [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+EXTERNAL_SOURCE/2929_old.c:53:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   53 | int main() {
+      |         ^
+      |          void
+2 warnings and 1 error generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O3,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,,False,,0.0,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,False,0,0.083371,"EXTERNAL_SOURCE/2929.c:54:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   54 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O3,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.001384,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,False,0,0.063863,"EXTERNAL_SOURCE/363_old.c:26:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   26 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O3,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.000949,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,False,0,0.060745,"EXTERNAL_SOURCE/363.c:30:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   30 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,O3,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001096,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,False,0,0.045664,"EXTERNAL_SOURCE/119_before.c:14:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   14 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119_before.c:37:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   37 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,Os,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001142,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,False,0,0.047679,"EXTERNAL_SOURCE/119.c:20:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   20 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119.c:60:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   60 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,Os,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001043,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,False,1,0.024943,"EXTERNAL_SOURCE/2929_old.c:45:6: error: call to undeclared function 'isnanf'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   45 |   if(isnanf(sum0)) sum0 = 0;
+      |      ^
+EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable 'step' [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+EXTERNAL_SOURCE/2929_old.c:53:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   53 | int main() {
+      |         ^
+      |          void
+2 warnings and 1 error generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,Os,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,,False,,0.0,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,False,0,0.050239,"EXTERNAL_SOURCE/2929.c:54:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   54 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,Os,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.001073,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,False,0,0.060323,"EXTERNAL_SOURCE/363_old.c:26:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   26 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,Os,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.000911,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,False,0,0.057583,"EXTERNAL_SOURCE/363.c:30:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   30 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),native,Os,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.000984,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,True,0,0.065317,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O0,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001054,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,True,0,0.052202,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O0,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001042,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,True,0,0.05213,"EXTERNAL_SOURCE/2929_old.c: In function ‘linear_kmeans2’:
+EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable ‘step’ [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+",1,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O0,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,0,True,0,0.001242,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,True,0,0.05868,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O0,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.001001,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,True,0,0.055644,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O0,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001887,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,True,0,0.061747,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O0,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001028,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,True,0,0.054501,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O1,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001035,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,True,0,0.045585,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O1,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001241,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,True,0,0.051526,"EXTERNAL_SOURCE/2929_old.c: In function ‘linear_kmeans2’:
+EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable ‘step’ [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+",1,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O1,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,0,True,0,0.001057,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,True,0,0.053998,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O1,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.001812,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,True,0,0.076258,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O1,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001023,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,True,0,0.066007,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O1,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.000879,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,True,0,0.080644,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O2,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001114,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,True,0,0.075158,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O2,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001639,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,True,0,0.089701,"EXTERNAL_SOURCE/2929_old.c: In function ‘linear_kmeans2’:
+EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable ‘step’ [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+",1,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O2,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,0,True,0,0.000987,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,True,0,0.08679,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O2,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.008028,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,True,0,0.070733,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O2,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.000903,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,True,0,0.091214,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O2,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.00842,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,True,0,0.050249,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O3,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001047,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,True,0,0.050986,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O3,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.008496,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,True,0,0.055841,"EXTERNAL_SOURCE/2929_old.c: In function ‘linear_kmeans2’:
+EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable ‘step’ [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+",1,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O3,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,0,True,0,0.001073,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,True,0,0.08939,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O3,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.001021,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,True,0,0.103877,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O3,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.000958,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,True,0,0.066472,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,O3,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001042,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,True,0,0.049957,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,Os,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001145,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,True,0,0.070962,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,Os,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001073,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,True,0,0.052323,"EXTERNAL_SOURCE/2929_old.c: In function ‘linear_kmeans2’:
+EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable ‘step’ [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+",1,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,Os,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,0,True,0,0.006757,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,True,0,0.088935,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,Os,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.001527,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,True,0,0.082133,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,Os,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.000903,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,True,0,0.089509,,0,gcc,gcc (Debian 14.2.0-19) 14.2.0,compatibility,Os,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001809,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,True,0,0.046268,"EXTERNAL_SOURCE/119_before.c:14:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   14 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119_before.c:37:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   37 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O0,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001071,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,True,0,0.050938,"EXTERNAL_SOURCE/119.c:20:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   20 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119.c:60:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   60 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O0,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001134,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,True,0,0.046978,"EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable 'step' [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+EXTERNAL_SOURCE/2929_old.c:53:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   53 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O0,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,0,True,0,0.000953,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,True,0,0.050516,"EXTERNAL_SOURCE/2929.c:54:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   54 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O0,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.001194,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,True,0,0.081146,"EXTERNAL_SOURCE/363_old.c:26:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   26 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O0,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001119,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,True,0,0.061079,"EXTERNAL_SOURCE/363.c:30:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   30 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O0,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001026,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,True,0,0.115049,"EXTERNAL_SOURCE/119_before.c:14:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   14 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119_before.c:37:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   37 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O1,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001037,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,True,0,0.045905,"EXTERNAL_SOURCE/119.c:20:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   20 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119.c:60:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   60 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O1,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001243,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,True,0,0.058779,"EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable 'step' [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+EXTERNAL_SOURCE/2929_old.c:53:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   53 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O1,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,0,True,0,0.000924,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,True,0,0.074954,"EXTERNAL_SOURCE/2929.c:54:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   54 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O1,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.00106,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,True,0,0.087696,"EXTERNAL_SOURCE/363_old.c:26:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   26 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O1,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.004666,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,True,0,0.147209,"EXTERNAL_SOURCE/363.c:30:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   30 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O1,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.000985,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,True,0,0.099325,"EXTERNAL_SOURCE/119_before.c:14:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   14 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119_before.c:37:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   37 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O2,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001163,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,True,0,0.169964,"EXTERNAL_SOURCE/119.c:20:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   20 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119.c:60:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   60 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O2,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.004231,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,True,0,0.087843,"EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable 'step' [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+EXTERNAL_SOURCE/2929_old.c:53:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   53 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O2,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,0,True,0,0.002493,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,True,0,0.148559,"EXTERNAL_SOURCE/2929.c:54:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   54 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O2,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.006446,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,True,0,0.076142,"EXTERNAL_SOURCE/363_old.c:26:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   26 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O2,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.00106,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,True,0,0.080433,"EXTERNAL_SOURCE/363.c:30:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   30 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O2,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.000992,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,True,0,0.064064,"EXTERNAL_SOURCE/119_before.c:14:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   14 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119_before.c:37:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   37 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O3,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001097,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,True,0,0.050207,"EXTERNAL_SOURCE/119.c:20:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   20 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119.c:60:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   60 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O3,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001009,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,True,0,0.058134,"EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable 'step' [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+EXTERNAL_SOURCE/2929_old.c:53:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   53 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O3,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,0,True,0,0.001421,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,True,0,0.062644,"EXTERNAL_SOURCE/2929.c:54:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   54 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O3,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.001046,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,True,0,0.078674,"EXTERNAL_SOURCE/363_old.c:26:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   26 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O3,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.000942,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,True,0,0.088221,"EXTERNAL_SOURCE/363.c:30:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   30 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,O3,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001055,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked
+119,True,0,0.069407,"EXTERNAL_SOURCE/119_before.c:14:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   14 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119_before.c:37:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   37 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,Os,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.002603,,d67d0a2f8a6e74bbe4ef897087ded2271fac321e,119_before.c,b44941776bfd9da0e2c29066d6527ef1c2b9f2b0ba664d8a546365792863b16e,before
+119,True,0,0.115303,"EXTERNAL_SOURCE/119.c:20:20: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   20 | void newton_raphson() {
+      |                    ^
+      |                     void
+EXTERNAL_SOURCE/119.c:60:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   60 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,Os,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,0,True,0,0.001077,,1f27e4b126d696bb2b98914072cc4769317e962f,119.c,711080318cea98ed7d15f274d8f5baebc4b61b0bf5ef800a53f5b5f81d213437,watermarked
+2929,True,0,0.096988,"EXTERNAL_SOURCE/2929_old.c:10:17: warning: unused variable 'step' [-Wunused-variable]
+   10 |   unsigned long step = 0;
+      |                 ^~~~
+EXTERNAL_SOURCE/2929_old.c:53:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   53 | int main() {
+      |         ^
+      |          void
+2 warnings generated.
+",2,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,Os,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,0,True,0,0.007018,,5e2755fa84dd417b3322df5820162e4515697c0c,2929_old.c,4e2669a9c43a4215b5f09097d14304de3c3e02176d9aa1b4ca9286cf0efe8ed6,before
+2929,True,0,0.096597,"EXTERNAL_SOURCE/2929.c:54:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   54 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,Os,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,0,True,0,0.000989,,d873869fb1c80ec2aaf411ff813ecad3a51cfcd2,2929.c,2adec180bd2bc2bb030d836ae6e4dbff27cb74cf16453b132338804369c14983,watermarked
+363,True,0,0.073359,"EXTERNAL_SOURCE/363_old.c:26:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   26 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,Os,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.001,,6e8ddc3e3b241feea4360921fcc1c0f8becffe36,363_old.c,fcd390a5f0a20d2d63d6ec999a59c8c65aa09af5714ec4f58f8066a7fe502b1d,before
+363,True,0,0.122684,"EXTERNAL_SOURCE/363.c:30:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   30 | int main() {
+      |         ^
+      |          void
+1 warning generated.
+",1,clang,clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0),compatibility,Os,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,0,True,0,0.00094,,5e5b1dfae761760fd504807414149398cbc8b124,363.c,6f18e83e3c296d68f9039b75a7315e57abacddf332b9ef702150c047e87c45cd,watermarked

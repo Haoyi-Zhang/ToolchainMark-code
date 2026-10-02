@@ -1,0 +1,29 @@
+{
+  "source_matrix": "results/raw/robustness_matrix.csv",
+  "configured_rows": 18900,
+  "clean_rows": 756,
+  "fault_active_rows": 17172,
+  "stage_isolation_rows": 972,
+  "fault_active_inconsistent_rows": 4464,
+  "fault_active_satisfied_rows": 12708,
+  "stage_isolation_satisfied_rows": 972,
+  "stage_isolation_inconsistent_rows": 0,
+  "tri_valued_context_replay_rule": "Compare SATISFIED, INCONSISTENT, and INADMISSIBLE as values. Do not drop inadmissible rows. Two inadmissible rows match only when their normalized reason category matches.",
+  "guard_scope": {
+    "relations": [
+      "MR04",
+      "MR09",
+      "MR10"
+    ],
+    "operators": [
+      "M01",
+      "M02",
+      "M03",
+      "M04",
+      "M05",
+      "M12"
+    ],
+    "interpretation": "antecedent stage isolation; upstream fault disabled"
+  },
+  "legacy_trace_statement": "The retained matrix does not contain complete request, command, generated-source, artifact-identity, or per-input trajectory evidence. Cleaned workspaces make those old trajectories unrecoverable."
+}

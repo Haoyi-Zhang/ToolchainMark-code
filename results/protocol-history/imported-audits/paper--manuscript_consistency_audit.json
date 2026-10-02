@@ -1,0 +1,155 @@
+{
+  "schema_version": "13.0",
+  "audit_date": "2026-07-28",
+  "sources": {
+    "main_sha256": "36502b652cb3570092133f949687fd3538eeccfce67eac66030be38da961f9c0",
+    "submission_sha256": "c61f094d87d71e9bb5f822f24b7f8a0c833bba9aca5ad83dbf41ee299e5e7a8d",
+    "supplement_sha256": "74dd64e4961bd973ee426bef7dd82f5e90df2b9f0df36de9dc450e4c18968e01",
+    "references_sha256": "898b15ca4b63708abd84ae992fa5cc32a244ab4f303c365b9308eab08a30b8f2",
+    "author_metadata_audit_sha256": "39920535850c17c02e18f02b838bb8a92c61faf776873e3c61c3a34e02a1f9f5"
+  },
+  "pdfs": {
+    "main_sha256": "58d766fe13dbc0c48b84463295979fa91e0edb334faddc8274d4f9c7a44e7db0",
+    "main_pages": 48,
+    "submission_sha256": "ca896ea6516946d207c7e9c75c7360e206338c846ebb7242e9e878ce9a8bc8e7",
+    "submission_pages": 46,
+    "supplement_sha256": "f7e531d1e95b48758b950e9b99c8ffaa615f54868c39da134e57a370a4250a52",
+    "supplement_pages": 6
+  },
+  "structure": {
+    "top_level_scientific_sections": 8,
+    "subsections": 35,
+    "subsubsections": 0,
+    "run_in_paragraphs": 0,
+    "figures": 7,
+    "tables": 19,
+    "displayed_equations": 15,
+    "algorithms": 1,
+    "definitions": 6,
+    "propositions": 13,
+    "lemmas": 1,
+    "named_authors": 4,
+    "corresponding_authors": 1
+  },
+  "authors": {
+    "order": [
+      "Haoyi Zhang",
+      "Zhaojie Zhang",
+      "Md Maruf Hasan",
+      "Huaijin Ran"
+    ],
+    "distinct_affiliations": 2,
+    "native_author_rows": 4,
+    "corresponding_author": "Huaijin Ran",
+    "orcids": [
+      "0009-0009-3693-786X",
+      "0009-0006-4801-1739",
+      "0000-0001-9809-9376",
+      "0009-0009-2482-2344"
+    ],
+    "emails": [
+      "hyeliozhang@gmail.com",
+      "Zhaojie.Zhang22@student.xjtlu.edu.cn",
+      "mdmaruf.hasan@xjtlu.edu.cn",
+      "huaijin003@e.ntu.edu.sg"
+    ],
+    "placeholders_remaining": 0
+  },
+  "source_derivation": {
+    "submission_differs_from_main_only_by_documentclass": true,
+    "supplement_uses_same_author_semantics": true
+  },
+  "scientific_recheck": {
+    "check_count": 90,
+    "verdict": "PASS"
+  },
+  "bibliography": {
+    "records": 73,
+    "structured_entry_type_counts": {
+      "article": 49,
+      "incollection": 2,
+      "inproceedings": 22
+    },
+    "unique_scholarly_identifiers": 73,
+    "citation_commands": 77,
+    "unique_citation_keys": 73,
+    "multi_key_commands": 0,
+    "adjacent_piles": 0,
+    "sentences_with_multiple_citation_commands": 0,
+    "ledger_rows": 73,
+    "line_by_line_audit_rows": 73
+  },
+  "rendered_identifier_scan": {
+    "main": {
+      "visible_underscore_total": 1,
+      "allowed_contact_underscore_characters": 0,
+      "disallowed_visible_underscore": 0,
+      "visible_source_filename_matches": [],
+      "visible_absolute_or_private_path": 0,
+      "private_process_trace_markers": [],
+      "appendix_token": 0,
+      "allowed_scholarly_identifier_underscore_characters": 1
+    },
+    "submission": {
+      "visible_underscore_total": 1,
+      "allowed_contact_underscore_characters": 0,
+      "disallowed_visible_underscore": 0,
+      "visible_source_filename_matches": [],
+      "visible_absolute_or_private_path": 0,
+      "private_process_trace_markers": [],
+      "appendix_token": 0,
+      "allowed_scholarly_identifier_underscore_characters": 1
+    },
+    "supplement": {
+      "visible_underscore_total": 0,
+      "allowed_contact_underscore_characters": 0,
+      "disallowed_visible_underscore": 0,
+      "visible_source_filename_matches": [],
+      "visible_absolute_or_private_path": 0,
+      "private_process_trace_markers": [],
+      "appendix_token": 0,
+      "allowed_scholarly_identifier_underscore_characters": 0
+    }
+  },
+  "source_style_scan": {
+    "self_promotional_phrase_hits": 0,
+    "prompt_or_model_trace_hits": 0,
+    "duplicate_long_paragraphs": 0,
+    "narrative_order": "problem -> oracle gap -> contract model -> executable method -> frozen evaluation -> positive and adverse results -> transfer and limits -> conclusion"
+  },
+  "log_checks": {
+    "main": {
+      "overfull": 0,
+      "underfull": 36,
+      "undefined_reference_or_citation": 0,
+      "multiply_defined": 0
+    },
+    "submission-manuscript": {
+      "overfull": 0,
+      "underfull": 13,
+      "undefined_reference_or_citation": 0,
+      "multiply_defined": 0
+    },
+    "online-supplement": {
+      "overfull": 0,
+      "underfull": 1,
+      "undefined_reference_or_citation": 0,
+      "multiply_defined": 0
+    }
+  },
+  "checks": {
+    "four_native_author_rows_two_distinct_affiliations": true,
+    "class_native_corresponding_author_and_orcid": true,
+    "submission_source_mechanically_derived": true,
+    "seven_claim_linked_figures_nineteen_tables_fifteen_displays_one_algorithm": true,
+    "zero_visible_implementation_identifiers": true,
+    "zero_private_process_markers_in_rendered_pdfs": true,
+    "zero_overfull_undefined_or_multiply_defined": true,
+    "citation_shape_includes_zero_multi_citation_sentences": true,
+    "reference_line_by_line_audit_73_pass": true,
+    "zero_sentences_with_multiple_citation_commands": true,
+    "font_record_counts_22_22_4": true,
+    "second_author_identity_consistent": true
+  },
+  "verdict": "PASS"
+}

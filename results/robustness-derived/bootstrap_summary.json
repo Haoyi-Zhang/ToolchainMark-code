@@ -1,0 +1,40 @@
+{
+  "seed": 20260722,
+  "replicates": 10000,
+  "suite_size": {
+    "min": 9,
+    "q1": 11.0,
+    "median": 11.0,
+    "q3": 11.0,
+    "max": 11
+  },
+  "out_of_bag_units": {
+    "min": 13,
+    "q1": 22.0,
+    "median": 24.0,
+    "q3": 26.0,
+    "max": 38
+  },
+  "out_of_bag_sensitivity": {
+    "min": 0.66666667,
+    "q1": 1.0,
+    "median": 1.0,
+    "q3": 1.0,
+    "max": 1.0
+  },
+  "perfect_replicates": 8372,
+  "selection_counts": {
+    "MR02": 10000,
+    "MR04": 10000,
+    "MR05": 297,
+    "MR06": 9691,
+    "MR07": 9710,
+    "MR08": 10000,
+    "MR09": 10000,
+    "MR10": 10000,
+    "MR11": 9998,
+    "MR12": 9624,
+    "MR13": 9610,
+    "MR14": 9647
+  }
+}

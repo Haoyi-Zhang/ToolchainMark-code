@@ -1,0 +1,13 @@
+fault_class,units,killed,survived,score_percent
+artifact binding,6,6,0,100.0
+authentication,3,3,0,100.0
+configuration,12,12,0,100.0
+embedding,9,9,0,100.0
+extraction,3,3,0,100.0
+false positive,3,3,0,100.0
+integrity,3,3,0,100.0
+normalization,3,3,0,100.0
+semantic corruption,6,6,0,100.0
+stage routing,3,3,0,100.0
+state,18,18,0,100.0
+transformation,3,3,0,100.0

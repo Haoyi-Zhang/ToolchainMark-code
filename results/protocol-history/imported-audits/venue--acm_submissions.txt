@@ -1,0 +1,1 @@
+A prior captured official ACM LaTeX best-practices document supports manuscript-mode single-column review output and unaltered template dimensions. Direct official endpoints returned HTTP 403 on 2026-07-27, so current TOSEM applicability remains provisional.

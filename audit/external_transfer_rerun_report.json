@@ -1,0 +1,6 @@
+{
+  "schema_version": "20260923-retained-evidence",
+  "status": "INHERITED_REPORT_NOT_NEW_RERUN",
+  "source_report": "artifact/results/protocol-history/imported-audits/artifact--audit--external_transfer_rerun_report.json",
+  "current_execution_claimed": false
+}

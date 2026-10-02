@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "classification": "FRESH_SAME_ENVIRONMENT_BASE_MATRIX_RERUN",
+  "summary": {
+    "catalog_rows": 882,
+    "clean_rows": 42,
+    "clean_passes": 42,
+    "mutant_rows": 840,
+    "failing_mutant_rows": 248,
+    "defect_units": 60,
+    "full_suite_killed": 60,
+    "breadth_rows": 216,
+    "breadth_passes": 216,
+    "suite_counts": {
+      "B0-Roundtrip": 21,
+      "B1-Conventional": 27,
+      "B2-Differential": 27,
+      "Full": 60
+    },
+    "relation_counts": {
+      "MR01": 21,
+      "MR02": 6,
+      "MR03": 3,
+      "MR04": 9,
+      "MR05": 30,
+      "MR06": 21,
+      "MR07": 21,
+      "MR08": 27,
+      "MR09": 12,
+      "MR10": 14,
+      "MR11": 6,
+      "MR12": 30,
+      "MR13": 27,
+      "MR14": 21
+    },
+    "greedy_order": [
+      "MR05",
+      "MR02",
+      "MR04",
+      "MR08",
+      "MR11",
+      "MR09",
+      "MR10"
+    ],
+    "pilot": {
+      "unit_count": 60,
+      "full_suite_killed": 53,
+      "MR02_killed": 0,
+      "MR10_killed": 13,
+      "final_full_suite_killed": 60
+    }
+  },
+  "checks": {
+    "catalog_rows_882": true,
+    "clean_42_of_42": true,
+    "mutant_rows_840": true,
+    "failing_mutant_rows_248": true,
+    "defect_units_60_of_60": true,
+    "breadth_216_of_216": true,
+    "suite_counts": true,
+    "pilot_53_of_60": true
+  },
+  "verdict": "PASS"
+}

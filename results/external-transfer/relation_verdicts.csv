@@ -1,0 +1,139 @@
+after_sha256,before_sha256,case,compiler,distinct_outputs,mode,optimization,reason,relation,variant,verdict
+,,119,gcc,,native,O0,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,gcc,,native,O0,,host_observation_equivalence,,SATISFIED
+,,119,gcc,,native,O1,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,gcc,,native,O1,,host_observation_equivalence,,SATISFIED
+,,119,gcc,,native,O2,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,gcc,,native,O2,,host_observation_equivalence,,SATISFIED
+,,119,gcc,,native,O3,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,gcc,,native,O3,,host_observation_equivalence,,SATISFIED
+,,119,gcc,,native,Os,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,gcc,,native,Os,,host_observation_equivalence,,SATISFIED
+,,119,clang,,native,O0,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,clang,,native,O0,,host_observation_equivalence,,SATISFIED
+,,119,clang,,native,O1,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,clang,,native,O1,,host_observation_equivalence,,SATISFIED
+,,119,clang,,native,O2,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,clang,,native,O2,,host_observation_equivalence,,SATISFIED
+,,119,clang,,native,O3,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,clang,,native,O3,,host_observation_equivalence,,SATISFIED
+,,119,clang,,native,Os,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,clang,,native,Os,,host_observation_equivalence,,SATISFIED
+,,119,all,1,native,all,,compiler_optimization_stability,before,SATISFIED
+,,119,all,1,native,all,,compiler_optimization_stability,watermarked,SATISFIED
+,,119,all,,native,all,The fixed public example surface provides labeled source pairs but no automatable source-to-payload extraction interface; filenames are not used as a payload oracle.,payload_recovery,,INADMISSIBLE
+,,2929,gcc,,native,O0,Both source variants must compile and terminate successfully before semantic comparison.,execution_only_baseline,,INADMISSIBLE
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,2929,gcc,,native,O0,Both source variants must compile and terminate successfully before semantic comparison.,host_observation_equivalence,,INADMISSIBLE
+,,2929,gcc,,native,O1,Both source variants must compile and terminate successfully before semantic comparison.,execution_only_baseline,,INADMISSIBLE
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,2929,gcc,,native,O1,Both source variants must compile and terminate successfully before semantic comparison.,host_observation_equivalence,,INADMISSIBLE
+,,2929,gcc,,native,O2,Both source variants must compile and terminate successfully before semantic comparison.,execution_only_baseline,,INADMISSIBLE
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,2929,gcc,,native,O2,Both source variants must compile and terminate successfully before semantic comparison.,host_observation_equivalence,,INADMISSIBLE
+,,2929,gcc,,native,O3,Both source variants must compile and terminate successfully before semantic comparison.,execution_only_baseline,,INADMISSIBLE
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,2929,gcc,,native,O3,Both source variants must compile and terminate successfully before semantic comparison.,host_observation_equivalence,,INADMISSIBLE
+,,2929,gcc,,native,Os,Both source variants must compile and terminate successfully before semantic comparison.,execution_only_baseline,,INADMISSIBLE
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,2929,gcc,,native,Os,Both source variants must compile and terminate successfully before semantic comparison.,host_observation_equivalence,,INADMISSIBLE
+,,2929,clang,,native,O0,Both source variants must compile and terminate successfully before semantic comparison.,execution_only_baseline,,INADMISSIBLE
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,2929,clang,,native,O0,Both source variants must compile and terminate successfully before semantic comparison.,host_observation_equivalence,,INADMISSIBLE
+,,2929,clang,,native,O1,Both source variants must compile and terminate successfully before semantic comparison.,execution_only_baseline,,INADMISSIBLE
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,2929,clang,,native,O1,Both source variants must compile and terminate successfully before semantic comparison.,host_observation_equivalence,,INADMISSIBLE
+,,2929,clang,,native,O2,Both source variants must compile and terminate successfully before semantic comparison.,execution_only_baseline,,INADMISSIBLE
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,2929,clang,,native,O2,Both source variants must compile and terminate successfully before semantic comparison.,host_observation_equivalence,,INADMISSIBLE
+,,2929,clang,,native,O3,Both source variants must compile and terminate successfully before semantic comparison.,execution_only_baseline,,INADMISSIBLE
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,2929,clang,,native,O3,Both source variants must compile and terminate successfully before semantic comparison.,host_observation_equivalence,,INADMISSIBLE
+,,2929,clang,,native,Os,Both source variants must compile and terminate successfully before semantic comparison.,execution_only_baseline,,INADMISSIBLE
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,2929,clang,,native,Os,Both source variants must compile and terminate successfully before semantic comparison.,host_observation_equivalence,,INADMISSIBLE
+,,2929,all,,native,all,All compiler-optimization configurations must compile and terminate before stability is evaluated.,compiler_optimization_stability,before,INADMISSIBLE
+,,2929,all,1,native,all,,compiler_optimization_stability,watermarked,SATISFIED
+,,2929,all,,native,all,The fixed public example surface provides labeled source pairs but no automatable source-to-payload extraction interface; filenames are not used as a payload oracle.,payload_recovery,,INADMISSIBLE
+,,363,gcc,,native,O0,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,gcc,,native,O0,,host_observation_equivalence,,SATISFIED
+,,363,gcc,,native,O1,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,gcc,,native,O1,,host_observation_equivalence,,SATISFIED
+,,363,gcc,,native,O2,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,gcc,,native,O2,,host_observation_equivalence,,SATISFIED
+,,363,gcc,,native,O3,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,gcc,,native,O3,,host_observation_equivalence,,SATISFIED
+,,363,gcc,,native,Os,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,gcc,,native,Os,,host_observation_equivalence,,SATISFIED
+,,363,clang,,native,O0,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,clang,,native,O0,,host_observation_equivalence,,SATISFIED
+,,363,clang,,native,O1,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,clang,,native,O1,,host_observation_equivalence,,SATISFIED
+,,363,clang,,native,O2,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,clang,,native,O2,,host_observation_equivalence,,SATISFIED
+,,363,clang,,native,O3,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,clang,,native,O3,,host_observation_equivalence,,SATISFIED
+,,363,clang,,native,Os,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,clang,,native,Os,,host_observation_equivalence,,SATISFIED
+,,363,all,1,native,all,,compiler_optimization_stability,before,SATISFIED
+,,363,all,1,native,all,,compiler_optimization_stability,watermarked,SATISFIED
+,,363,all,,native,all,The fixed public example surface provides labeled source pairs but no automatable source-to-payload extraction interface; filenames are not used as a payload oracle.,payload_recovery,,INADMISSIBLE
+,,119,gcc,,compatibility,O0,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,gcc,,compatibility,O0,,host_observation_equivalence,,SATISFIED
+,,119,gcc,,compatibility,O1,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,gcc,,compatibility,O1,,host_observation_equivalence,,SATISFIED
+,,119,gcc,,compatibility,O2,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,gcc,,compatibility,O2,,host_observation_equivalence,,SATISFIED
+,,119,gcc,,compatibility,O3,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,gcc,,compatibility,O3,,host_observation_equivalence,,SATISFIED
+,,119,gcc,,compatibility,Os,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,gcc,,compatibility,Os,,host_observation_equivalence,,SATISFIED
+,,119,clang,,compatibility,O0,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,clang,,compatibility,O0,,host_observation_equivalence,,SATISFIED
+,,119,clang,,compatibility,O1,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,clang,,compatibility,O1,,host_observation_equivalence,,SATISFIED
+,,119,clang,,compatibility,O2,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,clang,,compatibility,O2,,host_observation_equivalence,,SATISFIED
+,,119,clang,,compatibility,O3,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,clang,,compatibility,O3,,host_observation_equivalence,,SATISFIED
+,,119,clang,,compatibility,Os,,execution_only_baseline,,SATISFIED
+bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,bbda4737976e7abf8aaae06cafe87f813ed57f99f3d5e53755fce43c7b84f387,119,clang,,compatibility,Os,,host_observation_equivalence,,SATISFIED
+,,119,all,1,compatibility,all,,compiler_optimization_stability,before,SATISFIED
+,,119,all,1,compatibility,all,,compiler_optimization_stability,watermarked,SATISFIED
+,,119,all,,compatibility,all,The fixed public example surface provides labeled source pairs but no automatable source-to-payload extraction interface; filenames are not used as a payload oracle.,payload_recovery,,INADMISSIBLE
+,,2929,gcc,,compatibility,O0,,execution_only_baseline,,SATISFIED
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,2929,gcc,,compatibility,O0,,host_observation_equivalence,,INCONSISTENT
+,,2929,gcc,,compatibility,O1,,execution_only_baseline,,SATISFIED
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,2929,gcc,,compatibility,O1,,host_observation_equivalence,,INCONSISTENT
+,,2929,gcc,,compatibility,O2,,execution_only_baseline,,SATISFIED
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,2929,gcc,,compatibility,O2,,host_observation_equivalence,,INCONSISTENT
+,,2929,gcc,,compatibility,O3,,execution_only_baseline,,SATISFIED
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,2929,gcc,,compatibility,O3,,host_observation_equivalence,,INCONSISTENT
+,,2929,gcc,,compatibility,Os,,execution_only_baseline,,SATISFIED
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,2929,gcc,,compatibility,Os,,host_observation_equivalence,,INCONSISTENT
+,,2929,clang,,compatibility,O0,,execution_only_baseline,,SATISFIED
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,2929,clang,,compatibility,O0,,host_observation_equivalence,,INCONSISTENT
+,,2929,clang,,compatibility,O1,,execution_only_baseline,,SATISFIED
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,2929,clang,,compatibility,O1,,host_observation_equivalence,,INCONSISTENT
+,,2929,clang,,compatibility,O2,,execution_only_baseline,,SATISFIED
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,2929,clang,,compatibility,O2,,host_observation_equivalence,,INCONSISTENT
+,,2929,clang,,compatibility,O3,,execution_only_baseline,,SATISFIED
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,2929,clang,,compatibility,O3,,host_observation_equivalence,,INCONSISTENT
+,,2929,clang,,compatibility,Os,,execution_only_baseline,,SATISFIED
+9c05c8b600579ba4f248a5fbb74d516f0cbb059f65a2656b492f8c7eb790e28b,d41ad7d5f9ce8d151bf1d2e79e3cd853e115468b3fafa78f1beab4185747eb1f,2929,clang,,compatibility,Os,,host_observation_equivalence,,INCONSISTENT
+,,2929,all,1,compatibility,all,,compiler_optimization_stability,before,SATISFIED
+,,2929,all,1,compatibility,all,,compiler_optimization_stability,watermarked,SATISFIED
+,,2929,all,,compatibility,all,The fixed public example surface provides labeled source pairs but no automatable source-to-payload extraction interface; filenames are not used as a payload oracle.,payload_recovery,,INADMISSIBLE
+,,363,gcc,,compatibility,O0,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,gcc,,compatibility,O0,,host_observation_equivalence,,SATISFIED
+,,363,gcc,,compatibility,O1,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,gcc,,compatibility,O1,,host_observation_equivalence,,SATISFIED
+,,363,gcc,,compatibility,O2,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,gcc,,compatibility,O2,,host_observation_equivalence,,SATISFIED
+,,363,gcc,,compatibility,O3,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,gcc,,compatibility,O3,,host_observation_equivalence,,SATISFIED
+,,363,gcc,,compatibility,Os,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,gcc,,compatibility,Os,,host_observation_equivalence,,SATISFIED
+,,363,clang,,compatibility,O0,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,clang,,compatibility,O0,,host_observation_equivalence,,SATISFIED
+,,363,clang,,compatibility,O1,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,clang,,compatibility,O1,,host_observation_equivalence,,SATISFIED
+,,363,clang,,compatibility,O2,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,clang,,compatibility,O2,,host_observation_equivalence,,SATISFIED
+,,363,clang,,compatibility,O3,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,clang,,compatibility,O3,,host_observation_equivalence,,SATISFIED
+,,363,clang,,compatibility,Os,,execution_only_baseline,,SATISFIED
+eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,eccdf2eb209b3388d9e5affd161b044f3534105627af6f27c94d9473dc0d2312,363,clang,,compatibility,Os,,host_observation_equivalence,,SATISFIED
+,,363,all,1,compatibility,all,,compiler_optimization_stability,before,SATISFIED
+,,363,all,1,compatibility,all,,compiler_optimization_stability,watermarked,SATISFIED
+,,363,all,,compatibility,all,The fixed public example surface provides labeled source pairs but no automatable source-to-payload extraction interface; filenames are not used as a payload oracle.,payload_recovery,,INADMISSIBLE

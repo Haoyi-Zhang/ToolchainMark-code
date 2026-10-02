@@ -1,0 +1,5 @@
+suite,relations,design_units_exposed,design_units,score_percent
+round_trip,MR01,21,72,29.17
+host_semantics,MR01 MR02,27,72,37.50
+compiler_differential,MR01 MR02 MR06 MR07,33,72,45.83
+complete_catalog,MR01 MR02 MR03 MR04 MR05 MR06 MR07 MR08 MR09 MR10 MR11 MR12 MR13 MR14,72,72,100.00

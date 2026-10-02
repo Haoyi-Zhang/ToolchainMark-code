@@ -1,0 +1,35 @@
+{
+  "schema_version": "2.0",
+  "recorded_date": "2026-07-22",
+  "platform": "Linux-6.12.13-x86_64-with-glibc2.41",
+  "python": "3.13.5",
+  "gcc": "GCC 14.2.0",
+  "clang": "Clang 17.0.0",
+  "gnu_binutils": "2.44",
+  "llvm_objcopy": "LLVM 17.0.0",
+  "libraries": {
+    "zlib": "1.3.1",
+    "openssl": "3.5.5",
+    "sqlite3": "3.46.1",
+    "libxml2": "2.9.14",
+    "json-c": "0.18",
+    "libpng": "1.6.48"
+  },
+  "typesetting": {
+    "pdftex": "1.40.26; TeX Live 2025/dev",
+    "bibtex": "0.99d; TeX Live 2025/dev"
+  },
+  "executables": {
+    "python3": "PATH:python3",
+    "gcc": "PATH:gcc",
+    "clang": "PATH:clang",
+    "objcopy": "PATH:objcopy",
+    "nm": "PATH:nm",
+    "strip": "PATH:strip",
+    "llvm-objcopy": "PATH:llvm-objcopy",
+    "pdflatex": "PATH:pdflatex"
+  },
+  "bibtex_executable": "SYSTEM:BibTeX 0.99d",
+  "path_recording_policy": "Command names, versions, and executable hashes are recorded; machine-local absolute executable paths are intentionally omitted.",
+  "resource_profile": "CPU_ONLY_NO_GPU_NO_MODEL_API_NO_LLM"
+}

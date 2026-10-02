@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.0",
+  "classification": "FRESH_CLEAN_SOURCE_RERUN_SAME_ENVIRONMENT_NOT_EXTERNAL_INDEPENDENT_REPLICATION",
+  "command": "python3 scripts/run_base_rerun.py --output results/fresh-rerun-2026-07-23 --workers 8",
+  "comparison_rule": "Rows are keyed by surface, host, carrier, defect, relation, and pilot flag. Every field except duration_seconds must match exactly; both durations must remain positive.",
+  "frozen_environment_sha256": "291c16faf946260bab0ab42fe7ed6db40dd5b61e529d0e650e734ed2a7ac2287",
+  "fresh_rerun_environment_sha256": "291c16faf946260bab0ab42fe7ed6db40dd5b61e529d0e650e734ed2a7ac2287",
+  "total_rows_compared": 1938,
+  "matrices": [
+    {
+      "file": "catalog_matrix.csv",
+      "frozen_sha256": "6f54b1dddb69384dc5d8f595476f170a6e86c640b11b7a2a9616f069bea0e699",
+      "fresh_rerun_sha256": "083f01a01c4d28f7dbd39d84f982996458ddfcfd4a83b33e27b928e96b6448d6",
+      "rows": 882,
+      "key_columns": [
+        "surface",
+        "host",
+        "carrier",
+        "defect_id",
+        "relation_id",
+        "pilot"
+      ],
+      "compared_columns": [
+        "surface",
+        "host",
+        "host_sha256",
+        "carrier",
+        "defect_id",
+        "defect_operator",
+        "fault_class",
+        "relation_id",
+        "relation_name",
+        "polarity",
+        "pass",
+        "killed",
+        "detail",
+        "exception_class",
+        "pilot",
+        "observations_json"
+      ],
+      "excluded_platform_sensitive_columns": [
+        "duration_seconds"
+      ],
+      "non_timing_mismatch_rows": 0,
+      "non_timing_difference_counts": {},
+      "duration_equal_rows": 0,
+      "duration_different_rows": 882,
+      "checks": {
+        "column_schema_identical": true,
+        "expected_row_count": true,
+        "row_keys_unique_frozen": true,
+        "row_keys_unique_rerun": true,
+        "row_key_sets_identical": true,
+        "all_non_timing_fields_identical": true,
+        "all_durations_positive": true
+      },
+      "verdict": "PASS"
+    },
+    {
+      "file": "pilot_matrix.csv",
+      "frozen_sha256": "f2f5547727f261bf2ad8f8dda48a5fee2c363e87710fb5b26b71c7bdbf9b30ff",
+      "fresh_rerun_sha256": "3d62d180c2eafd8279d0239c871ca187a44c6b45a078b738ba9ff98a955882c0",
+      "rows": 840,
+      "key_columns": [
+        "surface",
+        "host",
+        "carrier",
+        "defect_id",
+        "relation_id",
+        "pilot"
+      ],
+      "compared_columns": [
+        "surface",
+        "host",
+        "host_sha256",
+        "carrier",
+        "defect_id",
+        "defect_operator",
+        "fault_class",
+        "relation_id",
+        "relation_name",
+        "polarity",
+        "pass",
+        "killed",
+        "detail",
+        "exception_class",
+        "pilot",
+        "observations_json"
+      ],
+      "excluded_platform_sensitive_columns": [
+        "duration_seconds"
+      ],
+      "non_timing_mismatch_rows": 0,
+      "non_timing_difference_counts": {},
+      "duration_equal_rows": 0,
+      "duration_different_rows": 840,
+      "checks": {
+        "column_schema_identical": true,
+        "expected_row_count": true,
+        "row_keys_unique_frozen": true,
+        "row_keys_unique_rerun": true,
+        "row_key_sets_identical": true,
+        "all_non_timing_fields_identical": true,
+        "all_durations_positive": true
+      },
+      "verdict": "PASS"
+    },
+    {
+      "file": "breadth_matrix.csv",
+      "frozen_sha256": "53a03dee0ffaaf072e2828911cd95e31995850a516e3bc8ace720caef7e70d52",
+      "fresh_rerun_sha256": "715dfb8c2f62df1a8eaf3340958e67adfa00d9931adf4879fca26c70153f38d4",
+      "rows": 216,
+      "key_columns": [
+        "surface",
+        "host",
+        "carrier",
+        "defect_id",
+        "relation_id",
+        "pilot"
+      ],
+      "compared_columns": [
+        "surface",
+        "host",
+        "host_sha256",
+        "carrier",
+        "defect_id",
+        "defect_operator",
+        "fault_class",
+        "relation_id",
+        "relation_name",
+        "polarity",
+        "pass",
+        "killed",
+        "detail",
+        "exception_class",
+        "pilot",
+        "observations_json"
+      ],
+      "excluded_platform_sensitive_columns": [
+        "duration_seconds"
+      ],
+      "non_timing_mismatch_rows": 0,
+      "non_timing_difference_counts": {},
+      "duration_equal_rows": 0,
+      "duration_different_rows": 216,
+      "checks": {
+        "column_schema_identical": true,
+        "expected_row_count": true,
+        "row_keys_unique_frozen": true,
+        "row_keys_unique_rerun": true,
+        "row_key_sets_identical": true,
+        "all_non_timing_fields_identical": true,
+        "all_durations_positive": true
+      },
+      "verdict": "PASS"
+    }
+  ],
+  "checks": {
+    "three_matrices_compared": true,
+    "total_rows_1938": true,
+    "all_matrix_comparisons_pass": true,
+    "environment_record_identical": true,
+    "fresh_rerun_recheck_pass": true,
+    "fresh_rerun_recheck_predicates_8": true,
+    "fresh_rerun_recheck_all_true": true
+  },
+  "limitations": [
+    "The rerun used a fresh clean source copy but the same container toolchain family and is not an external independent replication.",
+    "Wall-clock durations are scheduler-sensitive and are deliberately excluded from exact equality.",
+    "A stateless artifact-only peer review remains unavailable and is not represented as completed."
+  ],
+  "verdict": "PASS"
+}

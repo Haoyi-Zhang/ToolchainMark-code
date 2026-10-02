@@ -1,0 +1,72 @@
+{
+  "schema_version": "20260923-retained-evidence",
+  "audit_date": "2026-09-23",
+  "status": "INHERITED_EXECUTION_NOT_RERUN_THIS_REVISION",
+  "source_report": "artifact/results/protocol-history/imported-audits/artifact--audit--external_transfer_audit.json",
+  "files": {
+    "summary.json": "2c4f7ce2c6144031405ce52b686cc7ecfb87da6f9cbf0aaab2f986bc58159cc6",
+    "case_summary.csv": "3aafaaf9fa67bde2089fd96308ef879f93aeb467e56a37f0f4d83c9a855400e7",
+    "execution_rows.csv": "7c629c8493851ab694eea99cc2125c054ff743492eef58dde8eb21167b44459e",
+    "relation_verdicts.csv": "b6c82927a0e235a1362e244359126dc58ce5aff4a036d13023802746b4d645da",
+    "sanitizer_rows.csv": "40838033b57405c35c5a2b12e6a1791c54097661bc34f983e0d16458c9d072ea"
+  },
+  "results": {
+    "commit": "f63f49a770e3b0dc4f1d092cfa22ec2610eb13f8",
+    "compatibility_execution_rows": 60,
+    "compatibility_exit_only_checks": 30,
+    "compatibility_exit_only_satisfied": 30,
+    "compatibility_host_semantic_checks": 30,
+    "compatibility_host_semantic_inconsistent": 10,
+    "compatibility_host_semantic_satisfied": 20,
+    "compatibility_intervention": "The same forced-include header maps the obsolete isnanf spelling to the standard isnan predicate for every source variant; no external source is edited.",
+    "compatibility_pair_exit_only_pass": 3,
+    "compatibility_pair_host_semantic_inconsistent": 1,
+    "compatibility_pair_host_semantic_pass": 2,
+    "compilers": [
+      "gcc",
+      "clang"
+    ],
+    "execution_rows": 120,
+    "external_repository": "felipeasimos/software-watermark",
+    "modes": [
+      "native",
+      "compatibility"
+    ],
+    "native_execution_rows": 60,
+    "native_semantic_checks": 30,
+    "native_semantic_inadmissible": 10,
+    "optimization_levels": [
+      "O0",
+      "O1",
+      "O2",
+      "O3",
+      "Os"
+    ],
+    "payload_recovery_reason": "No automated source-to-payload extraction interface is present in the fixed public example surface; filenames are not treated as an oracle.",
+    "payload_recovery_verdict": "INADMISSIBLE",
+    "redistribution": "SOURCE_NOT_PACKAGED_NO_EXPLICIT_REPOSITORY_LICENSE_AT_FIXED_COMMIT",
+    "relocation_admitted": 110,
+    "relocation_attempts": 120,
+    "relocation_inadmissible": 10,
+    "relocation_satisfied": 110,
+    "sanitizer_checks": 12,
+    "sanitizer_clean": 12,
+    "scholarly_doi": "10.1109/MetroInd4.0IoT54413.2022.9831668",
+    "source_files": 6,
+    "source_identity_checks": 6,
+    "source_identity_mismatches": 0,
+    "source_pairs": 3
+  },
+  "checks": {
+    "retained_result_hashes_match_import": true,
+    "inherited_comparisons_30": true,
+    "inherited_discrepancies_10": true,
+    "no_new_external_execution_claimed": true
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "No claim of a new source acquisition, build, or external execution.",
+    "Pair equivalence is an assumption; these are not confirmed historical watermark defects.",
+    "No automated embedding/extraction benchmark or independent parser was executed."
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.0",
+  "mutants": [
+    {
+      "id": "M01",
+      "operator": "embed_noop",
+      "fault_class": "embedding",
+      "behavior": "Omit the carrier while continuing compilation.",
+      "primary_relation": "MR01"
+    },
+    {
+      "id": "M02",
+      "operator": "truncate_payload",
+      "fault_class": "embedding",
+      "behavior": "Drop the final payload byte before embedding.",
+      "primary_relation": "MR01"
+    },
+    {
+      "id": "M03",
+      "operator": "flip_payload",
+      "fault_class": "embedding",
+      "behavior": "Flip one bit in the first payload byte.",
+      "primary_relation": "MR01"
+    },
+    {
+      "id": "M04",
+      "operator": "fixed_payload",
+      "fault_class": "state",
+      "behavior": "Replace every requested payload with fixed-payload.",
+      "primary_relation": "MR05"
+    },
+    {
+      "id": "M05",
+      "operator": "lower_payload",
+      "fault_class": "normalization",
+      "behavior": "Lowercase payload bytes before embedding.",
+      "primary_relation": "MR01"
+    },
+    {
+      "id": "M06",
+      "operator": "key_ignored",
+      "fault_class": "authentication",
+      "behavior": "Encode and extract without key sensitivity.",
+      "primary_relation": "MR04"
+    },
+    {
+      "id": "M07",
+      "operator": "sidecar_oracle",
+      "fault_class": "artifact binding",
+      "behavior": "Store payload/key beside the binary and extract only from that sidecar.",
+      "primary_relation": "MR08"
+    },
+    {
+      "id": "M08",
+      "operator": "global_cache_oracle",
+      "fault_class": "state",
+      "behavior": "Return the latest payload retained in process state.",
+      "primary_relation": "MR04"
+    },
+    {
+      "id": "M09",
+      "operator": "unmarked_default",
+      "fault_class": "false positive",
+      "behavior": "Return Morph-01 whenever carrier parsing fails.",
+      "primary_relation": "MR03"
+    },
+    {
+      "id": "M10",
+      "operator": "semantic_plus_one",
+      "fault_class": "semantic corruption",
+      "behavior": "Increment every marked-program output by one.",
+      "primary_relation": "MR02"
+    },
+    {
+      "id": "M11",
+      "operator": "semantic_input13",
+      "fault_class": "semantic corruption",
+      "behavior": "Increment marked output only when input equals 13.",
+      "primary_relation": "MR02"
+    },
+    {
+      "id": "M12",
+      "operator": "compile_original",
+      "fault_class": "stage routing",
+      "behavior": "Compile the original source instead of the marked representation.",
+      "primary_relation": "MR01"
+    },
+    {
+      "id": "M13",
+      "operator": "force_gcc",
+      "fault_class": "configuration",
+      "behavior": "Replace every compiler request with GCC.",
+      "primary_relation": "MR11"
+    },
+    {
+      "id": "M14",
+      "operator": "force_O0",
+      "fault_class": "configuration",
+      "behavior": "Replace every optimization request with O0.",
+      "primary_relation": "MR11"
+    },
+    {
+      "id": "M15",
+      "operator": "transform_noop",
+      "fault_class": "transformation",
+      "behavior": "Report carrier removal but copy the artifact unchanged.",
+      "primary_relation": "MR09"
+    },
+    {
+      "id": "M16",
+      "operator": "checksum_bypass",
+      "fault_class": "integrity",
+      "behavior": "Ignore checksum mismatch during extraction.",
+      "primary_relation": "MR10"
+    },
+    {
+      "id": "M17",
+      "operator": "filename_bound",
+      "fault_class": "artifact binding",
+      "behavior": "Reject artifacts whose resolved path is not an original build path.",
+      "primary_relation": "MR08"
+    },
+    {
+      "id": "M18",
+      "operator": "stale_binary",
+      "fault_class": "state",
+      "behavior": "Reuse the first marked binary for later artifact materializations.",
+      "primary_relation": "MR05"
+    },
+    {
+      "id": "M19",
+      "operator": "extractor_prefix",
+      "fault_class": "extraction",
+      "behavior": "Drop the final byte after otherwise valid extraction.",
+      "primary_relation": "MR01"
+    },
+    {
+      "id": "M20",
+      "operator": "interleaved_collision",
+      "fault_class": "state",
+      "behavior": "Store builds in one process-global payload slot so the latest value wins.",
+      "primary_relation": "MR12"
+    },
+    {
+      "id": "M21",
+      "operator": "alternate_compiler_corruption",
+      "fault_class": "configuration",
+      "behavior": "Corrupt the payload only for the alternate compiler family.",
+      "primary_relation": "MR06"
+    },
+    {
+      "id": "M22",
+      "operator": "size_optimization_corruption",
+      "fault_class": "configuration",
+      "behavior": "Corrupt the payload only under size optimization.",
+      "primary_relation": "MR07"
+    },
+    {
+      "id": "M23",
+      "operator": "revisit_state_contamination",
+      "fault_class": "state",
+      "behavior": "Return an intervening artifact's payload when an earlier artifact is revisited.",
+      "primary_relation": "MR13"
+    },
+    {
+      "id": "M24",
+      "operator": "second_identical_build_corruption",
+      "fault_class": "state",
+      "behavior": "Corrupt only the second identical marked build.",
+      "primary_relation": "MR14"
+    }
+  ]
+}

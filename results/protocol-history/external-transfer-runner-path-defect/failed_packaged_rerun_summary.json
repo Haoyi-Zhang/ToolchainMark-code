@@ -1,0 +1,8 @@
+{
+  "classification": "REEXECUTION_HARNESS_DEFECT_NOT_EXTERNAL_IMPLEMENTATION_VERDICT",
+  "compatibility_compiles_failed": 60,
+  "compatibility_exit_only_satisfied": 0,
+  "compatibility_host_semantic_satisfied": 0,
+  "relocation_admitted": 50,
+  "sanitizer_clean": 0
+}

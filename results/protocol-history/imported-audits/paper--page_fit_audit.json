@@ -1,0 +1,66 @@
+{
+  "schema_version": "13.0",
+  "audit_date": "2026-07-28",
+  "manuscript_sha256": "58d766fe13dbc0c48b84463295979fa91e0edb334faddc8274d4f9c7a44e7db0",
+  "source_sha256": "36502b652cb3570092133f949687fd3538eeccfce67eac66030be38da961f9c0",
+  "template_sha256": "2f949e6e3f2a79f2cdc218b9dcdbaa7dd451adb4ee0be1af6dc7ebe00b318ea7",
+  "template_mode": "acmsmall,review,screen",
+  "official_limit_kind": "LIVE_TOSEM_RULES_UNAVAILABLE_HTTP_403; USER_INTERNAL_FIT_LOCK_APPLIED",
+  "measurement_note": "Body baselines are measured from rendered word coordinates with review line numbers (x<50 pt), running headers, and the ACM footer excluded.",
+  "user_internal_fit_lock": {
+    "normal_article_body_pages_required": 44,
+    "bibliography_required_start_page": 45,
+    "inline_scientific_appendix_allowed": false
+  },
+  "rendered": {
+    "total_pages": 48,
+    "normal_article_body_pages": [
+      1,
+      44
+    ],
+    "bibliography_start_page": 45,
+    "references_pages": [
+      45,
+      48
+    ],
+    "references_token_pages": [
+      45
+    ],
+    "page_44_last_body_baseline_ymax_pt": 656.581604,
+    "adjacent_full_pages_used": [
+      40,
+      41,
+      42,
+      43
+    ],
+    "adjacent_full_body_last_baselines_ymax_pt": [
+      653.243591,
+      656.341553,
+      656.455566,
+      655.958557
+    ],
+    "adjacent_full_body_last_baseline_median_ymax_pt": 656.150055,
+    "absolute_baseline_difference_pt": 0.431549,
+    "ordinary_body_line_spacing_pt": 11.955017,
+    "within_one_ordinary_body_line": true
+  },
+  "fit_methods": {
+    "margin_change": false,
+    "body_font_change": false,
+    "line_spacing_change": false,
+    "bibliography_font_change": false,
+    "negative_vertical_spacing": false,
+    "whole_document_scaling": false,
+    "reference_manipulation": false
+  },
+  "checks": {
+    "exactly_44_normal_body_pages": true,
+    "references_begin_page_45": true,
+    "no_references_on_pages_1_to_44": true,
+    "page_44_filled_to_within_one_line": true,
+    "no_inline_appendix": true,
+    "body_does_not_exceed_45_pages": true
+  },
+  "visual_verdict": "PASS",
+  "verdict": "PASS"
+}

@@ -1,0 +1,197 @@
+{
+  "schema_version": "13.0",
+  "audit_date": "2026-07-28",
+  "pdfs": {
+    "main": {
+      "sha256": "58d766fe13dbc0c48b84463295979fa91e0edb334faddc8274d4f9c7a44e7db0",
+      "pages": 48
+    },
+    "submission": {
+      "sha256": "ca896ea6516946d207c7e9c75c7360e206338c846ebb7242e9e878ce9a8bc8e7",
+      "pages": 46
+    },
+    "supplement": {
+      "sha256": "f7e531d1e95b48758b950e9b99c8ffaa615f54868c39da134e57a370a4250a52",
+      "pages": 6
+    }
+  },
+  "full_page_rendering": {
+    "main": {
+      "pdfium": {
+        "dpi": 160,
+        "pages": 48
+      },
+      "pdftoppm": {
+        "dpi": 160,
+        "pages": 48
+      }
+    },
+    "submission": {
+      "pdfium": {
+        "dpi": 160,
+        "pages": 46
+      },
+      "pdftoppm": {
+        "dpi": 120,
+        "pages": 46
+      }
+    },
+    "supplement": {
+      "pdfium": {
+        "dpi": 160,
+        "pages": 6
+      },
+      "pdftoppm": {
+        "dpi": 160,
+        "pages": 6
+      }
+    },
+    "numeric_page_order_used": true
+  },
+  "manual_inspection": {
+    "all_pdfium_pages_in_numeric_montages": {
+      "main": 48,
+      "submission": 46,
+      "supplement": 6
+    },
+    "all_poppler_pages_in_numeric_montages": {
+      "main": 48,
+      "submission": 46,
+      "supplement": 6
+    },
+    "byte_binding_note": "The author correction changes only page 1 on each surface. The revised title pages were rendered and inspected in PDFium and Poppler; a full Poppler render comparison confirmed pages 2-48 of the publication surface are unchanged.",
+    "cross_engine_key_pages_at_240_dpi": true,
+    "title_page_author_layout": "four separate native ACM author rows; Zhaojie Zhang uses the current XJTLU student e-mail; first three authors are XJTLU and fourth author is NTU",
+    "figure_strategy": "seven claim-linked visuals with distinct roles: motivating counterexample, trace semantics, PL-style judgments, execution architecture, evaluation design, finite-suite/generalization comparison, and external transfer"
+  },
+  "high_resolution_inspection": {
+    "dpi": 240,
+    "main_pages": [
+      1,
+      2,
+      9,
+      10,
+      20,
+      31,
+      34,
+      37,
+      44,
+      45,
+      48
+    ],
+    "submission_pages": [
+      1,
+      2,
+      8,
+      10,
+      20,
+      30,
+      33,
+      36,
+      43,
+      44,
+      46
+    ],
+    "supplement_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "renderers": [
+      "PDFium",
+      "Poppler/pdftoppm"
+    ],
+    "coverage": "all author title pages, all seven article figures, body/reference boundaries, final references, and every supplement page"
+  },
+  "figure_pages": {
+    "main": {
+      "Figure 1": 2,
+      "Figure 2": 9,
+      "Figure 3": 10,
+      "Figure 4": 20,
+      "Figure 5": 31,
+      "Figure 6": 34,
+      "Figure 7": 37
+    },
+    "submission": {
+      "Figure 1": 2,
+      "Figure 2": 8,
+      "Figure 3": 10,
+      "Figure 4": 20,
+      "Figure 5": 30,
+      "Figure 6": 33,
+      "Figure 7": 36
+    }
+  },
+  "programmatic_geometry": {
+    "outside_page_spans": 0,
+    "blank_pages": 0,
+    "candidate_word_overlaps": 0,
+    "candidate_overlap_disposition": "No confirmed overlaps after full-page montage inspection and 240-dpi dual-renderer review of all figure/title/boundary pages."
+  },
+  "inspection_findings": {
+    "text_overlap": 0,
+    "module_overlap": 0,
+    "line_through_text": 0,
+    "arrow_text_collision": 0,
+    "line_border_collision": 0,
+    "content_outside_page_box": 0,
+    "clipped_content": 0,
+    "blank_pages": 0,
+    "broken_glyph_pages": 0,
+    "unexpected_float_pages": 0,
+    "body_reference_boundary_defects": 0,
+    "author_block_defects": 0,
+    "unnecessary_outer_figure_frames": 0,
+    "figure_internal_caption_bands": 0
+  },
+  "font_checks": {
+    "main": {
+      "records": 22,
+      "all_embedded": true,
+      "all_subset": true,
+      "all_unicode": true
+    },
+    "submission": {
+      "records": 22,
+      "all_embedded": true,
+      "all_subset": true,
+      "all_unicode": true
+    },
+    "supplement": {
+      "records": 4,
+      "all_embedded": true,
+      "all_subset": true,
+      "all_unicode": true
+    }
+  },
+  "preflight": {
+    "main": "PASS",
+    "submission": "PASS",
+    "supplement": "PASS",
+    "encrypted_pdfs": 0,
+    "scanned_pdfs": 0,
+    "xfa_forms": 0
+  },
+  "checks": {
+    "all_pages_rendered_in_pdfium_and_pdftoppm": true,
+    "all_pdfium_pages_manually_inspected": true,
+    "all_poppler_pages_manually_inspected": true,
+    "all_seven_figures_inspected_at_high_resolution": true,
+    "four_author_rows_inspected_both_renderers": true,
+    "two_distinct_affiliations_legible": true,
+    "page_44_and_45_inspected_at_high_resolution": true,
+    "all_supplement_pages_inspected_at_high_resolution": true,
+    "zero_confirmed_visual_defects": true,
+    "all_fonts_embedded_subset_unicode": true,
+    "all_pages_rendered_in_pdfium_and_poppler": true,
+    "zero_content_outside_page_box": true,
+    "zero_confirmed_line_or_word_collisions": true,
+    "font_record_counts_match_pdffonts_22_22_4": true
+  },
+  "stateless_artifact_only_review": "STATELESS_REVIEW_UNAVAILABLE",
+  "verdict": "PASS"
+}

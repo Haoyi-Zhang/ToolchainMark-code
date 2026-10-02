@@ -1,0 +1,15 @@
+relation_id,relation_name,killed_units,total_units,rate_percent
+MR01,Round-trip fidelity,21,60,35.0
+MR02,Host-semantic preservation,6,60,10.0
+MR03,Unmarked rejection,3,60,5.0
+MR04,Wrong-key rejection,9,60,15.0
+MR05,Payload separation,30,60,50.0
+MR06,Cross-compiler invariance,21,60,35.0
+MR07,Optimization invariance,21,60,35.0
+MR08,Clean-room relocation,27,60,45.0
+MR09,Carrier-removal rejection,12,60,20.0
+MR10,Carrier-corruption rejection,14,60,23.3
+MR11,Requested/actual trace agreement,6,60,10.0
+MR12,Interleaved artifact isolation,30,60,50.0
+MR13,Reordered extraction independence,27,60,45.0
+MR14,Rebuild stability,21,60,35.0

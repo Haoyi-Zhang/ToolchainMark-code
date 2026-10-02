@@ -1,0 +1,39 @@
+{
+  "all_durations_positive": true,
+  "compared_fields": [
+    "host",
+    "host_sha256",
+    "carrier",
+    "defect_id",
+    "relation_id",
+    "verdict",
+    "exposed",
+    "reason",
+    "phase",
+    "admission_json",
+    "observations_json"
+  ],
+  "differences": 0,
+  "examples": [],
+  "field_comparisons": 207900,
+  "first_sha256": "f9b77a0e93ea0ba33878d6ac088d4ed33e3919a16102ef91c721994731e19264",
+  "identical_key_sets": true,
+  "rerun_rows": 18900,
+  "rows": 18900,
+  "second_sha256": "fffdc3c3a87fb9924465a9e5833e0024961836310e0664b53ed3d5dda431aab7",
+  "verdict": "PASS",
+  "scope": "CURRENT_EVIDENCE_GATED_RUNS",
+  "historical_report": "artifact/results/protocol-history/imported-audits/artifact--audit--fresh_full_rerun_report.json",
+  "retained_field_count": 11,
+  "retained_field_comparisons": 207900,
+  "comparison_scope": "RETAINED_ROW_SUMMARY_FIELDS_ONLY_NOT_COMPLETE_TRAJECTORY",
+  "complete_trace_replay_claimed": false,
+  "unrecoverable_legacy_trace_fields": [
+    "full request",
+    "exact command and return evidence",
+    "generated source bytes",
+    "pre/post artifact identities",
+    "complete per-input observation trace"
+  ],
+  "legacy_workspaces": "cleaned; missing fields cannot be reconstructed and were not synthesized"
+}

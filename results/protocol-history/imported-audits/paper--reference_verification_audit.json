@@ -1,0 +1,36 @@
+{
+  "schema_version": "2.0",
+  "reference_target_floor": 60,
+  "reference_target": 70,
+  "record_count": 73,
+  "bibliography_count": 73,
+  "unique_scholarly_identifiers": 73,
+  "ledger_rows": 73,
+  "line_by_line_audit_rows": 73,
+  "external_identity_recheck_date": "2026-07-27",
+  "external_identity_recheck_method": "Each DOI and bibliographic identity was checked against a publisher page, DOI resolver result, or recognized scholarly index; the nearby manuscript sentence was then checked for direct support and project relevance.",
+  "entry_type_counts": {
+    "article": 49,
+    "incollection": 2,
+    "inproceedings": 22
+  },
+  "metadata_mismatches": [],
+  "forbidden_non_scholarly_entries": [],
+  "intrinsic_identifier_display_exception": null,
+  "checks": {
+    "target_floor_met": true,
+    "target_met": true,
+    "record_and_bibliography_keys_match": true,
+    "seventy_three_unique_scholarly_identifiers": true,
+    "structured_entry_types_49_22_2": true,
+    "zero_misc_or_unsupported_entry_types": true,
+    "record_bib_title_year_doi_metadata_match": true,
+    "all_records_have_title_authors_year_venue_identifier": true,
+    "all_ledger_rows_have_local_support": true,
+    "seventy_three_line_by_line_external_and_local_checks": true,
+    "zero_forbidden_non_scholarly_entries": true,
+    "citation_shape_pass": true
+  },
+  "verification_scope": "All 73 records were checked one by one for bibliographic identity, unique scholarly identifier, strongly related project relevance, and the precision of the nearby single-paper claim. Verification used DOI resolution plus publisher or recognized scholarly-index metadata and available abstracts or contribution summaries; it is not a claim of a new full-text systematic review of every paper.",
+  "verdict": "PASS"
+}

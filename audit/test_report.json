@@ -1,0 +1,8 @@
+{
+  "audit_date": "2026-09-23",
+  "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=artifact/src python -m unittest discover -s artifact/tests -v",
+  "tests": 38,
+  "result": "PASS",
+  "log_sha256": "be645b6a8eb5b4b3c53c6c7463dce860742fd5f740ce7168907b2a79043617d5",
+  "scope": "Executable unit and integration regressions, including legacy tests and new admission/safety regressions; not external verification."
+}

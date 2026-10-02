@@ -1,0 +1,13 @@
+case,compile_rc,compile_stderr,compiler,mode,run_rc,run_stderr,sanitizer_clean,variant
+119,0,,gcc,compatibility,0,,True,before
+119,0,,gcc,compatibility,0,,True,watermarked
+2929,0,,gcc,compatibility,0,,True,before
+2929,0,,gcc,compatibility,0,,True,watermarked
+363,0,,gcc,compatibility,0,,True,before
+363,0,,gcc,compatibility,0,,True,watermarked
+119,0,,clang,compatibility,0,,True,before
+119,0,,clang,compatibility,0,,True,watermarked
+2929,0,,clang,compatibility,0,,True,before
+2929,0,,clang,compatibility,0,,True,watermarked
+363,0,,clang,compatibility,0,,True,before
+363,0,,clang,compatibility,0,,True,watermarked
