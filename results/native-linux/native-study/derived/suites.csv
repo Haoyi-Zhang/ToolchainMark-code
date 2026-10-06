@@ -1,0 +1,5 @@
+suite,design_units,design_exposed,expanded_units,expanded_exposed,expanded_units_with_admitted_case
+round_trip,72,21,1296,378,1296
+host_semantics,72,27,1296,486,1296
+compiler_differential,72,33,1296,594,1296
+complete_catalog,72,69,1296,1242,1296

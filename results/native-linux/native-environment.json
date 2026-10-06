@@ -1,0 +1,12 @@
+{
+  "python": "3.12.14 (main, Aug 13 2026, 02:47:42) [GCC 13.3.0]",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "tools": {
+    "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "clang": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+    "objcopy": "GNU objcopy (GNU Binutils for Ubuntu) 2.42",
+    "nm": "GNU nm (GNU Binutils for Ubuntu) 2.42",
+    "strip": "GNU strip (GNU Binutils for Ubuntu) 2.42",
+    "readelf": "GNU readelf (GNU Binutils for Ubuntu) 2.42"
+  }
+}

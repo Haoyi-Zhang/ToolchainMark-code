@@ -1,0 +1,65 @@
+{
+  "workflow_run_id": "37402311165",
+  "workflow_job_id": "112072001072",
+  "execution_date": "2026-10-06",
+  "workflow_python_series": "3.12",
+  "environment_file": "native-environment.json",
+  "python": "3.12.14 (main, Aug 13 2026, 02:47:42) [GCC 13.3.0]",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "tools": {
+    "gcc": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "clang": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+    "objcopy": "GNU objcopy (GNU Binutils for Ubuntu) 2.42",
+    "nm": "GNU nm (GNU Binutils for Ubuntu) 2.42",
+    "strip": "GNU strip (GNU Binutils for Ubuntu) 2.42",
+    "readelf": "GNU readelf (GNU Binutils for Ubuntu) 2.42"
+  },
+  "campaign_workers": 4,
+  "archive": {
+    "file": "evidence.zip",
+    "bytes": 573700,
+    "original_download_preserved": true,
+    "raw_entries": [
+      "native-study/first.csv",
+      "native-study/second.csv"
+    ],
+    "derived_directory": "native-study/derived/",
+    "environment_entry": "native-environment.json",
+    "derived_files": 13
+  },
+  "results": {
+    "summary_file": "native-study/derived/summary.json",
+    "comparison_file": "native-study/derived/rerun_comparison.json",
+    "rows_per_run": 18900,
+    "clean_rows": 756,
+    "stage_isolation_rows": 972,
+    "fault_active_rows": 17172,
+    "field_comparisons": 207900,
+    "non_timing_differences": 0,
+    "units_exposed": 1242,
+    "units_planned": 1296,
+    "design_exposed": 69,
+    "design_planned": 72,
+    "unrevealed_operator": "M15",
+    "first_run_median_seconds": 0.136894,
+    "first_run_maximum_seconds": 0.677082,
+    "timing_scope": "Per-row relation attempt through row preparation, before subsequent case-workspace cleanup and outer temporary-directory disposal; not whole-campaign wall time."
+  },
+  "regression_tests": {
+    "log_file": "native-tests.txt",
+    "log_supplied_separately_from_archive": true,
+    "tests": 71,
+    "successful_test_lines": 71,
+    "duration_seconds": 10.391,
+    "result": "OK",
+    "native_elf_section_test": "test_evidence_boundaries.RealToolSectionBoundaryTests.test_real_elf_missing_and_present_section_are_distinct",
+    "native_elf_section_result": "ok"
+  },
+  "scope": {
+    "native_internal_campaign_completed": true,
+    "external_utility_study_rerun": false,
+    "upstream_source_pair_study_rerun": false,
+    "complete_execution_trajectories_available": false,
+    "external_team_replication": false
+  }
+}

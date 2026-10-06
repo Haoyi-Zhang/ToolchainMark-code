@@ -1,0 +1,185 @@
+{
+  "bootstrap": {
+    "median": 0.9583333333333334,
+    "minimum": 0.6,
+    "nonempty_out_of_bag": 10000,
+    "perfect": 1884,
+    "replicates": 10000,
+    "seed": 20260923,
+    "selection_counts": {
+      "MR02": 10000,
+      "MR04": 10000,
+      "MR05": 379,
+      "MR06": 9688,
+      "MR07": 9700,
+      "MR10": 10000,
+      "MR11": 9999,
+      "MR12": 9614,
+      "MR13": 9611,
+      "MR14": 9626
+    },
+    "suite_size_median": 9.0
+  },
+  "clean": {
+    "SATISFIED": 756
+  },
+  "clean_rows": 756,
+  "defect_rows": 18144,
+  "defect_verdicts": {
+    "INADMISSIBLE": 1008,
+    "INCONSISTENT": 4266,
+    "SATISFIED": 12870
+  },
+  "design_exposed": 69,
+  "design_units": 72,
+  "direct_exclusive_units": 594,
+  "legacy_transitions": [
+    {
+      "evidence_gated": "INADMISSIBLE",
+      "legacy": "FAIL",
+      "rows": 468
+    },
+    {
+      "evidence_gated": "INCONSISTENT",
+      "legacy": "FAIL",
+      "rows": 3996
+    },
+    {
+      "evidence_gated": "INADMISSIBLE",
+      "legacy": "PASS",
+      "rows": 540
+    },
+    {
+      "evidence_gated": "INCONSISTENT",
+      "legacy": "PASS",
+      "rows": 270
+    },
+    {
+      "evidence_gated": "SATISFIED",
+      "legacy": "PASS",
+      "rows": 13626
+    }
+  ],
+  "matrix_sha256": "e4f7234bbf48f2e24128dc41b6e813b28b74b19cee87d5868664b1eb30a9501d",
+  "protocol": "evidence-gated-v1",
+  "reasons": {
+    "carrier_removed": 54,
+    "integrity_corruption_established": 36,
+    "requested_branches_executed": 270,
+    "source_carrier_valid": 108,
+    "source_payload_recovered": 540
+  },
+  "rerun": {
+    "all_durations_positive": true,
+    "compared_fields": [
+      "host",
+      "host_sha256",
+      "carrier",
+      "defect_id",
+      "relation_id",
+      "verdict",
+      "exposed",
+      "reason",
+      "phase",
+      "admission_json",
+      "observations_json"
+    ],
+    "differences": 0,
+    "examples": [],
+    "field_comparisons": 207900,
+    "first_sha256": "e4f7234bbf48f2e24128dc41b6e813b28b74b19cee87d5868664b1eb30a9501d",
+    "identical_key_sets": true,
+    "rerun_rows": 18900,
+    "rows": 18900,
+    "second_sha256": "aca33dbe5e2303d943ca9181ad16aff5dd6026acb5449694d4928c7fcff4cf68",
+    "verdict": "PASS"
+  },
+  "row_accounting": {
+    "clean_rows": 756,
+    "configured_rows": 18900,
+    "fault_active_rows": 17172,
+    "nonclean_configured_rows": 18144,
+    "stage_isolation_rows": 972,
+    "verdicts_by_activation": {
+      "CLEAN": {
+        "SATISFIED": 756
+      },
+      "FAULT_ACTIVE": {
+        "INADMISSIBLE": 1008,
+        "INCONSISTENT": 4266,
+        "SATISFIED": 11898
+      },
+      "STAGE_ISOLATION": {
+        "SATISFIED": 972
+      }
+    }
+  },
+  "rows": 18900,
+  "run_timing": {
+    "maximum": 0.677082,
+    "median": 0.136894
+  },
+  "subject_replay": {
+    "killsets": 1224,
+    "killsets_equal": 1224,
+    "matches": 17136,
+    "rows": 17136
+  },
+  "suites": [
+    {
+      "design_exposed": 21,
+      "design_units": 72,
+      "expanded_exposed": 378,
+      "expanded_units": 1296,
+      "expanded_units_with_admitted_case": 1296,
+      "suite": "round_trip"
+    },
+    {
+      "design_exposed": 27,
+      "design_units": 72,
+      "expanded_exposed": 486,
+      "expanded_units": 1296,
+      "expanded_units_with_admitted_case": 1296,
+      "suite": "host_semantics"
+    },
+    {
+      "design_exposed": 33,
+      "design_units": 72,
+      "expanded_exposed": 594,
+      "expanded_units": 1296,
+      "expanded_units_with_admitted_case": 1296,
+      "suite": "compiler_differential"
+    },
+    {
+      "design_exposed": 69,
+      "design_units": 72,
+      "expanded_exposed": 1242,
+      "expanded_units": 1296,
+      "expanded_units_with_admitted_case": 1296,
+      "suite": "complete_catalog"
+    }
+  ],
+  "unit_count": 1296,
+  "units_exposed": 1242,
+  "units_with_admitted_case": 1296,
+  "unrevealed_operators": [
+    "M15"
+  ],
+  "zero_sensitivity_classes": [
+    "authentication",
+    "configuration",
+    "integrity",
+    "semantic corruption",
+    "transformation"
+  ],
+  "zero_sensitivity_operators": [
+    "M06",
+    "M15",
+    "M16",
+    "M20",
+    "M21",
+    "M22",
+    "M23",
+    "M24"
+  ]
+}

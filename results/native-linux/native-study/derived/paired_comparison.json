@@ -1,0 +1,23 @@
+[
+  {
+    "baseline": "round_trip",
+    "baseline_only": 0,
+    "exact_two_sided_p": 0.03125,
+    "suite": "host_semantics",
+    "suite_only": 6
+  },
+  {
+    "baseline": "host_semantics",
+    "baseline_only": 0,
+    "exact_two_sided_p": 0.03125,
+    "suite": "compiler_differential",
+    "suite_only": 6
+  },
+  {
+    "baseline": "round_trip",
+    "baseline_only": 0,
+    "exact_two_sided_p": 7.105427357601002e-15,
+    "suite": "complete_catalog",
+    "suite_only": 48
+  }
+]
