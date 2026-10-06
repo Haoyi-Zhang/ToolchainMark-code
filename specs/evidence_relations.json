@@ -70,7 +70,7 @@
         "extraction"
       ],
       "observer_boundary": "seed-free pipeline instance sharing the record parser",
-      "predicate": "Extraction returns a normalized rejection outcome.",
+      "predicate": "Extraction returns exactly the absent rejection kind.",
       "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
     },
     {
@@ -97,7 +97,7 @@
         "source"
       ],
       "observer_boundary": "declared trace and/or selected host and payload observations",
-      "predicate": "The distinct key is rejected.",
+      "predicate": "The distinct key returns exactly the wrong-key rejection kind.",
       "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
     },
     {
@@ -208,7 +208,7 @@
         "source"
       ],
       "observer_boundary": "declared trace and/or selected host and payload observations",
-      "predicate": "The relocated binary still extracts p.",
+      "predicate": "The relocated binary extracts p and its outputs agree with the source on every frozen host input.",
       "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
     },
     {
@@ -238,7 +238,7 @@
         "source_carrier"
       ],
       "observer_boundary": "seed-free pipeline instance sharing the record parser",
-      "predicate": "Extraction rejects after removal.",
+      "predicate": "Extraction returns exactly the absent rejection kind after verified removal.",
       "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
     },
     {
@@ -268,7 +268,7 @@
         "source_carrier"
       ],
       "observer_boundary": "seed-free pipeline instance sharing the record parser",
-      "predicate": "Extraction rejects the checksum-corrupt carrier.",
+      "predicate": "Extraction returns exactly the checksum rejection kind after verified checksum corruption.",
       "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
     },
     {

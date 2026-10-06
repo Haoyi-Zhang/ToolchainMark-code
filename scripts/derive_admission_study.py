@@ -164,7 +164,26 @@ def derive(matrix, mutants_path, out, legacy=None, rerun=None):
     write_json(out/'summary.json',summary)
     return summary
 
-if __name__=='__main__':
+def scientific_checks(summary):
+    """Acceptance of a complete study, not sensitivity to every seeded fault."""
+    return {
+        'planned_denominators_complete': (summary['rows'], summary['clean_rows'],
+            summary['unit_count'], summary['design_units']) == (18900, 756, 1296, 72),
+        'clean_controls_admitted_and_satisfied': summary['clean'] == {'SATISFIED': 756},
+        'rerun_matches_when_requested': 'rerun' not in summary or summary['rerun']['verdict'] == 'PASS',
+    }
+
+def main(argv=None):
     p=argparse.ArgumentParser();p.add_argument('--matrix',type=Path,required=True);p.add_argument('--mutants',type=Path,required=True)
     p.add_argument('--out',type=Path,required=True);p.add_argument('--legacy',type=Path);p.add_argument('--rerun',type=Path)
-    a=p.parse_args();s=derive(a.matrix,a.mutants,a.out,a.legacy,a.rerun);print(json.dumps(s,indent=2))
+    a=p.parse_args(argv);s=derive(a.matrix,a.mutants,a.out,a.legacy,a.rerun)
+    checks=scientific_checks(s)
+    gate=dict(checks=checks,failed=[name for name,ok in checks.items() if not ok],
+              verdict='PASS' if all(checks.values()) else 'FAIL')
+    # Keep summaries and the failing comparison before returning a failure code.
+    write_json(a.out/'scientific_checks.json',gate)
+    print(json.dumps(dict(summary=s,scientific_checks=gate),indent=2))
+    return 0 if gate['verdict']=='PASS' else 1
+
+if __name__=='__main__':
+    raise SystemExit(main())

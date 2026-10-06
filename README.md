@@ -40,6 +40,10 @@ Python3, GCC, Clang, GNU objcopy/nm/strip/readelf, pkg-config, and development p
 
 ## Evidence boundaries
 
+Symbol extraction now checks the 16-bit payload-length domain, exact chunk count and widths, and the canonical empty-payload placeholder before key or checksum decisions. Twelve compiler-free regression methods cover these structure checks, relocation's host-output predicate, and study exit-status gates. A selected local run of 65 methods passed, including an 840-case synthetic chunk-shape sweep. This later structural repair was not part of the retained 71-test native log or the two compiled matrices; those files remain historical measurements, not a new compiled validation of this change.
+
+The full-study derivation now returns a nonzero exit status for incomplete planned denominators, a clean inconsistency or inadmissibility, or a failed requested rerun comparison. It writes `scientific_checks.json` beside new derived outputs before failing, so the raw matrices and failed comparison remain available. Inadmissible seeded cases and unrevealed fault units are still permitted and reported; the gate does not require a perfect sensitivity score. `scripts/run_full.sh` propagates that failure under its existing fail-fast behavior.
+
 The new interpreter shares a parser family with its seed-free carrier observer. It does not prove parser independence, security, universal robustness or whole-program semantics. Carrier removal is an experimental antecedent, so skipped removal is inadmissible as an extraction test. A separate direct transform-stage obligation would be needed to expose that mechanism.
 
 The GNU/LLVM 378-case study and public source-pair 120-row study are retained evidence, not newly executed by the interface repair. The utility study contains 288 host-plus-payload preservation rows, 72 rejection-only rows without host comparison, and 18 incompatibilities. The source-pair study lacks an automated embedding/extraction interface and a confirmed historical defect pair; its 10 output differences are conditional on the source-equivalence assumption. The repaired adapter rejects missing file outputs and non-success termination before semantic or relocation comparison, while retaining valid empty stdout.
@@ -67,6 +71,7 @@ Bounded model checks do not require a compiler:
 ```sh
 PYTHONPATH=src python3 -B -m unittest discover -s tests -p test_repair_models.py -v
 PYTHONPATH=src python3 -B -m unittest discover -s tests -p test_evidence_boundaries.py -v
+PYTHONPATH=src python3 -B -m unittest discover -s tests -p test_scientific_repairs.py -v
 PYTHONPATH=src python3 -B scripts/derive_observation_accounting.py
 ```
 

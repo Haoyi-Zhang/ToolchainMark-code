@@ -138,7 +138,7 @@
       "id": "M20",
       "operator": "interleaved_collision",
       "fault_class": "state",
-      "behavior": "Store builds in one process-global payload slot so the latest value wins.",
+      "behavior": "Alias payload staging only while build requests overlap; both use the payload of the lexicographically last staging request.",
       "primary_relation": "MR12"
     },
     {

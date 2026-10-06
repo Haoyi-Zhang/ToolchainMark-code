@@ -89,6 +89,8 @@ def parse_record(data: bytes, key: str, key_ignored: bool = False, checksum_bypa
 
 
 def symbol_names(payload: bytes, key: str, key_ignored: bool = False) -> list[str]:
+    if len(payload) > 65535:
+        raise ValueError('payload too long')
     tag = SENTINEL_TAG if key_ignored else key_tag(key)
     chunks = [payload[i:i + 4] for i in range(0, len(payload), 4)] or [b'']
     total = len(chunks)
@@ -109,6 +111,8 @@ def parse_symbols(binary: Path, key: str, key_ignored: bool = False, checksum_by
         match = SYMBOL_RE.match(name)
         if match:
             tag_hex, length_hex, idx_hex, total_hex, chunk_hex, checksum_hex = match.groups()
+            if len(chunk_hex) % 2:
+                raise ExtractionError('malformed', 'symbol chunk is not a whole number of bytes')
             rows.append((bytes.fromhex(tag_hex), int(length_hex, 16), int(idx_hex, 16), int(total_hex, 16), bytes.fromhex(chunk_hex), bytes.fromhex(checksum_hex)))
     if not rows:
         raise ExtractionError('absent', 'watermark symbols not found')
@@ -121,11 +125,22 @@ def parse_symbols(binary: Path, key: str, key_ignored: bool = False, checksum_by
     total = next(iter(totals))
     if len(rows) != total or {r[2] for r in rows} != set(range(total)):
         raise ExtractionError('malformed', 'incomplete watermark symbol set')
+    length = next(iter(lengths))
+    if total != max(1, (length + 3) // 4):
+        raise ExtractionError('malformed', 'symbol count does not match declared payload length')
+    ordered = sorted(rows, key=lambda r: r[2])
+    if length == 0:
+        if ordered[0][4] != b'\x00':
+            raise ExtractionError('malformed', 'invalid empty-payload placeholder')
+        payload = b''
+    else:
+        for index, row in enumerate(ordered):
+            if len(row[4]) != min(4, length - 4 * index):
+                raise ExtractionError('malformed', 'symbol chunk width does not match declared payload length')
+        payload = b''.join(row[4] for row in ordered)
     tag = next(iter(tags))
     if not key_ignored and tag != key_tag(key):
         raise ExtractionError('wrong-key', 'symbol key tag mismatch')
-    length = next(iter(lengths))
-    payload = b''.join(r[4] for r in sorted(rows, key=lambda r: r[2]))[:length]
     recorded_checksum = next(iter(checksums))
     if not checksum_bypass and recorded_checksum != checksum(payload):
         raise ExtractionError('checksum', 'symbol payload checksum mismatch')
