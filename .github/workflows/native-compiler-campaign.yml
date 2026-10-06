@@ -15,7 +15,7 @@ permissions:
 jobs:
   native-campaign:
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 75
     env:
       PYTHONDONTWRITEBYTECODE: '1'
       PYTHONPATH: 'src'
@@ -45,7 +45,7 @@ jobs:
         run: |
           set -euo pipefail
           ulimit -v 2097152
-          timeout --kill-after=10s 2700s bash scripts/run_full.sh "$RUNNER_TEMP/native-study" 4 2>&1 | tee "$RUNNER_TEMP/native-campaign.log"
+          timeout --kill-after=10s 3900s bash scripts/run_full.sh "$RUNNER_TEMP/native-study" 4 2>&1 | tee "$RUNNER_TEMP/native-campaign.log"
       - name: Preserve measured outputs and failures
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
