@@ -15,7 +15,8 @@ class AdmissionTests(unittest.TestCase):
         for c in ['string','symbol','section']:
             for i in range(1,15):
                 with self.subTest(carrier=c,relation=i):
-                    self.assertEqual(self.call(f'MR{i:02d}',carrier=c).verdict,'SATISFIED')
+                    outcome = self.call(f'MR{i:02d}',carrier=c)
+                    self.assertEqual(outcome.verdict,'SATISFIED',repr(outcome))
     def test_timeout_is_not_a_kill(self):
         with patch.object(Pipeline,'build',side_effect=TimeoutError()):
             o=self.call('MR01','M01')
