@@ -325,7 +325,7 @@
     },
     {
       "id": "MR13",
-      "name": "Reordered extraction independence",
+      "name": "Extraction-revisit independence",
       "polarity": "preserve",
       "stages": [
         "embed",
@@ -346,7 +346,7 @@
         "intervening"
       ],
       "observer_boundary": "declared trace and/or selected host and payload observations",
-      "predicate": "Both extractions of a1 equal p1.",
+      "predicate": "Execute B1 B2 X1 X2 X1 with distinct payloads and fixed key/compiler/optimization; the three extractions equal p1, p2, p1 respectively.",
       "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
     },
     {

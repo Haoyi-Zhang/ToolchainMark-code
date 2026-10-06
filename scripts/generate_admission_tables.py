@@ -5,14 +5,19 @@ import csv,json
 ROOT=Path(__file__).resolve().parents[2]
 D=ROOT/'artifact/results/admission-study/derived'; OUT=ROOT/'paper/generated';OUT.mkdir(exist_ok=True)
 s=json.loads((D/'summary.json').read_text())
+accounting=json.loads((ROOT/'artifact/results/admission_denominators.json').read_text())
+assert accounting['source_matrix']=='results/admission-study/matrix.csv'
+assert s['rows']==accounting['configured_rows']
 def n(v):return f'{v:,}'
 def rows(name):
  with (D/name).open(newline='') as f:return list(csv.DictReader(f))
 macro={
 'EvidenceRows':n(s['rows']),'EvidenceClean':n(s['clean_rows']),
-'EvidenceFaultRows':n(s['defect_rows']),'EvidenceInconsistent':n(s['defect_verdicts'].get('INCONSISTENT',0)),
+'EvidenceNoncleanRows':n(s['defect_rows']),
+'EvidenceStageIsolationRows':n(accounting['stage_isolation_rows']),
+'EvidenceFaultRows':n(accounting['fault_active_rows']),'EvidenceInconsistent':n(s['defect_verdicts'].get('INCONSISTENT',0)),
 'EvidenceInadmissible':n(s['defect_verdicts'].get('INADMISSIBLE',0)),
-'EvidenceFaultSatisfied':n(s['defect_verdicts'].get('SATISFIED',0)),
+'EvidenceFaultSatisfied':n(accounting['fault_active_satisfied_rows']),
 'EvidenceExposed':n(s['units_exposed']),'EvidenceDesignExposed':str(s['design_exposed']),
 'EvidenceExclusive':n(s['direct_exclusive_units']),
 'EvidenceReplay':n(s['subject_replay']['matches']),'EvidenceKillsets':n(s['subject_replay']['killsets_equal']),
@@ -26,7 +31,7 @@ macro={
 rc=D/'rerun_comparison.json'
 if rc.exists():
  c=json.loads(rc.read_text())
- if c.get('verdict')=='PASS':macro['EvidenceComparisonStatement']=f"Two complete runs agree on all {n(c['rows'])} scientific row keys and {n(c['field_comparisons'])} non-timing field comparisons."
+ if c.get('verdict')=='PASS':macro['EvidenceComparisonStatement']=f"The two retained complete runs agree on all {n(c['rows'])} scientific row keys and {n(c['field_comparisons'])} comparisons over 11 retained non-timing fields; complete request, action, command, artifact, and per-input trajectories were not retained."
 (OUT/'admission-results.tex').write_text('% Derived values; do not edit by hand.\n'+''.join('\\newcommand{\\'+k+'}{'+v+'}\n' for k,v in macro.items()))
 
 def table(file,caption,label,cols,header,data):
@@ -40,7 +45,8 @@ table('admission-overview.tex',
  'tab:admission-overview','@{}X r r r r@{}',
  'Surface & Attempted & Satisfied & Inconsistent & Inadmissible',[
  ['Clean',n(s['clean_rows']),n(s['clean'].get('SATISFIED',0)),0,0],
- ['Seeded mechanisms',n(s['defect_rows']),macro['EvidenceFaultSatisfied'],macro['EvidenceInconsistent'],macro['EvidenceInadmissible']],
+ ['Stage isolation',macro['EvidenceStageIsolationRows'],macro['EvidenceStageIsolationRows'],0,0],
+ ['Fault-active mechanisms',macro['EvidenceFaultRows'],macro['EvidenceFaultSatisfied'],macro['EvidenceInconsistent'],macro['EvidenceInadmissible']],
  ['Total',macro['EvidenceRows'],n(s['clean_rows']+s['defect_verdicts']['SATISFIED']),macro['EvidenceInconsistent'],macro['EvidenceInadmissible']]])
 reason_names={'source_payload_recovered':'Source extraction does not recover the requested payload',
  'requested_branches_executed':'The requested compiler or optimization branch did not occur',
@@ -54,7 +60,7 @@ labels={'round_trip':'Round trip','host_semantics':'+ host observations','compil
 table('admission-suites.tex','Fixed suites evaluated on the same planned units. Units with no inconsistent admitted relation remain in the denominator.',
  'tab:admission-suites','@{}X r r@{}','Suite & Design units exposed & All-subject units exposed',
  [[labels[r['suite']],f"{r['design_exposed']}/{r['design_units']}",f"{n(r['expanded_exposed'])}/{n(r['expanded_units'])}"] for r in s['suites']])
-table('admission-relations.tex','Fault-row outcomes by relation. Each relation has 1,296 attempted rows; all 54 clean rows per relation are satisfied.',
+table('admission-relations.tex','Nonclean-configured outcomes by relation, including stage isolation. Each relation has 1,296 attempted nonclean rows; all 54 clean rows per relation are satisfied.',
  'tab:admission-relations','@{}X r r r@{}','Relation & Satisfied & Inconsistent & Inadmissible',
  [[r['relation'].replace('MR',r'\mr{')+'}',n(int(r['satisfied'])),n(int(r['inconsistent'])),n(int(r['inadmissible']))] for r in rows('relation_outcomes.csv')])
 classes=rows('class_holdout.csv')

@@ -1,0 +1,50 @@
+name: Native compiler campaign
+on:
+  push:
+    paths:
+      - 'src/**'
+      - 'hosts/**'
+      - 'scripts/**'
+      - 'specs/**'
+      - 'tests/**'
+      - '.github/workflows/native-compiler-campaign.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-campaign:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONPATH: 'src'
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Install native compiler and local fixture dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc clang binutils pkg-config zlib1g-dev libssl-dev libsqlite3-dev libxml2-dev libjson-c-dev libpng-dev
+      - name: Check regression tests against actual ELF tools
+        run: python -m unittest discover -s tests -v
+      - name: Record the execution environment
+        run: |
+          python -c "import json,platform,subprocess,sys; names=['gcc','clang','objcopy','nm','strip','readelf']; print(json.dumps({'python':sys.version,'platform':platform.platform(),'tools':{n:subprocess.check_output([n,'--version'],text=True).splitlines()[0] for n in names}},indent=2))" > "$RUNNER_TEMP/native-environment.json"
+      - name: Run both complete gated matrices and derive their comparison
+        run: bash scripts/run_full.sh "$RUNNER_TEMP/native-study" 4
+      - name: Preserve measured outputs and failures
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: native-compiler-evidence
+          path: |
+            ${{ runner.temp }}/native-environment.json
+            ${{ runner.temp }}/native-study/
+          if-no-files-found: warn
+          retention-days: 14

@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse, csv, hashlib, json, math, random, statistics
 from collections import Counter,defaultdict
 from pathlib import Path
+from tosem02.accounting import summarize_rows
 
 RELATIONS=[f'MR{i:02d}' for i in range(1,15)]
 SUITES={'round_trip':['MR01'],'host_semantics':['MR01','MR02'],
@@ -88,8 +89,10 @@ def derive(matrix, mutants_path, out, legacy=None, rerun=None):
         worse=sum(bool(kills[u]&wb) and not bool(kills[u]&wa) for u in design)
         comparisons.append(dict(suite=a,baseline=b,suite_only=better,baseline_only=worse,exact_two_sided_p=exact_p(better,worse)))
     write_json(out/'paired_comparison.json',comparisons)
-    lookup={key(r):r['verdict'] for r in faulty}; non=[r for r in faulty if r['host']!=DESIGN]
-    replay=sum(r['verdict']==lookup[(DESIGN,r['carrier'],r['defect_id'],r['relation_id'])] for r in non)
+    def replay_value(r):
+        return r['verdict'], r['reason'] if r['verdict']=='INADMISSIBLE' else ''
+    lookup={key(r):replay_value(r) for r in faulty}; non=[r for r in faulty if r['host']!=DESIGN]
+    replay=sum(replay_value(r)==lookup[(DESIGN,r['carrier'],r['defect_id'],r['relation_id'])] for r in non)
     killset_test=[u for u in units if u[0]!=DESIGN]
     killset_matches=sum(kills[u]==kills[(DESIGN,u[1],u[2])] for u in killset_test)
     classes=sorted({x['fault_class'] for x in mutants.values()}); class_rows=[]
@@ -127,7 +130,7 @@ def derive(matrix, mutants_path, out, legacy=None, rerun=None):
     write_json(out/'bootstrap_summary.json',bootstrap_summary)
     summary=dict(protocol='evidence-gated-v1',rows=len(rr),clean_rows=len(clean),
                  clean=dict(Counter(r['verdict'] for r in clean)),defect_rows=len(faulty),
-                 defect_verdicts=dict(Counter(r['verdict'] for r in faulty)),unit_count=len(units),
+                 defect_verdicts=dict(Counter(r['verdict'] for r in faulty)),row_accounting=summarize_rows(rr),unit_count=len(units),
                  units_exposed=sum(bool(kills[u]) for u in units),units_with_admitted_case=sum(bool(admitted[u]) for u in units),
                  design_units=len(design),design_exposed=sum(bool(kills[u]) for u in design),
                  unrevealed_operators=sorted({u[2] for u in units if not kills[u]}),

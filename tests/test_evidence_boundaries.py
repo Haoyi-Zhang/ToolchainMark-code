@@ -6,7 +6,7 @@ from pathlib import Path
 from unittest.mock import Mock
 
 from tosem02.evidence_boundary import (
-    ObservationUnavailable, ToolObservationError, first_valid_candidate,
+    Candidate, ObservationUnavailable, ToolObservationError, first_valid_candidate,
     observe_elf_section, require_observed_output,
 )
 
@@ -50,19 +50,19 @@ class EvidenceBoundaryTests(unittest.TestCase):
             if len(blob)<6 or blob[:4]!=magic: return None
             n=blob[4]
             if blob[5]!=1 or len(blob)<6+n: return None
-            return blob[6:6+n]
+            return Candidate(0, 6+n, blob[6:6+n])
         absent=lambda:None
         data=magic+b'\xff\x00bad'+magic+b'\x02\x01OK'
-        self.assertEqual(first_valid_candidate(data,magic,parse,absent),b'OK')
+        self.assertEqual(first_valid_candidate(data,magic,parse,absent).value,b'OK')
 
     def test_first_valid_parser_chooses_first_valid_of_multiple(self):
         magic=b'MAGC'
         def parse(blob):
             if len(blob)<6 or blob[:4]!=magic or blob[5]!=1:return None
             n=blob[4]
-            return blob[6:6+n] if len(blob)>=6+n else None
+            return Candidate(0, 6+n, blob[6:6+n]) if len(blob)>=6+n else None
         data=magic+b'\x01\x01A'+magic+b'\x01\x01B'
-        self.assertEqual(first_valid_candidate(data,magic,parse,lambda:None),b'A')
+        self.assertEqual(first_valid_candidate(data,magic,parse,lambda:None).value,b'A')
 
     def test_missing_output_is_inadmissible(self):
         with tempfile.TemporaryDirectory() as tmp:

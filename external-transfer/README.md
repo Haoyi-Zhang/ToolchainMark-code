@@ -8,10 +8,12 @@ The upstream source files are **not redistributed** because no explicit reposito
 
 ```sh
 python3 acquire_sources.py --out /path/to/acquired/files --acknowledge-no-redistribution-license
-python3 run_external_transfer.py --source-dir /path/to/acquired/files --out /path/to/output
+PYTHONPATH=../src python3 run_external_transfer.py --source-dir /path/to/acquired/files --out /path/to/new/output
 ```
 
-Both Git blob identities and SHA-256 values are checked before execution. A release-candidate runner path defect and its repair are preserved under the protocol-history directory; the repaired runner was executed afresh and reproduced all non-timing scientific evidence.
+The runner checks the fixed Git blob identities before execution; SHA-256 identities remain recorded in the acquisition manifest. The earlier runner-path defect and its historical repair are preserved under protocol history. Those old comparisons are not evidence of a full rerun of the current output-observation repair.
+
+The current adapter compares outputs only after a successful process exit and an available declared output channel. Case 119 requires the expected output file; the other cases use stdout, which may legitimately be empty. Missing files, unreadable files, and non-success exits are unavailable observations, not matching sentinel strings. Relocation independently requires successful original and relocated execution plus both output observations. Existing output directories are refused. Importing the adapter for model tests performs no acquisition, compilation, experiment, or output write.
 
 The native build mode leaves upstream source untouched. One legacy example does not satisfy the native build precondition because it uses an obsolete floating-point predicate spelling. A separately declared compatibility mode forces the same small header into both variants without editing either source. This mode is reported separately rather than silently repairing the upstream program.
 

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from .evidence_boundary import first_valid_candidate
+from .evidence_boundary import Candidate, first_valid_candidate
 import hashlib
 import re
 import struct
@@ -46,29 +46,24 @@ def make_record(payload: bytes, key: str, key_ignored: bool = False) -> bytes:
     return MAGIC + bytes([VERSION]) + tag + struct.pack('>H', len(payload)) + encoded + checksum(payload)
 
 
-def _candidate_locate_record(data: bytes) -> tuple[int, int]:
-    start = data.find(MAGIC)
-    if start < 0:
-        raise ExtractionError('absent', 'logical record magic not found')
-    header = start + 4 + 1 + 8 + 2
+def _parse_candidate(data: bytes, key: str | None = None, *, key_ignored: bool = False,
+                     checksum_bypass: bool = False) -> Candidate:
+    """Validate only the candidate at slice offset zero; never rescan a slice."""
+    header = 4 + 1 + 8 + 2
     if header > len(data):
         raise ExtractionError('malformed', 'truncated logical record header')
-    length = struct.unpack('>H', data[start + 13:start + 15])[0]
+    version = data[4]
+    if version != VERSION:
+        raise ExtractionError('version', f'unsupported version {version}')
+    length = struct.unpack('>H', data[13:15])[0]
     end = header + length + 8
     if end > len(data):
         raise ExtractionError('malformed', 'truncated logical record body')
-    return start, end
-
-
-def parse_record(data: bytes, key: str, key_ignored: bool = False, checksum_bypass: bool = False) -> bytes:
-    start, end = locate_record(data)
-    version = data[start + 4]
-    if version != VERSION:
-        raise ExtractionError('version', f'unsupported version {version}')
-    tag = data[start + 5:start + 13]
-    length = struct.unpack('>H', data[start + 13:start + 15])[0]
-    encoded = data[start + 15:start + 15 + length]
-    recorded_checksum = data[start + 15 + length:end]
+    if key is None:
+        return Candidate(0, end, None)
+    tag = data[5:13]
+    encoded = data[15:15 + length]
+    recorded_checksum = data[15 + length:end]
     if key_ignored:
         payload = encoded
     else:
@@ -77,7 +72,20 @@ def parse_record(data: bytes, key: str, key_ignored: bool = False, checksum_bypa
         payload = xor_stream(encoded, key)
     if not checksum_bypass and recorded_checksum != checksum(payload):
         raise ExtractionError('checksum', 'payload checksum mismatch')
-    return payload
+    return Candidate(0, end, payload)
+
+
+def _absent_record():
+    raise ExtractionError('absent', 'logical record magic not found')
+
+
+def parse_record(data: bytes, key: str, key_ignored: bool = False, checksum_bypass: bool = False) -> bytes:
+    accepted = first_valid_candidate(
+        data, MAGIC,
+        lambda blob: _parse_candidate(blob, key, key_ignored=key_ignored, checksum_bypass=checksum_bypass),
+        _absent_record,
+    )
+    return accepted.value
 
 
 def symbol_names(payload: bytes, key: str, key_ignored: bool = False) -> list[str]:
@@ -124,9 +132,13 @@ def parse_symbols(binary: Path, key: str, key_ignored: bool = False, checksum_by
     return payload
 
 
-def locate_record(data):
-    def _parse(candidate_blob):
-        return _candidate_locate_record(candidate_blob)
-    def _absent():
-        return _candidate_locate_record(data)
-    return first_valid_candidate(data, MAGIC, _parse, _absent)
+def locate_record(data: bytes, key: str | None = None, *, key_ignored: bool = False) -> tuple[int, int]:
+    """Return absolute bounds; with a key, require full record acceptance.
+
+    Without a key this is a structural locator (version and bounds only), not
+    an extraction or integrity decision.
+    """
+    accepted = first_valid_candidate(
+        data, MAGIC, lambda blob: _parse_candidate(blob, key, key_ignored=key_ignored), _absent_record,
+    )
+    return accepted.start, accepted.end

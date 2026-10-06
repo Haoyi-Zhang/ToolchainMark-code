@@ -1,64 +1,70 @@
 #!/usr/bin/env python3
-from __future__ import annotations
-import csv,json,hashlib,inspect,sys
+"""Read-only verification of retained evidence; not a compiled campaign replay."""
+import csv
+import json
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]
-SRC=ROOT/'src';sys.path.insert(0,str(SRC))
-checks={}
+from derive_observation_accounting import derive
+from tosem02.catalog import load_mutants, load_relations
+from tosem02.evidence_catalog import load as load_evidence
 
-def load(path):return json.loads((ROOT/path).read_text())
-# Executable specification and result cardinalities.
-mrs=load('specs/mrspec.json');rels=mrs.get('relations',mrs if isinstance(mrs,list) else [])
-mut=load('specs/mutants.json');muts=mut.get('mutants',mut if isinstance(mut,list) else [])
-checks['14_relations']=len(rels)==14
-checks['24_fault_operators']=len(muts)==24
-# Admission accounting.
-den=load('results/admission_denominators.json')
-checks['configured_rows_18900']=den['configured_rows']==18900
-checks['clean_rows_756']=den['clean_rows']==756
-checks['fault_active_rows_17172']=den['fault_active_rows']==17172
-checks['stage_isolation_rows_972_all_satisfied']=den['stage_isolation_rows']==972 and den['stage_isolation_satisfied_rows']==972 and den['stage_isolation_inconsistent_rows']==0
-checks['tri_verdict_replay_includes_inadmissible']='Do not drop inadmissible' in den['tri_valued_context_replay_rule']
-# Targeted current-handler replay.
-rep=load('results/targeted-current-handler-replay.summary.json')
-checks['targeted_replay_complete']=rep['selected_tasks']==rep['completed_rows'] and rep['completed_rows']>0
-checks['targeted_replay_zero_verdict_changes']=rep['verdict_changes']==0
-checks['mr13_current_trace_complete']=rep['mr13_rows']>0 and rep['mr13_rows_with_action_trace']==rep['mr13_rows'] and rep['mr13_rows_with_command_trace']==rep['mr13_rows']
-checks['guard_replay_972_satisfied']=rep['guard_rows']==972 and rep['guard_satisfied_rows']==972
-# Protocol alignment.
-pa=load('audit/protocol_alignment_audit.json')
-checks['protocol_alignment_audit']=pa['verdict']=='PASS' and not pa['failed']
-# External transformations.
-et=load('results/external_transformations_observation_scopes.summary.json')
-checks['external_transform_partition']=et['rows']==378 and et['preservation_verified_rows']==288 and et['rejection_only_rows']==72 and et['incompatible_rows']==18
-with (ROOT/'results/external_transformations_observation_scopes.csv').open(newline='',encoding='utf-8') as f: rows=list(csv.DictReader(f))
-checks['rejection_only_host_unobserved']=all(r['host_execution_observed']=='false' and r['host_output_equal']=='UNOBSERVED' for r in rows if r['obligation_scope']=='REJECTION_ONLY')
-checks['preservation_host_observed']=sum(r['obligation_scope']=='PRESERVATION_VERIFIED' and r['host_execution_observed']=='true' for r in rows)==288
-# External source-pair study.
-es=load('results/external-source-pair-current/summary.json')
-checks['external_source_pair_120']=es['rows']==120
-checks['external_source_pair_20_10']=es['compatibility_satisfied']==20 and es['compatibility_inconsistent']==10 and es['compatibility_inadmissible']==0
-checks['missing_or_nonzero_never_success']=es['missing_output_or_nonzero_counted_as_success']==0
-# Legacy comparison scope is accurately limited.
-comparison=[]
-for p in ROOT.rglob('*.json'):
- try:d=json.loads(p.read_text())
- except Exception:continue
- if d.get('retained_field_comparisons')==207900:comparison.append(d)
-checks['legacy_207900_limited_to_11_fields']=bool(comparison) and all(d.get('retained_field_count')==11 and d.get('complete_trace_replay_claimed') is False for d in comparison)
-# Static core integration checks.
-code='\n'.join(p.read_text(errors='ignore') for p in SRC.glob('*.py'))
-checks['section_observer_integrated']='observe_elf_section' in code and 'ToolObservationError' in code and '--dump-section' in code
-checks['first_valid_parser_integrated']='first_valid_candidate' in code and '_candidate_' in code
-checks['trace_fields_integrated']=all(x in code for x in ('request_trace_json','action_trace_json','command_trace_json','artifact_identity_trace_json','fault_activation_mode'))
-# Raw matrices are immutable scientific inputs; sanity-check the archived matrix and rerun reports.
-mat=next((p for p in (ROOT/'results/raw').glob('*robust*matrix*.csv')),None)
-if mat is None: mat=next((p for p in (ROOT/'results/raw').glob('*replication*matrix*.csv')),None)
-if mat:
- with mat.open(newline='',encoding='utf-8') as f: n=sum(1 for _ in f)-1
- checks['archived_complete_matrix_18900']=n==18900
-else:checks['archived_complete_matrix_18900']=False
-result={'schema_version':'1.0','artifact_root':str(ROOT),'check_count':len(checks),'passed':sum(checks.values()),'failed':[k for k,v in checks.items() if not v],'checks':checks,'verdict':'PASS' if all(checks.values()) else 'FAIL'}
-(ROOT/'audit/science_verification.json').write_text(json.dumps(result,indent=2)+'\n')
-print(json.dumps(result,indent=2))
-raise SystemExit(0 if all(checks.values()) else 1)
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def read_rows(path):
+    with path.open(newline='', encoding='utf-8') as handle:
+        return list(csv.DictReader(handle))
+
+
+def main():
+    data = derive()
+    actual = data['admission_denominators']
+    saved = json.loads((ROOT/'results/admission_denominators.json').read_text(encoding='utf-8'))
+    checks = {
+        'fourteen_relation_declarations': len(load_relations()) == 14,
+        'twenty_four_operator_declarations': len(load_mutants()) == 24,
+        'evidence_catalog_schema_valid': len(load_evidence()) == 14,
+        'saved_gated_denominators_recomputed': all(saved.get(key) == value for key, value in actual.items()),
+        'configured_partition_18900': actual['configured_rows'] == 18900,
+        'clean_756': actual['clean_rows'] == 756,
+        'stage_isolation_972_satisfied': actual['stage_isolation_rows'] == 972 and
+            actual['verdicts_by_activation']['STAGE_ISOLATION'] == {'SATISFIED': 972},
+        'active_17172_three_valued': actual['fault_active_rows'] == 17172 and
+            actual['verdicts_by_activation']['FAULT_ACTIVE'] ==
+            {'SATISFIED': 11898, 'INCONSISTENT': 4266, 'INADMISSIBLE': 1008},
+        'utility_378_partition': data['utility_summary'] ==
+            json.loads((ROOT/'results/external_transformations_observation_scopes.summary.json').read_text(encoding='utf-8')),
+        'utility_scope_rows_recomputed': data['utility_rows'] ==
+            read_rows(ROOT/'results/external_transformations_observation_scopes.csv'),
+    }
+    first = read_rows(ROOT/'results/admission-study/matrix.csv')
+    second = read_rows(ROOT/'results/admission-study/rerun.csv')
+    def key(row):
+        return tuple(row[name] for name in ('host', 'carrier', 'defect_id', 'relation_id'))
+    left = {key(row): row for row in first}
+    right = {key(row): row for row in second}
+    fields = [name for name in first[0] if name != 'duration_seconds']
+    checks['retained_keys_unique_and_equal'] = len(left) == len(first) == len(right) == len(second) == 18900 and set(left) == set(right)
+    checks['eleven_retained_fields_equal'] = len(fields) == 11 and all(
+        key_ in right and all(row[name] == right[key_][name] for name in fields)
+        for key_, row in left.items())
+    checks['positive_retained_durations'] = all(float(row['duration_seconds']) > 0 for row in first + second)
+    checks['exposure_requires_inconsistent_nonclean'] = all(
+        (row['exposed'] == 'True') == (row['verdict'] == 'INCONSISTENT' and row['defect_id'] != 'CLEAN') for row in first)
+    checks['inconsistent_rows_complete_gate'] = all(
+        all(value is True for value in json.loads(row['admission_json']).values())
+        for row in first if row['verdict'] == 'INCONSISTENT')
+    def replay_value(row):
+        return row['verdict'], row['reason'] if row['verdict'] == 'INADMISSIBLE' else ''
+    replay = [row for row in first if row['host'] != 'H01-gcd.c' and row['defect_id'] != 'CLEAN']
+    checks['replay_includes_inadmissible_reasons'] = len(replay) == 17136 and all(
+        replay_value(row) == replay_value(left[('H01-gcd.c', row['carrier'], row['defect_id'], row['relation_id'])])
+        for row in replay)
+    result = {'checks': checks, 'failed': [key_ for key_, value in checks.items() if not value],
+              'verdict': 'PASS' if all(checks.values()) else 'FAIL',
+              'scope': 'Retained-row accounting, stored-field replay and catalog schema only. No compiler, utility, external source or PDF campaign is executed; interface behavior requires the separate model tests and compiled replay.'}
+    print(json.dumps(result, indent=2))
+    return 0 if all(checks.values()) else 1
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

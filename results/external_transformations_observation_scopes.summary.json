@@ -1,0 +1,7 @@
+{
+  "source_matrix": "results/raw/adverse_transformations.csv",
+  "rows": 378,
+  "preservation_verified_rows": 288,
+  "rejection_only_rows": 72,
+  "incompatible_rows": 18
+}

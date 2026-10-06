@@ -1,6 +1,10 @@
 # Reproduction and interpretation
 
-The current matrices are results/admission-study/matrix.csv and rerun.csv. Their unit key is(subject, carrier, operator, relation). Eleven non-timing fields are compared; durations must remain positive but are not expected to be equal. The executable relation evidence interface is specs/evidence_relations.json.
+The retained gated matrices are results/admission-study/matrix.csv and rerun.csv. Their row key is (subject, carrier, operator, relation); a fault-unit key omits relation. Eleven non-timing fields are compared; durations must remain positive but are not expected to be equal. Complete execution trajectories were not retained. These matrices are not reruns of the repaired parser, section observer, or external-output adapter. The executable relation evidence interface is specs/evidence_relations.json.
+
+The configured-row partition is 18,900 = 756 clean + 972 stage-isolation + 17,172 fault-active. The active-fault outcomes are 11,898 satisfied, 4,266 inconsistent, and 1,008 inadmissible. results/admission_denominators.json binds these counts to the retained gated matrix; the old Boolean counts are labeled separately. scripts/derive_observation_accounting.py rederives this partition without invoking compilers or utilities.
+
+MR13's gated action sequence is B1 B2 X1 X2 X1 with distinct payloads and fixed key, GCC, and O2; the required payloads are p1, p2, p1. The earlier Boolean handler's B1 X1 B2 X2 X1 and changed second key are a different protocol. The 378-row utility study contains 288 preservation rows observing host and payload, 72 rejection-only rows without host execution, and 18 incompatibilities.
 
 Run scripts/verify.sh for local tests and deterministic rederivation. Run scripts/run_full.sh with a NEW output directory and a worker count for two complete executions. Never replace the frozen raw rows with new outcomes. Record changed compiler and library versions and compare verdicts, evidence and timing separately.
 

@@ -1,9 +1,7 @@
 from __future__ import annotations
 
-from .evidence_boundary import first_valid_candidate
 from .evidence_boundary import ToolObservationError, observe_elf_section
 import json
-import os
 import shutil
 import subprocess
 import threading
@@ -216,14 +214,12 @@ class Pipeline:
             return parse_record(binary.read_bytes(), key, key_ignored=key_ignored, checksum_bypass=checksum_bypass)
         if self.carrier == 'symbol':
             return parse_symbols(binary, key, key_ignored=key_ignored, checksum_bypass=checksum_bypass)
-        dump_path = binary.parent / f'.dump-{os.getpid()}-{binary.name}'
-        proc = subprocess.run(['objcopy', '--dump-section', f'.wmrec={dump_path}', str(binary)], text=True, capture_output=True, timeout=10)
-        try:
-            if proc.returncode != 0 or not dump_path.exists():
-                raise ExtractionError('absent', 'custom section .wmrec not found')
-            return parse_record(dump_path.read_bytes(), key, key_ignored=key_ignored, checksum_bypass=checksum_bypass)
-        finally:
-            dump_path.unlink(missing_ok=True)
+        observation = observe_elf_section(binary, '.wmrec', run=subprocess.run)
+        if observation.status == 'ABSENT':
+            raise ExtractionError('absent', 'custom section .wmrec not found')
+        if observation.status != 'PRESENT' or observation.data is None:
+            raise ToolObservationError('custom section observation unavailable')
+        return parse_record(observation.data, key, key_ignored=key_ignored, checksum_bypass=checksum_bypass)
 
     def extract_for_validation(self, binary: Path, key: str) -> bytes:
         return self._extract_carrier(binary, key, validation=True)
@@ -262,17 +258,16 @@ class Pipeline:
             self._last_extracted_payload = payload
         return payload
 
-    def _candidate_remove_carrier(self, result: BuildResult, target_dir: Path) -> Path:
+    def remove_carrier(self, result: BuildResult, target_dir: Path) -> Path:
         target = target_dir / 'removed.bin'
         self._copy_context(result.binary, target)
         if self.mutant_id == 'M15':
             return target
         if self.carrier == 'string':
             data = bytearray(target.read_bytes())
-            pos = data.find(MAGIC)
-            if pos >= 0:
-                data[pos:pos + len(MAGIC)] = b'XXXX'
-                target.write_bytes(data)
+            pos, _ = locate_record(bytes(data), result.key, key_ignored=self.mutant_id == 'M06')
+            data[pos:pos + len(MAGIC)] = b'XXXX'
+            target.write_bytes(data)
         elif self.carrier == 'symbol':
             proc = subprocess.run(['strip', '-s', str(target)], text=True, capture_output=True, timeout=10)
             if proc.returncode != 0:
@@ -291,16 +286,18 @@ class Pipeline:
             return target
         if self.carrier == 'string':
             data = bytearray(target.read_bytes())
-            start, end = locate_record(bytes(data))
+            start, end = locate_record(bytes(data), result.key, key_ignored=self.mutant_id == 'M06')
             data[end - 1] ^= 1
             target.write_bytes(data)
         elif self.carrier == 'section':
             dump = target_dir / 'section.bin'
-            proc = subprocess.run(['objcopy', '--dump-section', f'.wmrec={dump}', str(target)], text=True, capture_output=True, timeout=10)
-            if proc.returncode != 0 or not dump.exists():
+            observation = observe_elf_section(target, '.wmrec', run=subprocess.run)
+            if observation.status == 'ABSENT':
                 raise ExtractionError('absent', 'cannot corrupt absent custom section')
-            data = bytearray(dump.read_bytes())
-            _, end = locate_record(bytes(data))
+            if observation.status != 'PRESENT' or observation.data is None:
+                raise ToolObservationError('custom section observation unavailable')
+            data = bytearray(observation.data)
+            _, end = locate_record(bytes(data), result.key, key_ignored=self.mutant_id == 'M06')
             data[end - 1] ^= 1
             dump.write_bytes(data)
             proc2 = subprocess.run(['objcopy', '--update-section', f'.wmrec={dump}', str(target)], text=True, capture_output=True, timeout=10)
@@ -309,6 +306,8 @@ class Pipeline:
             dump.unlink(missing_ok=True)
         else:
             proc = subprocess.run(['nm', '-g', str(target)], text=True, capture_output=True, timeout=5)
+            if proc.returncode != 0:
+                raise ToolObservationError('nm failed during symbol corruption')
             names = [line.split()[-1] for line in proc.stdout.splitlines() if line.split() and line.split()[-1].startswith('wmrec_')]
             if not names:
                 return target
@@ -331,11 +330,3 @@ def run_host(binary: Path, value: int) -> str:
     if proc.returncode != 0:
         raise RuntimeError(f'host returned {proc.returncode}: {proc.stderr.strip()}')
     return proc.stdout.strip()
-
-
-def remove_carrier(self, result, target_dir):
-    def _parse(candidate_blob):
-        return _candidate_remove_carrier(candidate_blob, target_dir)
-    def _absent():
-        return _candidate_remove_carrier(result, target_dir)
-    return first_valid_candidate(result, MAGIC, _parse, _absent)

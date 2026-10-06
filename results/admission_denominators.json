@@ -1,14 +1,31 @@
 {
-  "source_matrix": "results/raw/robustness_matrix.csv",
   "configured_rows": 18900,
   "clean_rows": 756,
-  "fault_active_rows": 17172,
+  "nonclean_configured_rows": 18144,
   "stage_isolation_rows": 972,
-  "fault_active_inconsistent_rows": 4464,
-  "fault_active_satisfied_rows": 12708,
+  "fault_active_rows": 17172,
+  "verdicts_by_activation": {
+    "CLEAN": {
+      "SATISFIED": 756
+    },
+    "STAGE_ISOLATION": {
+      "SATISFIED": 972
+    },
+    "FAULT_ACTIVE": {
+      "INADMISSIBLE": 1008,
+      "INCONSISTENT": 4266,
+      "SATISFIED": 11898
+    }
+  },
+  "source_matrix": "results/admission-study/matrix.csv",
+  "source_matrix_sha256": "f9b77a0e93ea0ba33878d6ac088d4ed33e3919a16102ef91c721994731e19264",
+  "fault_active_satisfied_rows": 11898,
+  "fault_active_inconsistent_rows": 4266,
+  "fault_active_inadmissible_rows": 1008,
   "stage_isolation_satisfied_rows": 972,
   "stage_isolation_inconsistent_rows": 0,
-  "tri_valued_context_replay_rule": "Compare SATISFIED, INCONSISTENT, and INADMISSIBLE as values. Do not drop inadmissible rows. Two inadmissible rows match only when their normalized reason category matches.",
+  "stage_isolation_inadmissible_rows": 0,
+  "tri_valued_context_replay_rule": "Compare all three verdicts. Two inadmissible rows match only when their normalized reason category matches.",
   "guard_scope": {
     "relations": [
       "MR04",
@@ -24,6 +41,11 @@
       "M12"
     ],
     "interpretation": "antecedent stage isolation; upstream fault disabled"
+  },
+  "legacy_boolean_accounting": {
+    "source_matrix": "results/raw/robustness_matrix.csv",
+    "fault_active_inconsistent_rows": 4464,
+    "fault_active_satisfied_rows": 12708
   },
   "legacy_trace_statement": "The retained matrix does not contain complete request, command, generated-source, artifact-identity, or per-input trajectory evidence. Cleaned workspaces make those old trajectories unrecoverable."
 }

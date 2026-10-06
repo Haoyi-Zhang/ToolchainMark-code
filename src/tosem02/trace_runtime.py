@@ -11,6 +11,7 @@ import json
 import os
 import subprocess
 from typing import Any, Iterator
+from .accounting import activation_mode
 
 _CURRENT: ContextVar['TraceRecorder | None']=ContextVar('tosem02_trace', default=None)
 _ORIGINAL_RUN=subprocess.run
@@ -63,8 +64,8 @@ class TraceRecorder:
         task=self.task
         relation=task.get('relation_id') or task.get('relation') or ''
         defect=task.get('mutant_id') or task.get('defect_id') or task.get('mutant') or 'CLEAN'
-        guarded=relation in {'MR04','MR09','MR10'} and defect in {'M01','M02','M03','M04','M05','M12'}
-        mode='CLEAN' if defect=='CLEAN' else ('STAGE_ISOLATION' if guarded else 'FAULT_ACTIVE')
+        mode=activation_mode(relation, defect)
+        guarded=mode=='STAGE_ISOLATION'
         return {
             'request_trace_json':json.dumps(_normal(task,self.work),sort_keys=True,separators=(',',':')),
             'action_trace_json':json.dumps(self.actions,sort_keys=True,separators=(',',':')),
