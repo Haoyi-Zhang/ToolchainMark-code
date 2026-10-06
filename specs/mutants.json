@@ -82,7 +82,7 @@
       "id": "M12",
       "operator": "compile_original",
       "fault_class": "stage routing",
-      "behavior": "Compile the original source instead of the marked representation.",
+      "behavior": "Stage-routing proxy: suppress carrier construction before compilation, omission-equivalent to M01 in the executed model.",
       "primary_relation": "MR01"
     },
     {
