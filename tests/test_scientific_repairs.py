@@ -18,6 +18,13 @@ from test_repair_models import ByteBuildPipeline
 
 
 class SymbolFormatTests(unittest.TestCase):
+    def test_symbol_tool_timeout_remains_an_execution_error(self):
+        with patch('tosem02.record.subprocess.run', side_effect=
+                   subprocess.TimeoutExpired(['nm', '-g', 'owned-input'], 20)) as run:
+            with self.assertRaises(subprocess.TimeoutExpired):
+                parse_symbols(Path('owned-input'), KEY1)
+        self.assertEqual(run.call_args.kwargs['timeout'], 20)
+
     def parse(self, names, key=KEY1, **kwargs):
         listing = "\n".join("00000000 R " + name for name in names)
         with patch("tosem02.record.subprocess.run", return_value=

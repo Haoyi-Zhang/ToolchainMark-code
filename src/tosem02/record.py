@@ -102,7 +102,7 @@ def symbol_names(payload: bytes, key: str, key_ignored: bool = False) -> list[st
 
 
 def parse_symbols(binary: Path, key: str, key_ignored: bool = False, checksum_bypass: bool = False) -> bytes:
-    proc = subprocess.run(['nm', '-g', str(binary)], text=True, capture_output=True, timeout=5)
+    proc = subprocess.run(['nm', '-g', str(binary)], text=True, capture_output=True, timeout=20)
     if proc.returncode != 0:
         raise ExtractionError('tool', f'nm failed: {proc.stderr.strip()}')
     rows: list[tuple[bytes, int, int, int, bytes, bytes]] = []
