@@ -10,6 +10,7 @@ import argparse, csv, hashlib, json, math, random, statistics
 from collections import Counter,defaultdict
 from pathlib import Path
 from tosem02.accounting import summarize_rows
+from tosem02.study_coverage import StudyCoverageError, require_study_coverage
 
 RELATIONS=[f'MR{i:02d}' for i in range(1,15)]
 SUITES={'round_trip':['MR01'],'host_semantics':['MR01','MR02'],
@@ -48,7 +49,9 @@ def cover(units,kills,weights=None):
     return selected
 
 def derive(matrix, mutants_path, out, legacy=None, rerun=None):
-    out.mkdir(parents=True,exist_ok=True); rr=rows(matrix)
+    rr=rows(matrix); other=rows(rerun) if rerun is not None else None
+    require_study_coverage(rr,other)
+    out.mkdir(parents=True,exist_ok=True)
     mutants={m['id']:m for m in json.loads(mutants_path.read_text())['mutants']}
     assert len({key(r) for r in rr})==len(rr),'duplicate scientific row identity'
     assert all(r['verdict'] in {'SATISFIED','INCONSISTENT','INADMISSIBLE'} for r in rr)
@@ -149,7 +152,7 @@ def derive(matrix, mutants_path, out, legacy=None, rerun=None):
         summary['legacy_transitions']=[dict(legacy=a,evidence_gated=b,rows=n) for (a,b),n in sorted(transitions.items())]
         write_csv(out/'legacy_transitions.csv',summary['legacy_transitions'])
     if rerun:
-        other=rows(rerun); d={key(r):r for r in other}; diff=[]; fields=[f for f in rr[0] if f!='duration_seconds']
+        d={key(r):r for r in other}; diff=[]; fields=[f for f in rr[0] if f!='duration_seconds']
         assert len(d)==len(other),'rerun duplicate keys'
         for r in rr:
             q=d.get(key(r))
@@ -176,7 +179,18 @@ def scientific_checks(summary):
 def main(argv=None):
     p=argparse.ArgumentParser();p.add_argument('--matrix',type=Path,required=True);p.add_argument('--mutants',type=Path,required=True)
     p.add_argument('--out',type=Path,required=True);p.add_argument('--legacy',type=Path);p.add_argument('--rerun',type=Path)
-    a=p.parse_args(argv);s=derive(a.matrix,a.mutants,a.out,a.legacy,a.rerun)
+    a=p.parse_args(argv)
+    try:
+        s=derive(a.matrix,a.mutants,a.out,a.legacy,a.rerun)
+    except StudyCoverageError as error:
+        # No statistics or semantic PASS claims are produced for a wrong grid.
+        gate=dict(checks={'planned_key_domain_complete': False},
+                  failed=['planned_key_domain_complete'],verdict='FAIL',
+                  coverage=error.reports,remaining_study_checks='NOT_RUN')
+        a.out.mkdir(parents=True,exist_ok=True)
+        write_json(a.out/'scientific_checks.json',gate)
+        print(json.dumps(dict(scientific_checks=gate),indent=2))
+        return 1
     checks=scientific_checks(s)
     gate=dict(checks=checks,failed=[name for name,ok in checks.items() if not ok],
               verdict='PASS' if all(checks.values()) else 'FAIL')

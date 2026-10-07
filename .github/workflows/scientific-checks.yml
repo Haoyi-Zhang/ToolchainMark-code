@@ -34,7 +34,7 @@ jobs:
           ulimit -f 1048576
           OUT="$RUNNER_TEMP/scientific-evidence"
           python -B --version 2>&1 | tee "$OUT/python.log"
-          python -B -m unittest -v test_repair_models test_scientific_repairs test_evidence_catalog test_external_transfer test_evidence_boundaries.EvidenceBoundaryTests 2>&1 | tee "$OUT/models.log"
+          python -B -m unittest -v test_repair_models test_scientific_repairs test_study_coverage test_evidence_catalog test_external_transfer test_evidence_boundaries.EvidenceBoundaryTests 2>&1 | tee "$OUT/models.log"
           python -B scripts/verify_science.py 2>&1 | tee "$OUT/retained-checks.log"
           python -B -m zipfile -e results/native-linux/evidence.zip "$OUT/native-evidence" 2>&1 | tee "$OUT/archive.log"
           python -B scripts/derive_admission_study.py --matrix "$OUT/native-evidence/native-study/first.csv" --rerun "$OUT/native-evidence/native-study/second.csv" --mutants specs/mutants.json --legacy results/raw/robustness_matrix.csv --out "$OUT/derived" 2>&1 | tee "$OUT/derivation.log"

@@ -6,6 +6,7 @@ from pathlib import Path
 from derive_observation_accounting import derive
 from tosem02.catalog import load_mutants, load_relations
 from tosem02.evidence_catalog import load as load_evidence
+from tosem02.study_coverage import coverage_report
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -38,11 +39,14 @@ def main():
     }
     first = read_rows(ROOT/'results/admission-study/matrix.csv')
     second = read_rows(ROOT/'results/admission-study/rerun.csv')
+    coverage = {'matrix': coverage_report(first), 'rerun': coverage_report(second)}
+    checks['retained_matrix_exact_planned_keys'] = coverage['matrix']['complete']
+    checks['retained_rerun_exact_planned_keys'] = coverage['rerun']['complete']
     def key(row):
         return tuple(row[name] for name in ('host', 'carrier', 'defect_id', 'relation_id'))
     left = {key(row): row for row in first}
     right = {key(row): row for row in second}
-    fields = [name for name in first[0] if name != 'duration_seconds']
+    fields = [name for name in first[0] if name != 'duration_seconds'] if first else []
     checks['retained_keys_unique_and_equal'] = len(left) == len(first) == len(right) == len(second) == 18900 and set(left) == set(right)
     checks['eleven_retained_fields_equal'] = len(fields) == 11 and all(
         key_ in right and all(row[name] == right[key_][name] for name in fields)
@@ -57,11 +61,14 @@ def main():
         return row['verdict'], row['reason'] if row['verdict'] == 'INADMISSIBLE' else ''
     replay = [row for row in first if row['host'] != 'H01-gcd.c' and row['defect_id'] != 'CLEAN']
     checks['replay_includes_inadmissible_reasons'] = len(replay) == 17136 and all(
+        ('H01-gcd.c', row['carrier'], row['defect_id'], row['relation_id']) in left and
         replay_value(row) == replay_value(left[('H01-gcd.c', row['carrier'], row['defect_id'], row['relation_id'])])
         for row in replay)
     result = {'checks': checks, 'failed': [key_ for key_, value in checks.items() if not value],
               'verdict': 'PASS' if all(checks.values()) else 'FAIL',
               'scope': 'Retained-row accounting, stored-field replay and catalog schema only. No compiler, utility, external source or PDF campaign is executed; interface behavior requires the separate model tests and compiled replay.'}
+    if not all(report['complete'] for report in coverage.values()):
+        result['coverage'] = coverage
     print(json.dumps(result, indent=2))
     return 0 if all(checks.values()) else 1
 
