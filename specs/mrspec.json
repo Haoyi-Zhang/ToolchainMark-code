@@ -301,8 +301,8 @@
       "preconditions": [
         "two builds may share one process without semantic aliasing"
       ],
-      "source_case": "Build a1 for p1.",
-      "follow_up": "Build a2 for p2 before extracting either artifact, then extract both.",
+      "source_case": "Submit two distinct payload requests p1 and p2 concurrently to one pipeline instance.",
+      "follow_up": "Rendezvous both requests at staging before either compilation proceeds. Complete both overlapping builds a1 and a2, then extract both artifacts.",
       "oracle": "Each artifact yields its own payload.",
       "handler": "mr12_interleaved",
       "claim_ids": [

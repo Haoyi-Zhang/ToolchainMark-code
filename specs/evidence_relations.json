@@ -313,6 +313,7 @@
         "staging_rendezvous_completed",
         "subject_exists"
       ],
+      "construction": "Submit two distinct payload requests concurrently to one pipeline instance, rendezvous at staging before either compilation proceeds, and extract after both overlapping builds complete.",
       "observation_keys": [
         "both_expected",
         "both_payloads",

@@ -21,7 +21,7 @@ cd artifact
 ./scripts/verify.sh
 ```
 
-The verifier executes tests, rederives current tables and figures, checks the current admission evidence, and verifies the file manifest before and after. Bibliographic structure is checked separately from external-record review; a citation occurrence never constitutes proof of semantic support.
+The verifier runs the scientific tests and checks retained-row accounting, admission evidence, and stored-field agreement. It does not regenerate paper tables or figures, validate a release manifest, or repeat compiled campaigns. Bibliographic structure is checked separately from external-record review; a citation occurrence never constitutes proof of semantic support.
 
 ## Execute a new study
 
