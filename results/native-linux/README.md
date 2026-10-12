@@ -1,4 +1,12 @@
-# Native Linux evidence
+# Historical native Linux evidence
+
+This campaign uses `evidence-gated-v1`, the earlier checksum-rejection-only
+MR10 evidence contract. It does not record the later payload preservation,
+non-checksum material preservation and actual checksum-change facts. Equal
+numerical outcomes do not qualify these old rows under the current contract.
+The new complete measured campaign is documented separately in
+[current native results](../current-native/README.md). All historical raw rows,
+archive bytes, environment records and timings below remain unchanged.
 
 Owned workflow run 37402311165 executed the repaired evidence-gated interfaces on 2026-10-06. The complete original result download is preserved unchanged as `evidence.zip` (573,700 bytes). Both actual raw matrices are inside that archive; publishing a second expanded copy of either matrix is unnecessary.
 

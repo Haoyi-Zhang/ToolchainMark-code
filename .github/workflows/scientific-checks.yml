@@ -41,6 +41,7 @@ jobs:
           for original in "$OUT/native-evidence/native-study/derived/"*; do
             cmp "$original" "$OUT/derived/${original##*/}" 2>&1 | tee -a "$OUT/derived-comparison.log"
           done
+          python -B evaluation/verify_native_records.py 2>&1 | tee "$OUT/current-native-records.log"
           CHECKS
       - name: Preserve raw observations and failed checks
         if: always()

@@ -1,0 +1,587 @@
+{
+  "scope": "Integration-time data-only checks, not another execution.",
+  "path_base": "results/current-native",
+  "matrices": {
+    "canonical_first": {
+      "raw_bytes": 8445649,
+      "raw_sha256": "5425f12072e08696784fefbdca0f23bd7d9740b59005cf8bcc9d1a0cc43cd547",
+      "coverage": {
+        "complete": true,
+        "expected_rows": 18900,
+        "observed_rows": 18900,
+        "missing_keys": 0,
+        "unexpected_keys": 0,
+        "duplicate_keys": 0,
+        "duplicate_rows": 0,
+        "missing_examples": [],
+        "unexpected_examples": [],
+        "duplicate_examples": []
+      },
+      "accounting": {
+        "configured_rows": 18900,
+        "clean_rows": 756,
+        "nonclean_configured_rows": 18144,
+        "stage_isolation_rows": 972,
+        "fault_active_rows": 17172,
+        "verdicts_by_activation": {
+          "CLEAN": {
+            "SATISFIED": 756
+          },
+          "STAGE_ISOLATION": {
+            "SATISFIED": 972
+          },
+          "FAULT_ACTIVE": {
+            "INADMISSIBLE": 1008,
+            "INCONSISTENT": 4266,
+            "SATISFIED": 11898
+          }
+        }
+      },
+      "units": 1296,
+      "units_exposed": 1242,
+      "mr10_verdicts": {
+        "SATISFIED": 936,
+        "INADMISSIBLE": 144,
+        "INCONSISTENT": 270
+      },
+      "m16_mr10_inconsistent": 54,
+      "median_seconds": 0.137322,
+      "maximum_seconds": 0.670565
+    },
+    "canonical_second": {
+      "raw_bytes": 8445562,
+      "raw_sha256": "c4100ec969450863fc286822244ad2e983c2213649fefb37eb3601992f46c398",
+      "coverage": {
+        "complete": true,
+        "expected_rows": 18900,
+        "observed_rows": 18900,
+        "missing_keys": 0,
+        "unexpected_keys": 0,
+        "duplicate_keys": 0,
+        "duplicate_rows": 0,
+        "missing_examples": [],
+        "unexpected_examples": [],
+        "duplicate_examples": []
+      },
+      "accounting": {
+        "configured_rows": 18900,
+        "clean_rows": 756,
+        "nonclean_configured_rows": 18144,
+        "stage_isolation_rows": 972,
+        "fault_active_rows": 17172,
+        "verdicts_by_activation": {
+          "CLEAN": {
+            "SATISFIED": 756
+          },
+          "STAGE_ISOLATION": {
+            "SATISFIED": 972
+          },
+          "FAULT_ACTIVE": {
+            "INADMISSIBLE": 1008,
+            "INCONSISTENT": 4266,
+            "SATISFIED": 11898
+          }
+        }
+      },
+      "units": 1296,
+      "units_exposed": 1242,
+      "mr10_verdicts": {
+        "SATISFIED": 936,
+        "INADMISSIBLE": 144,
+        "INCONSISTENT": 270
+      },
+      "m16_mr10_inconsistent": 54,
+      "median_seconds": 0.13783050000000002,
+      "maximum_seconds": 0.658338
+    },
+    "mirror_first": {
+      "raw_bytes": 8445560,
+      "raw_sha256": "d0635cbd2ef7e64ce97326a258a69b3ccf859f043c0602e4c519f4a39336734e",
+      "coverage": {
+        "complete": true,
+        "expected_rows": 18900,
+        "observed_rows": 18900,
+        "missing_keys": 0,
+        "unexpected_keys": 0,
+        "duplicate_keys": 0,
+        "duplicate_rows": 0,
+        "missing_examples": [],
+        "unexpected_examples": [],
+        "duplicate_examples": []
+      },
+      "accounting": {
+        "configured_rows": 18900,
+        "clean_rows": 756,
+        "nonclean_configured_rows": 18144,
+        "stage_isolation_rows": 972,
+        "fault_active_rows": 17172,
+        "verdicts_by_activation": {
+          "CLEAN": {
+            "SATISFIED": 756
+          },
+          "STAGE_ISOLATION": {
+            "SATISFIED": 972
+          },
+          "FAULT_ACTIVE": {
+            "INADMISSIBLE": 1008,
+            "INCONSISTENT": 4266,
+            "SATISFIED": 11898
+          }
+        }
+      },
+      "units": 1296,
+      "units_exposed": 1242,
+      "mr10_verdicts": {
+        "SATISFIED": 936,
+        "INADMISSIBLE": 144,
+        "INCONSISTENT": 270
+      },
+      "m16_mr10_inconsistent": 54,
+      "median_seconds": 0.1308205,
+      "maximum_seconds": 0.663797
+    },
+    "mirror_second": {
+      "raw_bytes": 8445696,
+      "raw_sha256": "74a6805d6c7c06437697d04ed41eeee1a439f4b893706b19e96c20437fb0c16c",
+      "coverage": {
+        "complete": true,
+        "expected_rows": 18900,
+        "observed_rows": 18900,
+        "missing_keys": 0,
+        "unexpected_keys": 0,
+        "duplicate_keys": 0,
+        "duplicate_rows": 0,
+        "missing_examples": [],
+        "unexpected_examples": [],
+        "duplicate_examples": []
+      },
+      "accounting": {
+        "configured_rows": 18900,
+        "clean_rows": 756,
+        "nonclean_configured_rows": 18144,
+        "stage_isolation_rows": 972,
+        "fault_active_rows": 17172,
+        "verdicts_by_activation": {
+          "CLEAN": {
+            "SATISFIED": 756
+          },
+          "STAGE_ISOLATION": {
+            "SATISFIED": 972
+          },
+          "FAULT_ACTIVE": {
+            "INADMISSIBLE": 1008,
+            "INCONSISTENT": 4266,
+            "SATISFIED": 11898
+          }
+        }
+      },
+      "units": 1296,
+      "units_exposed": 1242,
+      "mr10_verdicts": {
+        "SATISFIED": 936,
+        "INADMISSIBLE": 144,
+        "INCONSISTENT": 270
+      },
+      "m16_mr10_inconsistent": 54,
+      "median_seconds": 0.13134200000000001,
+      "maximum_seconds": 0.689011
+    }
+  },
+  "comparisons": {
+    "canonical_repeat": {
+      "rows": 18900,
+      "identical_key_sets": true,
+      "fields": [
+        "host",
+        "host_sha256",
+        "carrier",
+        "defect_id",
+        "relation_id",
+        "verdict",
+        "exposed",
+        "reason",
+        "phase",
+        "admission_json",
+        "observations_json"
+      ],
+      "field_comparisons": 207900,
+      "raw_differences": {},
+      "semantic_differences": {}
+    },
+    "mirror_repeat": {
+      "rows": 18900,
+      "identical_key_sets": true,
+      "fields": [
+        "host",
+        "host_sha256",
+        "carrier",
+        "defect_id",
+        "relation_id",
+        "verdict",
+        "exposed",
+        "reason",
+        "phase",
+        "admission_json",
+        "observations_json"
+      ],
+      "field_comparisons": 207900,
+      "raw_differences": {},
+      "semantic_differences": {}
+    },
+    "canonical_vs_mirror": {
+      "rows": 18900,
+      "identical_key_sets": true,
+      "fields": [
+        "host",
+        "host_sha256",
+        "carrier",
+        "defect_id",
+        "relation_id",
+        "verdict",
+        "exposed",
+        "reason",
+        "phase",
+        "admission_json",
+        "observations_json"
+      ],
+      "field_comparisons": 207900,
+      "raw_differences": {},
+      "semantic_differences": {}
+    },
+    "retained_gated_vs_current": {
+      "rows": 18900,
+      "identical_key_sets": true,
+      "fields": [
+        "host",
+        "host_sha256",
+        "carrier",
+        "defect_id",
+        "relation_id",
+        "verdict",
+        "exposed",
+        "reason",
+        "phase",
+        "admission_json",
+        "observations_json"
+      ],
+      "field_comparisons": 207900,
+      "raw_differences": {
+        "admission_json": 1206,
+        "observations_json": 1206
+      },
+      "semantic_differences": {
+        "admission_json": 1206,
+        "observations_json": 1206
+      }
+    },
+    "retained_native_vs_current": {
+      "rows": 18900,
+      "identical_key_sets": true,
+      "fields": [
+        "host",
+        "host_sha256",
+        "carrier",
+        "defect_id",
+        "relation_id",
+        "verdict",
+        "exposed",
+        "reason",
+        "phase",
+        "admission_json",
+        "observations_json"
+      ],
+      "field_comparisons": 207900,
+      "raw_differences": {
+        "admission_json": 1206,
+        "observations_json": 1206
+      },
+      "semantic_differences": {
+        "admission_json": 1206,
+        "observations_json": 1206
+      }
+    }
+  },
+  "retained_projection": {
+    "scope": "Remove only the declared new MR10 facts and integrity_intervention observation in memory; no old or current file modified.",
+    "semantic_differences": {}
+  },
+  "derived_reproduction": {
+    "canonical": {
+      "admission_failures.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      },
+      "bootstrap.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      },
+      "bootstrap_summary.json": {
+        "bytes_equal": false,
+        "values_equal": true
+      },
+      "carrier_holdout.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      },
+      "class_holdout.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      },
+      "legacy_transitions.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      },
+      "operator_holdout.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      },
+      "paired_comparison.json": {
+        "bytes_equal": false,
+        "values_equal": true
+      },
+      "relation_outcomes.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      },
+      "rerun_comparison.json": {
+        "bytes_equal": false,
+        "values_equal": true
+      },
+      "scientific_checks.json": {
+        "bytes_equal": false,
+        "values_equal": true
+      },
+      "suites.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      },
+      "summary.json": {
+        "bytes_equal": false,
+        "values_equal": true
+      },
+      "unit_outcomes.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      }
+    },
+    "mirror": {
+      "admission_failures.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      },
+      "bootstrap.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      },
+      "bootstrap_summary.json": {
+        "bytes_equal": false,
+        "values_equal": true
+      },
+      "carrier_holdout.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      },
+      "class_holdout.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      },
+      "legacy_transitions.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      },
+      "operator_holdout.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      },
+      "paired_comparison.json": {
+        "bytes_equal": false,
+        "values_equal": true
+      },
+      "relation_outcomes.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      },
+      "rerun_comparison.json": {
+        "bytes_equal": false,
+        "values_equal": true
+      },
+      "scientific_checks.json": {
+        "bytes_equal": false,
+        "values_equal": true
+      },
+      "suites.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      },
+      "summary.json": {
+        "bytes_equal": false,
+        "values_equal": true
+      },
+      "unit_outcomes.csv": {
+        "bytes_equal": true,
+        "values_equal": true
+      }
+    }
+  },
+  "retained_metrics_equal": {
+    "suites": true,
+    "bootstrap": true,
+    "units_with_admitted_case": true,
+    "zero_sensitivity_classes": true,
+    "defect_rows": true,
+    "unit_count": true,
+    "reasons": true,
+    "clean": true,
+    "defect_verdicts": true,
+    "direct_exclusive_units": true,
+    "design_exposed": true,
+    "legacy_transitions": true,
+    "clean_rows": true,
+    "subject_replay": true,
+    "units_exposed": true,
+    "unrevealed_operators": true,
+    "zero_sensitivity_operators": true,
+    "rows": true,
+    "design_units": true
+  },
+  "retained_derived_values_equal": {
+    "admission_failures.csv": true,
+    "bootstrap.csv": true,
+    "bootstrap_summary.json": true,
+    "carrier_holdout.csv": true,
+    "class_holdout.csv": true,
+    "legacy_transitions.csv": true,
+    "operator_holdout.csv": true,
+    "paired_comparison.json": true,
+    "relation_outcomes.csv": true,
+    "suites.csv": true,
+    "unit_outcomes.csv": true
+  },
+  "source_binding": [
+    {
+      "path": "src/tosem02/__init__.py",
+      "git_blob_sha": "1f356cc57bfa00a3b251402604c54702fb414c96",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "src/tosem02/admission.py",
+      "git_blob_sha": "6a0610f6ab5081e6182dddcb59ff81c3f9ea90be",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "src/tosem02/integrity.py",
+      "git_blob_sha": "b84823249dd49d2df85250c00fe5e0a42e3cac82",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "src/tosem02/pipeline.py",
+      "git_blob_sha": "97c32202a929c176064244a8efdc6f0f809e263e",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "src/tosem02/record.py",
+      "git_blob_sha": "9d9a1761345cdadc98b6150501e5e979be209742",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "src/tosem02/model.py",
+      "git_blob_sha": "6b099af7c1aab238cb9c2ecfcda27d31c10d3811",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "src/tosem02/catalog.py",
+      "git_blob_sha": "624a64ba3af78012aa72e15b82746b9d027a519f",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "src/tosem02/cli.py",
+      "git_blob_sha": "bca218748f37ba6e3beb4d80704665d89a47cb41",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "src/tosem02/study_coverage.py",
+      "git_blob_sha": "da65327e0eb4c96cda895455efb43476bd06d600",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "src/tosem02/accounting.py",
+      "git_blob_sha": "2afe82f01cd25758ad1bd94170b786ce7a9734e8",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "scripts/derive_admission_study.py",
+      "git_blob_sha": "b63c8e0316c83583b9e3b6dada503526aab5dcf1",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "scripts/run_full.sh",
+      "git_blob_sha": "05873cd84f979c2e2e50e41266051eb9ddea9d84",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "scripts/run_admission_study.py",
+      "git_blob_sha": "44bfc243f9f3b3a9677d02571976746b36616a2f",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "specs/mutants.json",
+      "git_blob_sha": "0dc702a7df5b365f8fd05ee1a56fa5558c93077f",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "specs/evidence_relations.json",
+      "git_blob_sha": "efbaecd775beb4946913a92443e82fe7fa574cfd",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "tests/test_integrity_admission.py",
+      "git_blob_sha": "b7c24429431f2dbb77f939412a40ae8588ef846f",
+      "local_bytes_equal": true
+    },
+    {
+      "path": ".github/workflows/native-compiler-campaign.yml",
+      "git_blob_sha": "9a37cda0793c37d21a02d24df724ee5c87ba319a",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "src/tosem02/evidence_boundary.py",
+      "git_blob_sha": "20d23f4b0d4a3e1d5eebc7fbcdb8e3ede636ac3b",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "src/tosem02/evidence_catalog.py",
+      "git_blob_sha": "6001d7163bf92169088f12d775986e10b3e08b62",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "src/tosem02/runner.py",
+      "git_blob_sha": "57b73955ee22c99db2eb8217b920d1d9e9918f63",
+      "local_bytes_equal": true
+    },
+    {
+      "path": "src/tosem02/relations.py",
+      "git_blob_sha": "e67edfed8dc9f3692646555ed4d2b0d0f68ad370",
+      "local_bytes_equal": true
+    }
+  ],
+  "host_source_binding": {
+    "H01-gcd.c": true,
+    "H02-fibonacci.c": true,
+    "H03-bitmix.c": true,
+    "H04-polynomial.c": true,
+    "H05-crc.c": true,
+    "H06-primecount.c": true,
+    "H07-sortfold.c": true,
+    "H08-statemachine.c": true,
+    "H09-matrix.c": true,
+    "H10-parser.c": true,
+    "H11-popcount.c": true,
+    "H12-lcg.c": true,
+    "H13-zlib.c": true,
+    "H14-openssl.c": true,
+    "H15-sqlite.c": true,
+    "H16-xml.c": true,
+    "H17-json.c": true,
+    "H18-png.c": true
+  }
+}

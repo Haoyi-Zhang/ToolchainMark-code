@@ -1,0 +1,375 @@
+{
+  "schema": "native-results-provenance",
+  "scope": "Local integration of existing measured outputs; no native program was rerun. Paths below are relative to current-native, not a different execution.",
+  "protocol": "evidence-gated-v2-checksum-locality",
+  "canonical": {
+    "repository": "Haoyi-Zhang/ToolchainMark",
+    "run_id": 38191576562,
+    "head_sha": "2eea208a1e383a51b83bd0420f98f685949a4aed",
+    "commit_author_utc": "2026-10-12T01:21:30Z",
+    "commit_committer_utc": "2026-10-12T01:21:30Z",
+    "tree_sha": "86d45831266f52d0dafa5a9f2f62d358d9177cce",
+    "job_id": 114625256622,
+    "run_status": "completed",
+    "conclusion": "success",
+    "run_created_utc": "2026-10-12T01:21:33Z",
+    "run_started_utc": "2026-10-12T01:21:33Z",
+    "run_updated_utc": "2026-10-12T01:47:43Z",
+    "job_started_utc": "2026-10-12T01:21:35Z",
+    "job_completed_utc": "2026-10-12T01:47:42Z",
+    "complete_matrices_step_started_utc": "2026-10-12T01:22:02Z",
+    "complete_matrices_step_completed_utc": "2026-10-12T01:47:39Z",
+    "artifact": {
+      "id": 11722876392,
+      "name": "native-compiler-evidence",
+      "size_in_bytes": 588925,
+      "url": "https://api.github.com/repos/Haoyi-Zhang/ToolchainMark/actions/artifacts/11722876392",
+      "archive_download_url": "https://api.github.com/repos/Haoyi-Zhang/ToolchainMark/actions/artifacts/11722876392/zip",
+      "expired": false,
+      "created_at": "2026-10-12T01:47:40Z",
+      "expires_at": "2026-10-26T01:47:39Z",
+      "updated_at": "2026-10-12T01:47:40Z",
+      "digest": "sha256:2cc114f12edf657e18dbdcef1f6fe961b87af743fef97664b4176f893f34fd3f",
+      "workflow_run": {
+        "id": 38191576562,
+        "repository_id": 1385801189,
+        "head_repository_id": 1385801189,
+        "head_branch": "main",
+        "head_sha": "2eea208a1e383a51b83bd0420f98f685949a4aed"
+      }
+    },
+    "job_steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1
+      },
+      {
+        "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2
+      },
+      {
+        "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3
+      },
+      {
+        "name": "Install native compiler and local fixture dependencies",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4
+      },
+      {
+        "name": "Check regression tests against actual ELF tools",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5
+      },
+      {
+        "name": "Record the execution environment",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6
+      },
+      {
+        "name": "Run both complete gated matrices and derive their comparison",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 7
+      },
+      {
+        "name": "Preserve measured outputs and failures",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8
+      },
+      {
+        "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 15
+      },
+      {
+        "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 16
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 17
+      }
+    ],
+    "environment": "native-environment.json",
+    "raw_matrices": [
+      "first.csv.gz",
+      "second.csv.gz"
+    ],
+    "derived": "derived",
+    "tests": {
+      "log": "native-tests.log",
+      "count": 103,
+      "elapsed_seconds": 11.727,
+      "skips": 0
+    },
+    "archive": {
+      "bytes": 588925,
+      "sha256": "2cc114f12edf657e18dbdcef1f6fe961b87af743fef97664b4176f893f34fd3f",
+      "original_download_retained_privately": true
+    },
+    "workers": 4
+  },
+  "mirror": {
+    "repository": "Haoyi-Zhang/ToolchainMark-code",
+    "run_id": 38192265626,
+    "head_sha": "df2b4c0323c94ec3782fce85f358720c6706c330",
+    "commit_author_utc": "2026-10-12T01:32:07Z",
+    "commit_committer_utc": "2026-10-12T01:32:07Z",
+    "tree_sha": "86d45831266f52d0dafa5a9f2f62d358d9177cce",
+    "job_id": 114627345751,
+    "run_status": "completed",
+    "conclusion": "success",
+    "run_created_utc": "2026-10-12T01:32:09Z",
+    "run_started_utc": "2026-10-12T01:32:09Z",
+    "run_updated_utc": "2026-10-12T01:57:42Z",
+    "job_started_utc": "2026-10-12T01:32:12Z",
+    "job_completed_utc": "2026-10-12T01:57:42Z",
+    "complete_matrices_step_started_utc": "2026-10-12T01:32:33Z",
+    "complete_matrices_step_completed_utc": "2026-10-12T01:57:37Z",
+    "artifact": {
+      "id": 11722857486,
+      "name": "native-compiler-evidence",
+      "size_in_bytes": 588881,
+      "url": "https://api.github.com/repos/Haoyi-Zhang/ToolchainMark-code/actions/artifacts/11722857486",
+      "archive_download_url": "https://api.github.com/repos/Haoyi-Zhang/ToolchainMark-code/actions/artifacts/11722857486/zip",
+      "expired": false,
+      "created_at": "2026-10-12T01:57:39Z",
+      "expires_at": "2026-10-26T01:57:38Z",
+      "updated_at": "2026-10-12T01:57:39Z",
+      "digest": "sha256:c94b766270e21c79250efb0f178e9f8e6c77bf710dbf6bb29ea32db76373aee6",
+      "workflow_run": {
+        "id": 38192265626,
+        "repository_id": 1401211195,
+        "head_repository_id": 1401211195,
+        "head_branch": "main",
+        "head_sha": "df2b4c0323c94ec3782fce85f358720c6706c330"
+      }
+    },
+    "job_steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1
+      },
+      {
+        "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2
+      },
+      {
+        "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3
+      },
+      {
+        "name": "Install native compiler and local fixture dependencies",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4
+      },
+      {
+        "name": "Check regression tests against actual ELF tools",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5
+      },
+      {
+        "name": "Record the execution environment",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6
+      },
+      {
+        "name": "Run both complete gated matrices and derive their comparison",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 7
+      },
+      {
+        "name": "Preserve measured outputs and failures",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8
+      },
+      {
+        "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 15
+      },
+      {
+        "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 16
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 17
+      }
+    ],
+    "environment": "mirror/native-environment.json",
+    "raw_matrices": [
+      "mirror/first.csv.gz",
+      "mirror/second.csv.gz"
+    ],
+    "derived": "mirror/derived",
+    "tests": {
+      "log": "mirror/native-tests.log",
+      "count": 103,
+      "elapsed_seconds": 8.147,
+      "skips": 0
+    },
+    "archive": {
+      "bytes": 588881,
+      "sha256": "c94b766270e21c79250efb0f178e9f8e6c77bf710dbf6bb29ea32db76373aee6",
+      "original_download_retained_privately": true
+    },
+    "workers": 4
+  },
+  "source_snapshot": {
+    "path": "source-snapshot",
+    "scope": "Claim-critical producer, observer, parser, coverage, derivation and regression files, not a standalone reconstructed repository. Fetched read-only at both recorded commits. Matching Git trees are same implementation, not independent software.",
+    "files": [
+      {
+        "path": "src/tosem02/__init__.py",
+        "git_blob_sha": "1f356cc57bfa00a3b251402604c54702fb414c96",
+        "mirror_git_blob_sha": "1f356cc57bfa00a3b251402604c54702fb414c96"
+      },
+      {
+        "path": "src/tosem02/admission.py",
+        "git_blob_sha": "6a0610f6ab5081e6182dddcb59ff81c3f9ea90be",
+        "mirror_git_blob_sha": "6a0610f6ab5081e6182dddcb59ff81c3f9ea90be"
+      },
+      {
+        "path": "src/tosem02/integrity.py",
+        "git_blob_sha": "b84823249dd49d2df85250c00fe5e0a42e3cac82",
+        "mirror_git_blob_sha": "b84823249dd49d2df85250c00fe5e0a42e3cac82"
+      },
+      {
+        "path": "src/tosem02/pipeline.py",
+        "git_blob_sha": "97c32202a929c176064244a8efdc6f0f809e263e",
+        "mirror_git_blob_sha": "97c32202a929c176064244a8efdc6f0f809e263e"
+      },
+      {
+        "path": "src/tosem02/record.py",
+        "git_blob_sha": "9d9a1761345cdadc98b6150501e5e979be209742",
+        "mirror_git_blob_sha": "9d9a1761345cdadc98b6150501e5e979be209742"
+      },
+      {
+        "path": "src/tosem02/model.py",
+        "git_blob_sha": "6b099af7c1aab238cb9c2ecfcda27d31c10d3811",
+        "mirror_git_blob_sha": "6b099af7c1aab238cb9c2ecfcda27d31c10d3811"
+      },
+      {
+        "path": "src/tosem02/catalog.py",
+        "git_blob_sha": "624a64ba3af78012aa72e15b82746b9d027a519f",
+        "mirror_git_blob_sha": "624a64ba3af78012aa72e15b82746b9d027a519f"
+      },
+      {
+        "path": "src/tosem02/cli.py",
+        "git_blob_sha": "bca218748f37ba6e3beb4d80704665d89a47cb41",
+        "mirror_git_blob_sha": "bca218748f37ba6e3beb4d80704665d89a47cb41"
+      },
+      {
+        "path": "src/tosem02/study_coverage.py",
+        "git_blob_sha": "da65327e0eb4c96cda895455efb43476bd06d600",
+        "mirror_git_blob_sha": "da65327e0eb4c96cda895455efb43476bd06d600"
+      },
+      {
+        "path": "src/tosem02/accounting.py",
+        "git_blob_sha": "2afe82f01cd25758ad1bd94170b786ce7a9734e8",
+        "mirror_git_blob_sha": "2afe82f01cd25758ad1bd94170b786ce7a9734e8"
+      },
+      {
+        "path": "scripts/derive_admission_study.py",
+        "git_blob_sha": "b63c8e0316c83583b9e3b6dada503526aab5dcf1",
+        "mirror_git_blob_sha": "b63c8e0316c83583b9e3b6dada503526aab5dcf1"
+      },
+      {
+        "path": "scripts/run_full.sh",
+        "git_blob_sha": "05873cd84f979c2e2e50e41266051eb9ddea9d84",
+        "mirror_git_blob_sha": "05873cd84f979c2e2e50e41266051eb9ddea9d84"
+      },
+      {
+        "path": "scripts/run_admission_study.py",
+        "git_blob_sha": "44bfc243f9f3b3a9677d02571976746b36616a2f",
+        "mirror_git_blob_sha": "44bfc243f9f3b3a9677d02571976746b36616a2f"
+      },
+      {
+        "path": "specs/mutants.json",
+        "git_blob_sha": "0dc702a7df5b365f8fd05ee1a56fa5558c93077f",
+        "mirror_git_blob_sha": "0dc702a7df5b365f8fd05ee1a56fa5558c93077f"
+      },
+      {
+        "path": "specs/evidence_relations.json",
+        "git_blob_sha": "efbaecd775beb4946913a92443e82fe7fa574cfd",
+        "mirror_git_blob_sha": "efbaecd775beb4946913a92443e82fe7fa574cfd"
+      },
+      {
+        "path": "tests/test_integrity_admission.py",
+        "git_blob_sha": "b7c24429431f2dbb77f939412a40ae8588ef846f",
+        "mirror_git_blob_sha": "b7c24429431f2dbb77f939412a40ae8588ef846f"
+      },
+      {
+        "path": ".github/workflows/native-compiler-campaign.yml",
+        "git_blob_sha": "9a37cda0793c37d21a02d24df724ee5c87ba319a",
+        "mirror_git_blob_sha": "9a37cda0793c37d21a02d24df724ee5c87ba319a"
+      },
+      {
+        "path": "src/tosem02/evidence_boundary.py",
+        "git_blob_sha": "20d23f4b0d4a3e1d5eebc7fbcdb8e3ede636ac3b",
+        "mirror_git_blob_sha": "20d23f4b0d4a3e1d5eebc7fbcdb8e3ede636ac3b"
+      },
+      {
+        "path": "src/tosem02/evidence_catalog.py",
+        "git_blob_sha": "6001d7163bf92169088f12d775986e10b3e08b62",
+        "mirror_git_blob_sha": "6001d7163bf92169088f12d775986e10b3e08b62"
+      },
+      {
+        "path": "src/tosem02/runner.py",
+        "git_blob_sha": "57b73955ee22c99db2eb8217b920d1d9e9918f63",
+        "mirror_git_blob_sha": "57b73955ee22c99db2eb8217b920d1d9e9918f63"
+      },
+      {
+        "path": "src/tosem02/relations.py",
+        "git_blob_sha": "e67edfed8dc9f3692646555ed4d2b0d0f68ad370",
+        "mirror_git_blob_sha": "e67edfed8dc9f3692646555ed4d2b0d0f68ad370"
+      }
+    ]
+  },
+  "historical": {
+    "retained_gated": "../admission-study",
+    "native": "../native-linux",
+    "later_repair": "../repair-replay",
+    "protocol": "evidence-gated-v1",
+    "scope": "Different checksum-rejection-only evidence contract; historical rows and timing remain unchanged and are never pooled with current MR10 qualification."
+  },
+  "limits": [
+    "Finite seeded mechanisms and six-input observations only.",
+    "Same parser family for implementation and observer; matching code in mirror is not independent authorship or external-team replication.",
+    "No new 378-case utility or upstream source-pair/sanitizer campaign.",
+    "No CTF execution, independent end-to-end watermark product comparison, or upstream confirmed bug-and-repair pair."
+  ]
+}

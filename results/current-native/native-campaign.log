@@ -1,0 +1,274 @@
+500/18900
+1000/18900
+1500/18900
+2000/18900
+2500/18900
+3000/18900
+3500/18900
+4000/18900
+4500/18900
+5000/18900
+5500/18900
+6000/18900
+6500/18900
+7000/18900
+7500/18900
+8000/18900
+8500/18900
+9000/18900
+9500/18900
+10000/18900
+10500/18900
+11000/18900
+11500/18900
+12000/18900
+12500/18900
+13000/18900
+13500/18900
+14000/18900
+14500/18900
+15000/18900
+15500/18900
+16000/18900
+16500/18900
+17000/18900
+17500/18900
+18000/18900
+18500/18900
+18900/18900
+matrix first.csv rows 18900
+500/18900
+1000/18900
+1500/18900
+2000/18900
+2500/18900
+3000/18900
+3500/18900
+4000/18900
+4500/18900
+5000/18900
+5500/18900
+6000/18900
+6500/18900
+7000/18900
+7500/18900
+8000/18900
+8500/18900
+9000/18900
+9500/18900
+10000/18900
+10500/18900
+11000/18900
+11500/18900
+12000/18900
+12500/18900
+13000/18900
+13500/18900
+14000/18900
+14500/18900
+15000/18900
+15500/18900
+16000/18900
+16500/18900
+17000/18900
+17500/18900
+18000/18900
+18500/18900
+18900/18900
+matrix second.csv rows 18900
+{
+  "summary": {
+    "protocol": "evidence-gated-v2-checksum-locality",
+    "rows": 18900,
+    "clean_rows": 756,
+    "clean": {
+      "SATISFIED": 756
+    },
+    "defect_rows": 18144,
+    "defect_verdicts": {
+      "INCONSISTENT": 4266,
+      "SATISFIED": 12870,
+      "INADMISSIBLE": 1008
+    },
+    "row_accounting": {
+      "configured_rows": 18900,
+      "clean_rows": 756,
+      "nonclean_configured_rows": 18144,
+      "stage_isolation_rows": 972,
+      "fault_active_rows": 17172,
+      "verdicts_by_activation": {
+        "CLEAN": {
+          "SATISFIED": 756
+        },
+        "STAGE_ISOLATION": {
+          "SATISFIED": 972
+        },
+        "FAULT_ACTIVE": {
+          "INADMISSIBLE": 1008,
+          "INCONSISTENT": 4266,
+          "SATISFIED": 11898
+        }
+      }
+    },
+    "unit_count": 1296,
+    "units_exposed": 1242,
+    "units_with_admitted_case": 1296,
+    "design_units": 72,
+    "design_exposed": 69,
+    "unrevealed_operators": [
+      "M15"
+    ],
+    "reasons": {
+      "source_payload_recovered": 540,
+      "source_carrier_valid": 108,
+      "requested_branches_executed": 270,
+      "carrier_removed": 54,
+      "integrity_corruption_established": 36
+    },
+    "subject_replay": {
+      "matches": 17136,
+      "rows": 17136,
+      "killsets_equal": 1224,
+      "killsets": 1224
+    },
+    "direct_exclusive_units": 594,
+    "zero_sensitivity_classes": [
+      "authentication",
+      "configuration",
+      "integrity",
+      "semantic corruption",
+      "transformation"
+    ],
+    "zero_sensitivity_operators": [
+      "M06",
+      "M15",
+      "M16",
+      "M20",
+      "M21",
+      "M22",
+      "M23",
+      "M24"
+    ],
+    "bootstrap": {
+      "seed": 20260923,
+      "replicates": 10000,
+      "nonempty_out_of_bag": 10000,
+      "minimum": 0.6,
+      "median": 0.9583333333333334,
+      "perfect": 1884,
+      "suite_size_median": 9.0,
+      "selection_counts": {
+        "MR13": 9611,
+        "MR10": 10000,
+        "MR02": 10000,
+        "MR11": 9999,
+        "MR12": 9614,
+        "MR06": 9688,
+        "MR04": 10000,
+        "MR07": 9700,
+        "MR14": 9626,
+        "MR05": 379
+      }
+    },
+    "suites": [
+      {
+        "suite": "round_trip",
+        "design_units": 72,
+        "design_exposed": 21,
+        "expanded_units": 1296,
+        "expanded_exposed": 378,
+        "expanded_units_with_admitted_case": 1296
+      },
+      {
+        "suite": "host_semantics",
+        "design_units": 72,
+        "design_exposed": 27,
+        "expanded_units": 1296,
+        "expanded_exposed": 486,
+        "expanded_units_with_admitted_case": 1296
+      },
+      {
+        "suite": "compiler_differential",
+        "design_units": 72,
+        "design_exposed": 33,
+        "expanded_units": 1296,
+        "expanded_exposed": 594,
+        "expanded_units_with_admitted_case": 1296
+      },
+      {
+        "suite": "complete_catalog",
+        "design_units": 72,
+        "design_exposed": 69,
+        "expanded_units": 1296,
+        "expanded_exposed": 1242,
+        "expanded_units_with_admitted_case": 1296
+      }
+    ],
+    "run_timing": {
+      "median": 0.137322,
+      "maximum": 0.670565
+    },
+    "matrix_sha256": "5425f12072e08696784fefbdca0f23bd7d9740b59005cf8bcc9d1a0cc43cd547",
+    "legacy_transitions": [
+      {
+        "legacy": "FAIL",
+        "evidence_gated": "INADMISSIBLE",
+        "rows": 468
+      },
+      {
+        "legacy": "FAIL",
+        "evidence_gated": "INCONSISTENT",
+        "rows": 3996
+      },
+      {
+        "legacy": "PASS",
+        "evidence_gated": "INADMISSIBLE",
+        "rows": 540
+      },
+      {
+        "legacy": "PASS",
+        "evidence_gated": "INCONSISTENT",
+        "rows": 270
+      },
+      {
+        "legacy": "PASS",
+        "evidence_gated": "SATISFIED",
+        "rows": 13626
+      }
+    ],
+    "rerun": {
+      "rows": 18900,
+      "rerun_rows": 18900,
+      "identical_key_sets": true,
+      "compared_fields": [
+        "host",
+        "host_sha256",
+        "carrier",
+        "defect_id",
+        "relation_id",
+        "verdict",
+        "exposed",
+        "reason",
+        "phase",
+        "admission_json",
+        "observations_json"
+      ],
+      "field_comparisons": 207900,
+      "differences": 0,
+      "examples": [],
+      "all_durations_positive": true,
+      "first_sha256": "5425f12072e08696784fefbdca0f23bd7d9740b59005cf8bcc9d1a0cc43cd547",
+      "second_sha256": "c4100ec969450863fc286822244ad2e983c2213649fefb37eb3601992f46c398",
+      "verdict": "PASS"
+    }
+  },
+  "scientific_checks": {
+    "checks": {
+      "planned_denominators_complete": true,
+      "clean_controls_admitted_and_satisfied": true,
+      "rerun_matches_when_requested": true
+    },
+    "failed": [],
+    "verdict": "PASS"
+  }
+}

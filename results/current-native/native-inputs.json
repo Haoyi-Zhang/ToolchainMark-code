@@ -1,0 +1,290 @@
+{
+  "scope": "Read-only binding to the native-input paths at the last applicable successful runs; not a new-head native execution.",
+  "tree_sha": "86d45831266f52d0dafa5a9f2f62d358d9177cce",
+  "canonical_run": 38191576562,
+  "canonical_head": "2eea208a1e383a51b83bd0420f98f685949a4aed",
+  "mirror_run": 38192265626,
+  "mirror_head": "df2b4c0323c94ec3782fce85f358720c6706c330",
+  "native_paths": [
+    {
+      "path": ".github/workflows/native-compiler-campaign.yml",
+      "git_blob_sha": "9a37cda0793c37d21a02d24df724ee5c87ba319a"
+    },
+    {
+      "path": "hosts/H01-gcd.c",
+      "git_blob_sha": "18baa6acf2c5f7a2b093053b92dddf821d09fd84"
+    },
+    {
+      "path": "hosts/H02-fibonacci.c",
+      "git_blob_sha": "550ee485851dc4ffaa96b07228fb53cba8a12986"
+    },
+    {
+      "path": "hosts/H03-bitmix.c",
+      "git_blob_sha": "abfeb73612e3d0107cb875ee88c8ad2a3af7c5c1"
+    },
+    {
+      "path": "hosts/H04-polynomial.c",
+      "git_blob_sha": "59f2a134d8c817391ba3939b16ce96084deb116a"
+    },
+    {
+      "path": "hosts/H05-crc.c",
+      "git_blob_sha": "ec0f0f3718f2ad12b08dfb56a6e36b2bf72862e2"
+    },
+    {
+      "path": "hosts/H06-primecount.c",
+      "git_blob_sha": "d5e20aa4fe3e894f273c105d601a522487426161"
+    },
+    {
+      "path": "hosts/H07-sortfold.c",
+      "git_blob_sha": "073a4836f2a4dd78f77bcecfe2d6099ecd69346a"
+    },
+    {
+      "path": "hosts/H08-statemachine.c",
+      "git_blob_sha": "af5956d81ef962a8515db0c693debdf5ad7eab47"
+    },
+    {
+      "path": "hosts/H09-matrix.c",
+      "git_blob_sha": "c2278df5b8473c3b76f4661864b1ad9835f867ad"
+    },
+    {
+      "path": "hosts/H10-parser.c",
+      "git_blob_sha": "f2d9c3bae927ae8c908709a0fbacc8d986a0943e"
+    },
+    {
+      "path": "hosts/H11-popcount.c",
+      "git_blob_sha": "987ead6c120d0792effa1914f2aa8c522346c856"
+    },
+    {
+      "path": "hosts/H12-lcg.c",
+      "git_blob_sha": "53d8bbb8a5ae5adb7bed4a73b4184055f14f3b18"
+    },
+    {
+      "path": "hosts/H13-zlib.c",
+      "git_blob_sha": "2ddece7cceb1a8e00f4f4e46f734f7797f4c9beb"
+    },
+    {
+      "path": "hosts/H14-openssl.c",
+      "git_blob_sha": "653ec633cad3df7abdc670e016e63651b3ca91dc"
+    },
+    {
+      "path": "hosts/H15-sqlite.c",
+      "git_blob_sha": "e211c8fbf1561fac5dfda12fe7f03ea82e301674"
+    },
+    {
+      "path": "hosts/H16-xml.c",
+      "git_blob_sha": "957d9f97a4dad33eaf948b8264606b06715e6b74"
+    },
+    {
+      "path": "hosts/H17-json.c",
+      "git_blob_sha": "39e9dedc0bc62d1233ab0678f46dc4a49357f3ba"
+    },
+    {
+      "path": "hosts/H18-png.c",
+      "git_blob_sha": "b43b18708db03c41538d2d0aa774c17256a81746"
+    },
+    {
+      "path": "scripts/audit_references.py",
+      "git_blob_sha": "cc7708b8bc6fcc3cf363c6d1fc84055145c00b5a"
+    },
+    {
+      "path": "scripts/build_paper_optional.sh",
+      "git_blob_sha": "0554352165e2a62dabf9f716c417423688db704a"
+    },
+    {
+      "path": "scripts/compare_fresh_rerun.py",
+      "git_blob_sha": "ad926d83811bbc893cdd85db8bd6fd92b1f774fd"
+    },
+    {
+      "path": "scripts/compare_robustness_runs.py",
+      "git_blob_sha": "ec57f66b9fd81c42d9faedafe30f74b33db0a1c4"
+    },
+    {
+      "path": "scripts/derive_admission_study.py",
+      "git_blob_sha": "b63c8e0316c83583b9e3b6dada503526aab5dcf1"
+    },
+    {
+      "path": "scripts/derive_observation_accounting.py",
+      "git_blob_sha": "e02b1db6e081b654b5e0048b8650df2c64246726"
+    },
+    {
+      "path": "scripts/derive_robustness.py",
+      "git_blob_sha": "e03c08f2be77764732f813d152eb11929fde0db7"
+    },
+    {
+      "path": "scripts/generate_admission_tables.py",
+      "git_blob_sha": "a4ff62d29b14f35597430fe9684076dba834c0ce"
+    },
+    {
+      "path": "scripts/generate_ledgers.py",
+      "git_blob_sha": "bc58e34e9ab97c2f8d7496223c1ca072881281b2"
+    },
+    {
+      "path": "scripts/recheck.sh",
+      "git_blob_sha": "c2af9c28e7a7ffc63bbc1d70af455198ae418abf"
+    },
+    {
+      "path": "scripts/run_admission_study.py",
+      "git_blob_sha": "44bfc243f9f3b3a9677d02571976746b36616a2f"
+    },
+    {
+      "path": "scripts/run_adverse_transformations.py",
+      "git_blob_sha": "0a29060a1d230c36548e823b042c2f3305c76d74"
+    },
+    {
+      "path": "scripts/run_base.sh",
+      "git_blob_sha": "e93c0a62e9e0c028e55004d17c1fb1b4eab49635"
+    },
+    {
+      "path": "scripts/run_base_rerun.py",
+      "git_blob_sha": "9e6d5357a55cbf24c9108198e4780029e885d528"
+    },
+    {
+      "path": "scripts/run_complete.sh",
+      "git_blob_sha": "cb063fa70a1c1d2ff6c3bc144d2d8c4b316c764b"
+    },
+    {
+      "path": "scripts/run_full.sh",
+      "git_blob_sha": "05873cd84f979c2e2e50e41266051eb9ddea9d84"
+    },
+    {
+      "path": "scripts/verify.sh",
+      "git_blob_sha": "a6b5eab91745b5b1fe912dd048de43e0f47939df"
+    },
+    {
+      "path": "scripts/verify_package.py",
+      "git_blob_sha": "21fb75c7f5d2a33bf2af43e1ac5aae00960bf3f9"
+    },
+    {
+      "path": "scripts/verify_release.sh",
+      "git_blob_sha": "691aa299b5164c727fcc0611ac24dd56ef68d62a"
+    },
+    {
+      "path": "scripts/verify_science.py",
+      "git_blob_sha": "5c41a7b653fef012278b92876839f968538ee48d"
+    },
+    {
+      "path": "scripts/verify_science.sh",
+      "git_blob_sha": "1a82fd8e336c0514cbafb4e997000b853613c78b"
+    },
+    {
+      "path": "specs/evidence_relations.json",
+      "git_blob_sha": "efbaecd775beb4946913a92443e82fe7fa574cfd"
+    },
+    {
+      "path": "specs/mrspec.json",
+      "git_blob_sha": "163986e997f7bd5b47147eb16815d2a712ad919f"
+    },
+    {
+      "path": "specs/mutants.json",
+      "git_blob_sha": "0dc702a7df5b365f8fd05ee1a56fa5558c93077f"
+    },
+    {
+      "path": "src/tosem02/__init__.py",
+      "git_blob_sha": "1f356cc57bfa00a3b251402604c54702fb414c96"
+    },
+    {
+      "path": "src/tosem02/accounting.py",
+      "git_blob_sha": "2afe82f01cd25758ad1bd94170b786ce7a9734e8"
+    },
+    {
+      "path": "src/tosem02/admission.py",
+      "git_blob_sha": "6a0610f6ab5081e6182dddcb59ff81c3f9ea90be"
+    },
+    {
+      "path": "src/tosem02/catalog.py",
+      "git_blob_sha": "624a64ba3af78012aa72e15b82746b9d027a519f"
+    },
+    {
+      "path": "src/tosem02/cli.py",
+      "git_blob_sha": "bca218748f37ba6e3beb4d80704665d89a47cb41"
+    },
+    {
+      "path": "src/tosem02/derive.py",
+      "git_blob_sha": "e5e489204e4cc0ad16aee3af5f64028f04b2dcd4"
+    },
+    {
+      "path": "src/tosem02/evidence_boundary.py",
+      "git_blob_sha": "20d23f4b0d4a3e1d5eebc7fbcdb8e3ede636ac3b"
+    },
+    {
+      "path": "src/tosem02/evidence_catalog.py",
+      "git_blob_sha": "6001d7163bf92169088f12d775986e10b3e08b62"
+    },
+    {
+      "path": "src/tosem02/integrity.py",
+      "git_blob_sha": "b84823249dd49d2df85250c00fe5e0a42e3cac82"
+    },
+    {
+      "path": "src/tosem02/model.py",
+      "git_blob_sha": "6b099af7c1aab238cb9c2ecfcda27d31c10d3811"
+    },
+    {
+      "path": "src/tosem02/pipeline.py",
+      "git_blob_sha": "97c32202a929c176064244a8efdc6f0f809e263e"
+    },
+    {
+      "path": "src/tosem02/recheck.py",
+      "git_blob_sha": "88821500d6af57fe5c76b6ea6fde69a22a3c756c"
+    },
+    {
+      "path": "src/tosem02/record.py",
+      "git_blob_sha": "9d9a1761345cdadc98b6150501e5e979be209742"
+    },
+    {
+      "path": "src/tosem02/relations.py",
+      "git_blob_sha": "e67edfed8dc9f3692646555ed4d2b0d0f68ad370"
+    },
+    {
+      "path": "src/tosem02/runner.py",
+      "git_blob_sha": "57b73955ee22c99db2eb8217b920d1d9e9918f63"
+    },
+    {
+      "path": "src/tosem02/study_coverage.py",
+      "git_blob_sha": "da65327e0eb4c96cda895455efb43476bd06d600"
+    },
+    {
+      "path": "src/tosem02/trace_runtime.py",
+      "git_blob_sha": "6f8bc5693737d532e8965722375d1221321f41fe"
+    },
+    {
+      "path": "tests/test_admission.py",
+      "git_blob_sha": "92b3f9d666fa679f1723ba29546fc4000ec46ea0"
+    },
+    {
+      "path": "tests/test_artifact.py",
+      "git_blob_sha": "c1fa898566967890211def211eb799e7f0248595"
+    },
+    {
+      "path": "tests/test_evidence_boundaries.py",
+      "git_blob_sha": "7d895b89cae1bc8bb8e31b9f0a9a4624500528a2"
+    },
+    {
+      "path": "tests/test_evidence_catalog.py",
+      "git_blob_sha": "91546eaae8b47b86eeee4a1758c0e077aaaa5282"
+    },
+    {
+      "path": "tests/test_external_transfer.py",
+      "git_blob_sha": "28933f1249ef8761ede0c7433a5f2638bd895bdf"
+    },
+    {
+      "path": "tests/test_integrity_admission.py",
+      "git_blob_sha": "b7c24429431f2dbb77f939412a40ae8588ef846f"
+    },
+    {
+      "path": "tests/test_release_safety.py",
+      "git_blob_sha": "8553d86100643485395a40ea5fd9d3519b32e7c5"
+    },
+    {
+      "path": "tests/test_repair_models.py",
+      "git_blob_sha": "f65dc83b47049ec8c063954c45f16858a22e9d09"
+    },
+    {
+      "path": "tests/test_scientific_repairs.py",
+      "git_blob_sha": "5936e8af93360cf913b08b0168098e4a7c81023b"
+    },
+    {
+      "path": "tests/test_study_coverage.py",
+      "git_blob_sha": "a089974bf68b1ef470dd924500191f0f80eeee82"
+    }
+  ]
+}

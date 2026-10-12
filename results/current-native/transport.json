@@ -1,0 +1,42 @@
+{
+  "canonical_first": {
+    "file": "first.csv.gz",
+    "compressed_bytes": 232522,
+    "uncompressed_bytes": 8445649,
+    "gzip_sha256": "cecb6c0570dfe737dcb714b2974a38747b3ac59f6b31b8492a784346e42411bf",
+    "raw_sha256": "5425f12072e08696784fefbdca0f23bd7d9740b59005cf8bcc9d1a0cc43cd547",
+    "decompress_byte_comparison": true,
+    "gzip_mtime": 0,
+    "gzip_filename": ""
+  },
+  "canonical_second": {
+    "file": "second.csv.gz",
+    "compressed_bytes": 232535,
+    "uncompressed_bytes": 8445562,
+    "gzip_sha256": "c24530160e6edb2f008bf8631559a6731417e7e7abe80e5023753676229d0f55",
+    "raw_sha256": "c4100ec969450863fc286822244ad2e983c2213649fefb37eb3601992f46c398",
+    "decompress_byte_comparison": true,
+    "gzip_mtime": 0,
+    "gzip_filename": ""
+  },
+  "mirror_first": {
+    "file": "mirror/first.csv.gz",
+    "compressed_bytes": 232678,
+    "uncompressed_bytes": 8445560,
+    "gzip_sha256": "0143b756c2a9177b1e88cc6abbede606cf1557f14eab4884a1890c3070e2ce44",
+    "raw_sha256": "d0635cbd2ef7e64ce97326a258a69b3ccf859f043c0602e4c519f4a39336734e",
+    "decompress_byte_comparison": true,
+    "gzip_mtime": 0,
+    "gzip_filename": ""
+  },
+  "mirror_second": {
+    "file": "mirror/second.csv.gz",
+    "compressed_bytes": 232739,
+    "uncompressed_bytes": 8445696,
+    "gzip_sha256": "26ccfb07dc7ca9ad6adc8b6111bb867c263c9785d4861fbf4e1be58e94261bcb",
+    "raw_sha256": "74a6805d6c7c06437697d04ed41eeee1a439f4b893706b19e96c20437fb0c16c",
+    "decompress_byte_comparison": true,
+    "gzip_mtime": 0,
+    "gzip_filename": ""
+  }
+}
