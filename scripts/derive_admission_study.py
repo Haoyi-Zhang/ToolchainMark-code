@@ -16,6 +16,30 @@ RELATIONS=[f'MR{i:02d}' for i in range(1,15)]
 SUITES={'round_trip':['MR01'],'host_semantics':['MR01','MR02'],
         'compiler_differential':['MR01','MR02','MR06','MR07'],'complete_catalog':RELATIONS}
 DESIGN='H01-gcd.c'
+LOCALITY_FACTS=frozenset({'nonintervened_payload_preserved','checksum_material_changed',
+                         'nonchecksum_material_preserved'})
+
+
+def matrix_protocol(rr):
+    """Distinguish retained MR10 evidence from current admitted MR10 rows.
+
+    No version is inferred from matching counts or from the current source.
+    An admitted row cannot contain only a fraction of the new gate facts, and
+    old/new admitted MR10 rows must not be pooled in one derived campaign.
+    """
+    versions=set()
+    for row in rr:
+        if row['relation_id']!='MR10' or row['verdict']=='INADMISSIBLE':
+            continue
+        facts=set(json.loads(row['admission_json']))
+        if facts & LOCALITY_FACTS and not LOCALITY_FACTS<=facts:
+            raise ValueError('incomplete checksum-locality evidence on admitted MR10 row')
+        versions.add(LOCALITY_FACTS<=facts)
+    if len(versions)>1:
+        raise ValueError('cannot pool retained and checksum-locality MR10 protocols')
+    if not versions:
+        return 'unresolved-no-admitted-MR10'
+    return 'evidence-gated-v2-checksum-locality' if versions=={True} else 'evidence-gated-v1'
 
 
 def rows(path):
@@ -51,6 +75,9 @@ def cover(units,kills,weights=None):
 def derive(matrix, mutants_path, out, legacy=None, rerun=None):
     rr=rows(matrix); other=rows(rerun) if rerun is not None else None
     require_study_coverage(rr,other)
+    protocol=matrix_protocol(rr)
+    if other is not None and matrix_protocol(other)!=protocol:
+        raise ValueError('rerun protocol differs from the primary matrix')
     out.mkdir(parents=True,exist_ok=True)
     mutants={m['id']:m for m in json.loads(mutants_path.read_text())['mutants']}
     assert len({key(r) for r in rr})==len(rr),'duplicate scientific row identity'
@@ -131,7 +158,7 @@ def derive(matrix, mutants_path, out, legacy=None, rerun=None):
                            minimum=min(vals),median=statistics.median(vals),perfect=sum(v==1 for v in vals),
                            suite_size_median=statistics.median(r['suite_size'] for r in bootstrap),selection_counts=dict(selections))
     write_json(out/'bootstrap_summary.json',bootstrap_summary)
-    summary=dict(protocol='evidence-gated-v1',rows=len(rr),clean_rows=len(clean),
+    summary=dict(protocol=protocol,rows=len(rr),clean_rows=len(clean),
                  clean=dict(Counter(r['verdict'] for r in clean)),defect_rows=len(faulty),
                  defect_verdicts=dict(Counter(r['verdict'] for r in faulty)),row_accounting=summarize_rows(rr),unit_count=len(units),
                  units_exposed=sum(bool(kills[u]) for u in units),units_with_admitted_case=sum(bool(admitted[u]) for u in units),

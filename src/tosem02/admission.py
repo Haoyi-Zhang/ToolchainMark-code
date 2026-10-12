@@ -13,6 +13,7 @@ from typing import Any
 import shutil
 
 from .model import BuildRequest, BuildResult, ExtractionError
+from .integrity import checksum_material, intervention_facts
 from .pipeline import Pipeline, run_host
 from .relations import INPUTS, KEY1, KEY2, PAYLOAD1, PAYLOAD2
 
@@ -179,12 +180,22 @@ def _evaluate(relation: str, pipeline: Pipeline, host: Path, root: Path, e: Evid
     if relation in {'MR09', 'MR10'}:
         base = build('source', guarded=True); source_valid(base, physical=True)
         e.phase = 'intervention-admission'
+        # Freeze material before invoking the adapter: an in-place mutation
+        # must not rewrite the source against which preservation is checked.
+        source_material = (checksum_material(pipeline.carrier, base.binary, KEY1)
+                           if relation == 'MR10' else None)
         target = (pipeline.remove_carrier if relation == 'MR09' else pipeline.corrupt_carrier)(base, root / 'followup')
         physical = inspect_carrier(pipeline.carrier, target, KEY1)
         e.observations['followup_carrier'] = physical
         expected = 'absent' if relation == 'MR09' else 'checksum'
         e.require('carrier_removed' if relation == 'MR09' else 'integrity_corruption_established',
                   physical == {'kind': 'rejection', 'value': expected})
+        if relation == 'MR10':
+            facts = intervention_facts(source_material, checksum_material(pipeline.carrier, target, KEY1,
+                                                                          source=source_material))
+            e.observations['integrity_intervention'] = facts
+            for name, established in facts.items():
+                e.require(name, established)
         e.phase = 'rejection-observation'; obs = extract_observation(pipeline, target, KEY1)
         e.observations['followup'] = obs
         return obs == {'kind': 'rejection', 'value': expected}

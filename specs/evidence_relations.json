@@ -1,6 +1,7 @@
 {
   "schema_version": "1.0",
-  "protocol": "evidence-gated-v1",
+  "protocol": "evidence-gated-v2-checksum-locality",
+  "retained_matrix_protocol": "evidence-gated-v1",
   "scope": "Explicit interface contract for the revised executor; matching labels are not a proof of semantic correctness.",
   "relations": [
     {
@@ -256,19 +257,23 @@
       ],
       "required_admission_facts": [
         "integrity_corruption_established",
+        "nonintervened_payload_preserved",
+        "checksum_material_changed",
+        "nonchecksum_material_preserved",
         "isolated_workspace",
         "source_carrier_valid",
         "source_payload_recovered",
         "subject_exists"
       ],
       "observation_keys": [
+        "integrity_intervention",
         "followup",
         "followup_carrier",
         "source",
         "source_carrier"
       ],
       "observer_boundary": "seed-free pipeline instance sharing the record parser",
-      "predicate": "Extraction returns exactly the checksum rejection kind after verified checksum corruption.",
+      "predicate": "After a pre-intervention snapshot establishes unchanged decoded payload and all non-checksum carrier material, an actual checksum change, and strict observer checksum rejection, extraction returns exactly the checksum rejection kind.",
       "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
     },
     {
