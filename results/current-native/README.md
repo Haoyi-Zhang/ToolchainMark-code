@@ -2,21 +2,22 @@
 
 These are measured results of the current `evidence-gated-v2-checksum-locality`
 contract, not a relabeling of the earlier checksum-rejection-only matrices.
-Canonical workflow run **38191576562**, head
-`2eea208a1e383a51b83bd0420f98f685949a4aed`, completed successfully on
-2026-10-12. Job **114625256622** ran 103 regression tests in 11.727 seconds
-without skips and executed both full matrices with real GCC/Clang and ELF
-utilities. Its matrix/derivation step ran from **01:22:02 to 01:47:39 UTC**.
-Artifact **11722876392** was created at **01:47:40 UTC**.
+Canonical workflow run **38310980867**, head
+`c8367e792913794672baff73cee2a62df2975574`, completed successfully and
+ran 116 regression tests in 34.507 seconds without skips. It executed both
+full matrices with real GCC/Clang and ELF utilities. The genuine downloaded
+artifact is **11775931468**.
 
-The mirror is a separate execution of the same Git tree, not an independently
-implemented tool or external-team replication. Run **38192265626**, head
-`df2b4c0323c94ec3782fce85f358720c6706c330`, job **114627345751**, artifact
-**11722857486**, completed successfully. It ran 103 tests in 8.147 seconds
-without skips; its full-matrix step ran from **01:32:33 to 01:57:37 UTC**.
-Exact measured environment strings, UTC metadata, source identities and
+The mirror is a separate execution of the same bound native inputs, not an independently
+implemented tool or external-team replication. Run **38310978633**, head
+`777877f94814a217b7a73c24c9c3f568469d492e`, artifact **11775174136**,
+completed successfully. It ran 116 tests in 16.658 seconds without skips.
+Exact measured environment strings, run/commit/artifact identities and
 execution scope are preserved in `native-environment.json` and `provenance.json`.
 Both runs used Python 3.12.15, GCC 13.3.0, Clang 18.1.3 and GNU binutils 2.42.
+The coordinator supplied the successful run/head/artifact identities. The
+archives do not contain job IDs, full Git trees, commit UTC timestamps or step
+UTC timestamps; none is inferred or copied from an earlier campaign.
 
 ## Files and lossless transport
 
@@ -28,18 +29,20 @@ Both runs used Python 3.12.15, GCC 13.3.0, Clang 18.1.3 and GNU binutils 2.42.
   `native-environment.json`: unchanged canonical measured records.
 - `mirror/`: corresponding raw gzip files, derived files, logs and environment
   from the mirror execution.
-- `source-snapshot/`: claim-critical files fetched at both exact commits;
-  their Git blob identities agree. They are inert provenance copies, not an
+- `source-snapshot/`: 23 claim-critical files identical to the verified native
+  input blobs, including the repaired CLI, utility helper and new tests. They
+  are inert provenance copies, not an
   additional execution or a standalone installable package.
 - `transport.json`: byte lengths, raw/gzip SHA-256 identities and successful
   decompression byte comparisons.
-- `native-inputs.json`: the 70 native-input blob identities at both successful
-  commits, including the unchanged original table generator and native YAML.
-- `validation.json`: integration-time data checks and comparison with retained
-  evidence. All paths are relative; these checks are not another native run.
+- `native-inputs.json`: the 71 exact native-input path/blob identities,
+  including the new regression module and the exact validated native YAML.
+  Unchanged identities remain bound to the prior verified inputs; the four
+  changed/new identities match the reviewed validation-branch transport bytes.
+  Local audit reports and verifier stdout are kept outside this artifact.
 
-The canonical CSVs originally contain 8,445,649 and 8,445,562 bytes. The
-published gzip files contain 232,522 and 232,535 bytes. Decompression was
+The canonical CSVs originally contain 8,445,670 and 8,445,618 bytes. The
+published gzip files contain 236,440 and 236,359 bytes. Decompression was
 compared byte-for-byte with the originals: no row, field, order or newline was
 altered. The exact original CSVs and original downloaded ZIPs are retained
 privately for comparison, not redundantly published here. Original ZIP sizes
@@ -83,12 +86,13 @@ python3 -B evaluation/verify_native_records.py --paper ../paper --write-paper
 The default verifies all four gzip matrices, rederives both campaigns in
 temporary directories and checks the unchanged native-input bindings. It
 writes no paper input. The second command also checks current paper values.
-Only explicit `--write-paper` regenerates the two changed TeX inputs; it never
+Only explicit `--write-paper` regenerates the two measured TeX inputs when needed; it never
 redraws figures or substitutes old measurements. The Scientific checks
-workflow invokes the read-only verifier. Native compiler YAML is unchanged.
-Later documentation/data/helper changes are not described as a new-head native
-execution: the last applicable successes remain the recorded runs, with all
-70 native-input files unchanged. A binding failure requires new applicable
+workflow invokes the read-only verifier. Native compiler YAML is byte-identical
+to the validated workflow, including the `native-check-*` trigger; its execution
+and resource steps are unchanged. The recorded fresh campaigns include the
+repaired native inputs. All 71 current native-input files must remain unchanged
+relative to their recorded bindings. A binding failure requires new applicable
 native evidence rather than reuse of an old green result.
 
 ## Actual scientific results
@@ -106,12 +110,14 @@ out-of-bag sensitivity 60.0%.
 
 Within each run, and between canonical and mirror first matrices, all 207,900
 comparisons over 11 non-timing fields agree exactly. Durations are positive.
-Canonical first/second medians are 0.137322/0.1378305 seconds and maxima are
-0.670565/0.658338 seconds. Mirror first/second medians are 0.1308205/0.131342
-seconds and maxima are 0.663797/0.689011 seconds. Timing excludes subsequent
+Canonical first/second medians are 0.1229545/0.119467 seconds and maxima are
+1.779854/0.933247 seconds. Mirror first/second medians are 0.114171/0.115176
+seconds and maxima are 0.841067/0.763925 seconds. Timing excludes subsequent
 workspace cleanup and is not whole-campaign wall time.
 
-The counts and selection metrics reproduce the retained studies, but their
+The fresh matrices agree on every retained non-timing field with the preceding
+checksum-locality campaigns; only measured times and byte identities change.
+The counts and selection metrics reproduce the older retained studies, but their
 MR10 evidence is different: 1,206 rows have added locality admission facts and
 `integrity_intervention` observations (2,412 changed non-timing field values).
 After removing only those declared additions for comparison, the remaining

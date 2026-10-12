@@ -24,6 +24,20 @@ def expected(mode,carrier):
  if mode=='section': return 'reject' if carrier=='section' else 'preserve'
  raise ValueError(mode)
 
+def classify_observation(expected_outcome, return_code, *, payload_equal=False,
+                         host_outputs_equal=False, error_kind='', exception_class=''):
+ """Pure verdict boundary: observation failures are not domain rejection."""
+ if expected_outcome not in {'preserve','reject'}:
+  raise ValueError('unknown expected outcome')
+ domain_errors={'absent','wrong-key','checksum','malformed','version'}
+ if return_code!=0 or exception_class or (error_kind and error_kind not in domain_errors):
+  return 'infrastructure_failure',False
+ if error_kind:
+  observed='reject' if error_kind=='absent' else 'changed'
+ else:
+  observed='preserve' if payload_equal and host_outputs_equal else 'changed'
+ return observed,observed==expected_outcome
+
 def main():
  ap=argparse.ArgumentParser(); ap.add_argument('--output',type=Path,required=True); ap.add_argument('--work-root',type=Path); a=ap.parse_args()
  root=Path(__file__).resolve().parents[1]
@@ -41,20 +55,26 @@ def main():
     for opname,mode,command in OPS:
      started=time.perf_counter(); target_dir=case/opname; target_dir.mkdir(parents=True,exist_ok=True)
      target=target_dir/'artifact.bin'; shutil.copy2(build.binary,target)
-     return_code=0; stderr=''
-     if command:
-      proc=subprocess.run(command+[str(target)],text=True,capture_output=True,timeout=20)
-      return_code=proc.returncode; stderr=proc.stderr.strip()
      exp=expected(mode,carrier)
-     observed=''; payload_hex=''; output_equal=False; error_kind=''; exception_class=''
+     return_code=0; stderr=''; payload_hex=''; payload_equal=False
+     output_equal=False; error_kind=''; exception_class=''
      try:
-      value=pipe.extract(target,KEY1); payload_hex=value.hex(); outputs=[run_host(target,v) for v in INPUTS]; output_equal=outputs==source_outputs
-      observed='preserve' if value==source_payload and output_equal else 'changed'
-     except ExtractionError as exc:
-      observed='reject'; error_kind=exc.kind
+      if command:
+       proc=subprocess.run(command+[str(target)],text=True,capture_output=True,timeout=20)
+       return_code=proc.returncode; stderr=proc.stderr.strip()
      except Exception as exc:
-      observed='infrastructure_failure'; exception_class=type(exc).__name__; stderr=(stderr+' | '+str(exc)).strip(' |')
-     passed=return_code==0 and observed==exp
+      return_code=None; exception_class=type(exc).__name__; stderr=str(exc)
+     if return_code==0:
+      try:
+       value=pipe.extract(target,KEY1); payload_hex=value.hex(); payload_equal=value==source_payload
+       if exp=='preserve':
+        outputs=[run_host(target,v) for v in INPUTS]; output_equal=outputs==source_outputs
+      except ExtractionError as exc:
+       error_kind=exc.kind
+      except Exception as exc:
+       exception_class=type(exc).__name__; stderr=(stderr+' | '+str(exc)).strip(' |')
+     observed,passed=classify_observation(exp,return_code,payload_equal=payload_equal,
+         host_outputs_equal=output_equal,error_kind=error_kind,exception_class=exception_class)
      rows.append({'host':host.name,'host_sha256':sha(host),'carrier':carrier,'operation':opname,'utility':' '.join(command or ['copy']),
                   'expected':exp,'observed':observed,'pass':passed,'return_code':return_code,'error_kind':error_kind,
                   'payload_hex':payload_hex,'host_outputs_equal':output_equal,'binary_sha256':sha(target),'duration_seconds':round(time.perf_counter()-started,6),
@@ -63,10 +83,12 @@ def main():
   fields=list(rows[0]);
   with a.output.open('w',newline='') as h:
    w=csv.DictWriter(h,fieldnames=fields);w.writeheader();w.writerows(rows)
-  summary={'schema_version':'1.0','rows':len(rows),'passes':sum(r['pass'] for r in rows),'violations':sum(not r['pass'] for r in rows),
+  summary={'schema_version':'2.0','rows':len(rows),'passes':sum(r['pass'] for r in rows),
+           'violations':sum(not r['pass'] and r['observed']!='infrastructure_failure' for r in rows),
+           'infrastructure_failures':sum(r['observed']=='infrastructure_failure' for r in rows),
            'violations_by_operation':{},'violations_by_carrier':{},'all_durations_positive':all(r['duration_seconds']>0 for r in rows)}
   for r in rows:
-   if not r['pass']:
+   if not r['pass'] and r['observed']!='infrastructure_failure':
     summary['violations_by_operation'][r['operation']]=summary['violations_by_operation'].get(r['operation'],0)+1
     summary['violations_by_carrier'][r['carrier']]=summary['violations_by_carrier'].get(r['carrier'],0)+1
   a.output.with_suffix('.summary.json').write_text(json.dumps(summary,indent=2)+"\n")

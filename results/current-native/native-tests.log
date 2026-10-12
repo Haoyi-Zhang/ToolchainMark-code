@@ -40,6 +40,19 @@ test_missing_observer_is_rejected (test_evidence_catalog.EvidenceCatalogTests.te
 test_frozen_counts_and_negative_result (test_external_transfer.ExternalTransferEvidenceTests.test_frozen_counts_and_negative_result) ... ok
 test_rows_and_summary_are_consistent (test_external_transfer.ExternalTransferEvidenceTests.test_rows_and_summary_are_consistent) ... ok
 test_upstream_source_is_not_redistributed (test_external_transfer.ExternalTransferEvidenceTests.test_upstream_source_is_not_redistributed) ... ok
+test_cli_requires_new_output_argument (test_followup_classification.CurrentDerivationTests.test_cli_requires_new_output_argument) ... ok
+test_current_gzip_inputs_and_single_data_only_command (test_followup_classification.CurrentDerivationTests.test_current_gzip_inputs_and_single_data_only_command) ... ok
+test_data_derivation_failure_is_propagated (test_followup_classification.CurrentDerivationTests.test_data_derivation_failure_is_propagated) ... ok
+test_existing_file_and_directory_are_refused (test_followup_classification.CurrentDerivationTests.test_existing_file_and_directory_are_refused) ... ok
+test_help_does_not_claim_draft_authorship_verification (test_followup_classification.CurrentDerivationTests.test_help_does_not_claim_draft_authorship_verification) ... ok
+test_output_inside_supplied_project_is_refused (test_followup_classification.CurrentDerivationTests.test_output_inside_supplied_project_is_refused) ... ok
+test_domain_absence_does_not_satisfy_preservation (test_followup_classification.UtilityClassificationTests.test_domain_absence_does_not_satisfy_preservation) ... ok
+test_only_absent_satisfies_expected_rejection (test_followup_classification.UtilityClassificationTests.test_only_absent_satisfies_expected_rejection) ... ok
+test_payload_acceptance_does_not_satisfy_rejection (test_followup_classification.UtilityClassificationTests.test_payload_acceptance_does_not_satisfy_rejection) ... ok
+test_preservation_needs_payload_and_host_observations (test_followup_classification.UtilityClassificationTests.test_preservation_needs_payload_and_host_observations) ... ok
+test_transform_failure_dominates_even_an_absence_observation (test_followup_classification.UtilityClassificationTests.test_transform_failure_dominates_even_an_absence_observation) ... ok
+test_unknown_expected_outcome_is_rejected (test_followup_classification.UtilityClassificationTests.test_unknown_expected_outcome_is_rejected) ... ok
+test_unknown_observation_exception_cannot_pass (test_followup_classification.UtilityClassificationTests.test_unknown_observation_exception_cannot_pass) ... ok
 test_changed_structure_cannot_be_integrity_evidence (test_integrity_admission.IntegrityAdmissionTests.test_changed_structure_cannot_be_integrity_evidence) ... ok
 test_empty_payload_and_lengths_through_seventeen (test_integrity_admission.IntegrityAdmissionTests.test_empty_payload_and_lengths_through_seventeen) ... ok
 test_material_observer_failure_is_not_an_extractor_kill (test_integrity_admission.IntegrityAdmissionTests.test_material_observer_failure_is_not_an_extractor_kill) ... ok
@@ -103,6 +116,6 @@ test_order_and_outcome_metadata_do_not_change_coverage (test_study_coverage.Stud
 test_real_tiny_csvs_preserve_inputs_and_fail_without_deriving (test_study_coverage.StudyCoverageTests.test_real_tiny_csvs_preserve_inputs_and_fail_without_deriving) ... ok
 
 ----------------------------------------------------------------------
-Ran 103 tests in 11.727s
+Ran 116 tests in 34.507s
 
 OK

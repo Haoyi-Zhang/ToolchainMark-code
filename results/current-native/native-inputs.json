@@ -1,14 +1,14 @@
 {
-  "scope": "Read-only binding to the native-input paths at the last applicable successful runs; not a new-head native execution.",
-  "tree_sha": "86d45831266f52d0dafa5a9f2f62d358d9177cce",
-  "canonical_run": 38191576562,
-  "canonical_head": "2eea208a1e383a51b83bd0420f98f685949a4aed",
-  "mirror_run": 38192265626,
-  "mirror_head": "df2b4c0323c94ec3782fce85f358720c6706c330",
+  "scope": "Exact 71 native-input path/blob bindings for the human-identified fresh validation commits. Unchanged identities are retained from prior verified source bindings; four reviewed validation-branch transport entries supply the changed/new inputs. Blob identities are checked from the actual candidate bytes; no full repository tree identity is inferred.",
+  "canonical_run": 38310980867,
+  "canonical_head": "c8367e792913794672baff73cee2a62df2975574",
+  "mirror_run": 38310978633,
+  "mirror_head": "777877f94814a217b7a73c24c9c3f568469d492e",
+  "identity_evidence": "Run/head/artifact identities supplied by the human coordinator; downloaded static outputs and exact reviewed branch transport verified locally without GitHub access.",
   "native_paths": [
     {
       "path": ".github/workflows/native-compiler-campaign.yml",
-      "git_blob_sha": "9a37cda0793c37d21a02d24df724ee5c87ba319a"
+      "git_blob_sha": "40f0fd051a75b69cc11358b1781ddc2293f00e3b"
     },
     {
       "path": "hosts/H01-gcd.c",
@@ -128,7 +128,7 @@
     },
     {
       "path": "scripts/run_adverse_transformations.py",
-      "git_blob_sha": "0a29060a1d230c36548e823b042c2f3305c76d74"
+      "git_blob_sha": "54dc8d82522c5f367116a078d1e4818086e9bc48"
     },
     {
       "path": "scripts/run_base.sh",
@@ -196,7 +196,7 @@
     },
     {
       "path": "src/tosem02/cli.py",
-      "git_blob_sha": "bca218748f37ba6e3beb4d80704665d89a47cb41"
+      "git_blob_sha": "c744528a88f98db0cafb9258657e4076b2786550"
     },
     {
       "path": "src/tosem02/derive.py",
@@ -265,6 +265,10 @@
     {
       "path": "tests/test_external_transfer.py",
       "git_blob_sha": "28933f1249ef8761ede0c7433a5f2638bd895bdf"
+    },
+    {
+      "path": "tests/test_followup_classification.py",
+      "git_blob_sha": "58c46a3c6d4f37b772c20aff30f180ad0b9cef44"
     },
     {
       "path": "tests/test_integrity_admission.py",
