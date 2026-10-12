@@ -1,7 +1,7 @@
 name: Native compiler campaign
 on:
   push:
-    branches: [main]
+    branches: [main, "native-check-*"]
     paths:
       - 'src/**'
       - 'hosts/**'
