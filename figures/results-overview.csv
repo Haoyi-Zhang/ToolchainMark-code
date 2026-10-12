@@ -1,0 +1,17 @@
+panel,identity,label,exposed,planned
+fixed,round_trip,Round trip,21,72
+fixed,host_semantics,+ host,27,72
+fixed,compiler_differential,+ build variation,33,72
+fixed,complete_catalog,Full catalog,69,72
+holdout,artifact binding,Binding,102,102
+holdout,authentication,Key,0,51
+holdout,configuration,Build request,0,204
+holdout,embedding,Embedding,153,153
+holdout,extraction,Extraction,51,51
+holdout,false positive,Absent carrier,51,51
+holdout,integrity,Integrity,0,51
+holdout,normalization,Normalization,51,51
+holdout,semantic corruption,Host semantics,0,102
+holdout,stage routing,Stage routing,51,51
+holdout,state,State,102,306
+holdout,transformation,Removal,0,51

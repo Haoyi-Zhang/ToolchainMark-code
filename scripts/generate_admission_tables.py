@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """Generate manuscript numbers and tables only from the gated raw study."""
 from pathlib import Path
+import argparse
 import csv,json
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--plots', action='store_true', help='Also redraw vector sensitivity panels; requires the optional figures/requirements.txt dependency.')
+args=parser.parse_args()
 ROOT=Path(__file__).resolve().parents[2]
 D=ROOT/'artifact/results/admission-study/derived'; OUT=ROOT/'paper/generated';OUT.mkdir(exist_ok=True)
 s=json.loads((D/'summary.json').read_text())
@@ -67,34 +71,15 @@ classes=rows('class_holdout.csv')
 table('admission-class-holdout.tex','Fault-class holdout: relations are selected without the named class on the design subject, then evaluated on that class on the other 17 subjects.',
  'tab:current-class-holdout','@{}X r r r@{}','Withheld class & Planned units & Exposed & Sensitivity',
  [[r['fault_class'].capitalize(),n(int(r['test_units'])),n(int(r['exposed'])),f"{float(r['sensitivity'])*100:.1f}\\%"] for r in classes])
-# A genuine data comparison, not a chart of unlike quantities on a shared axis.
-left=[(name,int(row['design_exposed'])) for name,row in zip(['Round trip','+ host','+ build variation','Full catalog'],s['suites'])]
-short={'artifact binding':'Binding','authentication':'Key','configuration':'Build request','embedding':'Embedding','extraction':'Extraction','false positive':'Absent carrier','integrity':'Integrity','normalization':'Normalization','semantic corruption':'Host semantics','stage routing':'Stage routing','state':'State','transformation':'Removal'}
-right=[(short.get(r['fault_class'],r['fault_class']),float(r['sensitivity'])) for r in classes]
-fig=r'''\begin{minipage}[t]{.46\textwidth}
-\centering
-\small\textbf{Fixed-suite sensitivity}\\[4pt]
-\begin{tikzpicture}[x=.026cm,y=.9cm]
-'''
-for i,(name,val) in enumerate(left):
- y=4-i;pct=100*val/72
- fig+=f'\\node[font=\\scriptsize,anchor=east] at (-4,{y}) {{{name}}};\n'
- fig+=f'\\draw[black!20,line width=1.8pt] (0,{y})--(100,{y});\\draw[black!65,line width=1.8pt] (0,{y})--({pct:.4f},{y});\\fill ({pct:.4f},{y}) circle (1.6pt);\n'
- fig+=f'\\node[font=\\scriptsize,anchor=west] at (104,{y}) {{{val}/72}};\n'
-fig+=r'''\foreach \x in {0,50,100}{\node[font=\scriptsize,anchor=north] at (\x,.5) {\x\%};}
-\end{tikzpicture}
-\end{minipage}\hfill
-\begin{minipage}[t]{.51\textwidth}
-\centering
-\small\textbf{Held-out class sensitivity}\\[4pt]
-\begin{tikzpicture}[x=.026cm,y=.30cm]
-'''
-for i,(name,val) in enumerate(right):
- y=12-i;pct=100*val
- fig+=f'\\node[font=\\scriptsize,anchor=east] at (-4,{y}) {{{name}}};\\draw[black!20,line width=1pt] (0,{y})--(100,{y});\\fill ({pct:.4f},{y}) circle (1.4pt);\n'
-fig+=r'''\foreach \x in {0,50,100}{\node[font=\scriptsize,anchor=north] at (\x,-.3) {\x\%};}
-\end{tikzpicture}
-\end{minipage}
-'''
-(ROOT/'paper/figures/results-overview.tex').write_text(fig)
+# Plotting is an optional saved-data operation. The committed includegraphics
+# wrapper is not overwritten by table regeneration.
+if args.plots:
+    import shutil
+    import subprocess
+    import sys
+    public = ROOT/'artifact/figures'
+    subprocess.run([sys.executable, str(public/'draw_results_overview.py'),
+                    '--refresh-data', str(D), '--out-dir', str(public)], check=True)
+    for name in ('results-overview.csv', 'results-overview-fixed.pdf', 'results-overview-holdout.pdf'):
+        shutil.copyfile(public/name, ROOT/'paper/figures'/name)
 print('generated',len(list(OUT.glob('*.tex'))),'TeX inputs')
