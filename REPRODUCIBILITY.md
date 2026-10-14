@@ -8,9 +8,11 @@ refuses partial or mixed admitted protocols; no old fact is backfilled.
 For the separate owned native activity see `owned_native_tool/README.md` and
 `results/owned-native-full-20261014-001`. Its actual-object execution and replay
 do not close the original full v3 Linux/GCC/Clang/symbol/section gap. The preserved
-v2 source root can be passed explicitly to `evaluation/verify_native_records.py`;
-that option verifies all original input bindings and data but does not certify
-v3 execution or bypass a changed-current-source mismatch.
+v2 source root can be passed explicitly to `evaluation/verify_native_records.py`.
+By default the verifier checks all 71 historical input blobs using unchanged
+current bytes, the original source snapshot, and two separately recovered
+historical inputs (a regression module and the package verifier). It reports current-source divergence rather than assigning old
+runs to changed code. Neither option certifies v3 native execution.
 
 ## Retained v2 records and earlier protocols
 

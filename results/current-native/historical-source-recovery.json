@@ -1,0 +1,21 @@
+{
+  "scope": "Later byte-for-byte recovery of two historical inputs missing from the original 23-file source-snapshot. This is not a new native execution, a revised measured result, or a full Git tree.",
+  "repository": "Haoyi-Zhang/ToolchainMark",
+  "head_sha": "c8367e792913794672baff73cee2a62df2975574",
+  "mirror_repository": "Haoyi-Zhang/ToolchainMark-code",
+  "mirror_head_sha": "777877f94814a217b7a73c24c9c3f568469d492e",
+  "files": [
+    {
+      "path": "tests/test_evidence_catalog.py",
+      "git_blob_sha": "91546eaae8b47b86eeee4a1758c0e077aaaa5282",
+      "source_url": "https://raw.githubusercontent.com/Haoyi-Zhang/ToolchainMark/c8367e792913794672baff73cee2a62df2975574/tests/test_evidence_catalog.py",
+      "mirror_source_url": "https://raw.githubusercontent.com/Haoyi-Zhang/ToolchainMark-code/777877f94814a217b7a73c24c9c3f568469d492e/tests/test_evidence_catalog.py"
+    },
+    {
+      "path": "scripts/verify_package.py",
+      "git_blob_sha": "21fb75c7f5d2a33bf2af43e1ac5aae00960bf3f9",
+      "source_url": "https://raw.githubusercontent.com/Haoyi-Zhang/ToolchainMark/c8367e792913794672baff73cee2a62df2975574/scripts/verify_package.py",
+      "mirror_source_url": "https://raw.githubusercontent.com/Haoyi-Zhang/ToolchainMark-code/777877f94814a217b7a73c24c9c3f568469d492e/scripts/verify_package.py"
+    }
+  ]
+}

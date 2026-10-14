@@ -26,10 +26,13 @@ Neither it nor the portable controls certify v3 execution of the full original
 
 The sections below retain the v2 evidence history. Their descriptions of the
 then-current inputs/runs do not bind the modified v3 source to those runs.
-`evaluation/verify_native_records.py --source-root PATH --paper ../paper`
-can check a complete preserved v2 input root against all 71 published bindings;
-without that explicit root, the current-source check correctly rejects changed
-inputs. A data-only verification is not native execution.
+`evaluation/verify_native_records.py` checks all 71 historical input blobs:
+unchanged current files supply 63, the original 23-file source snapshot supplies
+six changed files, and two later recovered source files supply the remaining
+changed inputs. It reports current divergence separately and rederives the old
+matrices with the current analysis script. An explicit `--source-root PATH` can
+instead check a complete preserved v2 root. Neither path certifies native
+execution of the modified v3 source; data-only verification is not execution.
 
 ## Retained v2 checksum-locality protocol and evidence
 
@@ -37,7 +40,7 @@ The retained v2 MR10 admission gate was `evidence-gated-v2-checksum-locality`. A
 
 That v2 gate and its repaired native inputs completed fresh native campaigns. Canonical run 38310980867 at `c8367e792913794672baff73cee2a62df2975574` (artifact 11775931468) and mirror run 38310978633 at `777877f94814a217b7a73c24c9c3f568469d492e` (artifact 11775174136) each passed 116 real-tool regression tests and executed two complete matrices. The logs record 34.507 and 16.658 seconds respectively, without skips. Each has exactly 18,900 unique planned keys, 756 satisfied clean and 972 satisfied stage-isolation cases, and 17,172 active cases (11,898 satisfied, 4,266 inconsistent, 1,008 inadmissible). Sensitivity remains 1,242/1,296 expanded units and 69/72 design units. All 1,206 admitted MR10 rows contain the added locality facts; all 54 M16/MR10 cases remain inconsistent. Canonical and mirror non-timing fields agree exactly. They execute the same bound native inputs, not independent implementations.
 
-See [current native evidence](results/current-native/README.md) for lossless `first.csv.gz`/`second.csv.gz`, derived files, logs, exact measured environments, run/commit/artifact provenance, source snapshots, and temporary unpacking for rederivation. The current canonical first-row duration median/maximum is 0.1229545/1.779854 seconds with Python 3.12.15. Current TeX inputs are checked against this derivation by `evaluation/verify_native_records.py --paper ../paper`; the historical table generator remains unchanged, and all 71 native-input paths match their exact fresh bindings, including the new regression module and the validated workflow trigger. The successful run/head/artifact identities were supplied by the coordinator; the archives do not provide job IDs, full repository tree objects or UTC step timestamps. Outcome/selection numbers match retained measurements, but the evidence contract and timings differ. No native program was rerun to integrate these results.
+See [retained v2 native evidence](results/current-native/README.md) for lossless `first.csv.gz`/`second.csv.gz`, derived files, logs, exact measured environments, run/commit/artifact provenance, source snapshots, and temporary unpacking for rederivation. The canonical first-row duration median/maximum is 0.1229545/1.779854 seconds with Python 3.12.15. Current TeX inputs are checked against this data-only derivation by `evaluation/verify_native_records.py --paper ../paper`; the historical table generator remains unchanged. The 71 published native-input path/blob bindings remain verifiable as historical bytes, including the regression module and validated workflow trigger, but eight current source files no longer have those bytes. The successful run/head/artifact identities were supplied by the coordinator; the archives do not provide job IDs, full repository tree objects or UTC step timestamps. Outcome/selection numbers match retained measurements, but the evidence contract and timings differ. No native program was rerun to integrate these results.
 
 The retained gated matrices and historical archives under `native-linux` and `repair-replay` predate these locality facts and are not pooled with current MR10 qualification. `tests/test_integrity_admission.py` separately compares the old checksum-rejection rule and the current rule on the same 12 owned cases: the old rule admits nine, including six payload-changing interventions; the new rule admits only three checksum-only cases. Verified checksum bypass remains inconsistent on all three carrier models. Section/symbol utilities are mocked in those controls; their nine-versus-three comparison is not a product-defect count or an external-tool campaign.
 
@@ -61,6 +64,16 @@ cd artifact
 ```
 
 The verifier runs the scientific tests and checks retained-row accounting, admission evidence, and stored-field agreement. It does not regenerate paper tables or figures, validate a release manifest, or repeat compiled campaigns. Bibliographic structure is checked separately from external-record review; a citation occurrence never constitutes proof of semantic support.
+
+For the two-directory publication copy containing both `paper/` and `artifact/`, run
+`python3 -B artifact/scripts/verify_package.py .` from its root and save stdout
+outside that copy. This read-only current-package check covers exact manifest
+bytes and roles, literal local paper dependencies, retained evidence containers,
+local citation structure, retained data-only science, and historical native
+source bindings. It neither updates the historical `audit/package_audit.json`
+nor certifies external citation support, a fresh native run, or PDF freshness.
+The standalone artifact repository does not contain the sibling paper and
+cannot satisfy this two-directory package check by itself.
 
 ## Execute a new study
 

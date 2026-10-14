@@ -1,6 +1,6 @@
-# Current native checksum-locality results
+# Retained native checksum-locality results
 
-These are measured results of the current `evidence-gated-v2-checksum-locality`
+These are measured results of the published `evidence-gated-v2-checksum-locality`
 contract, not a relabeling of the earlier checksum-rejection-only matrices.
 Canonical workflow run **38310980867**, head
 `c8367e792913794672baff73cee2a62df2975574`, completed successfully and
@@ -29,10 +29,15 @@ UTC timestamps; none is inferred or copied from an earlier campaign.
   `native-environment.json`: unchanged canonical measured records.
 - `mirror/`: corresponding raw gzip files, derived files, logs and environment
   from the mirror execution.
-- `source-snapshot/`: 23 claim-critical files identical to the verified native
-  input blobs, including the repaired CLI, utility helper and new tests. They
-  are inert provenance copies, not an
-  additional execution or a standalone installable package.
+- `source-snapshot/`: the original 23 claim-critical files identical to the
+  verified native input blobs, including the repaired CLI and utility helper.
+  They are inert provenance copies, not an additional execution or a
+  standalone installable package.
+- `historical-source-recovery/` and `historical-source-recovery.json`: two
+  previously unsnapshotted historical inputs, a regression module and the
+  package verifier, recovered from the recorded canonical Git commit.
+  Each file matches its published Git blob;
+  recovery is not a new execution or a replacement for the original snapshot.
 - `transport.json`: byte lengths, raw/gzip SHA-256 identities and successful
   decompression byte comparisons.
 - `native-inputs.json`: the 71 exact native-input path/blob identities,
@@ -84,16 +89,22 @@ python3 -B evaluation/verify_native_records.py --paper ../paper --write-paper
 ```
 
 The default verifies all four gzip matrices, rederives both campaigns in
-temporary directories and checks the unchanged native-input bindings. It
-writes no paper input. The second command also checks current paper values.
+temporary directories with the current analysis script, and checks all 71
+historical native-input byte bindings. It writes no paper input. The second
+command also checks current paper values.
 Only explicit `--write-paper` regenerates the two measured TeX inputs when needed; it never
 redraws figures or substitutes old measurements. The Scientific checks
 workflow invokes the read-only verifier. Native compiler YAML is byte-identical
 to the validated workflow, including the `native-check-*` trigger; its execution
 and resource steps are unchanged. The recorded fresh campaigns include the
-repaired native inputs. All 71 current native-input files must remain unchanged
-relative to their recorded bindings. A binding failure requires new applicable
-native evidence rather than reuse of an old green result.
+repaired native inputs. The original `validation.json` records the then-current
+71-file check, not a fresh check of today's source tree. Eight current files
+have since changed: 63 current files still match the historical blobs, six
+old versions are in `source-snapshot/`, and two old sources are in the later
+recovery directory. The verifier reports these categories and any current-only
+paths separately. It does not use the old runs to certify current v3 native
+execution. If an old blob is unavailable or differs, historical binding fails;
+if a producer changes, its new behavior needs its own applicable native evidence.
 
 ## Actual scientific results
 
