@@ -1,0 +1,42 @@
+{
+  "source_summary_sha256": "8c67b2c3018dfbc7e9f82a865f21f1a87bd1c325ac9d6a8ecad6afc6d13f832f",
+  "raw_sha256": "9318baa1f4be126fdc5ae28fd2484f0ace03c0ad54484d76c7bccc2b638f2a0d",
+  "raw_gzip_bytes": 105807,
+  "raw_uncompressed_bytes": 3184955,
+  "raw_rows": 704,
+  "integrity_interventions": {
+    "checksum": {
+      "SATISFIED": 32,
+      "INCONSISTENT": 32
+    },
+    "none": {
+      "INADMISSIBLE": 64
+    },
+    "payload": {
+      "INADMISSIBLE": 64
+    },
+    "both": {
+      "INADMISSIBLE": 64
+    },
+    "outside": {
+      "INADMISSIBLE": 64
+    },
+    "restore": {
+      "INADMISSIBLE": 64
+    }
+  },
+  "locality_only_postcondition_ablation": {
+    "SATISFIED": 32,
+    "INCONSISTENT": 96,
+    "INADMISSIBLE": 256
+  },
+  "same_information_direct_checks": 416,
+  "same_information_direct_disagreements": 0,
+  "case_wall_median_seconds": 0.0038618999969912693,
+  "case_wall_max_seconds": 0.05182510000304319,
+  "case_wall_sum_seconds": 3.2010323002177756,
+  "case_cpu_sum_seconds": 3.171875,
+  "activity_wall_seconds": 3.2835572000185493,
+  "direct_projection_sum_seconds": 0.016559200099436566,
+  "scope": "Case cost includes acquisition/build/object execution/file I/O/direct projection/full case cleanup; direct projection alone excludes shared acquisition. Byte totals are experiment artifacts, not runtime memory/deployment lifecycle. Ablation is derived, not a rerun of old Linux code."
+}

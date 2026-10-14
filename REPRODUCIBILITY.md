@@ -1,5 +1,19 @@
 # Reproduction and interpretation
 
+The active source now uses v3 snapshot-coherence admission. The native Linux
+records described below are retained v2 results, not executions of the modified
+source. `matrix_protocol` recognizes v1/v2/v3 from complete recorded facts and
+refuses partial or mixed admitted protocols; no old fact is backfilled.
+
+For the separate owned native activity see `owned_native_tool/README.md` and
+`results/owned-native-full-20261014-001`. Its actual-object execution and replay
+do not close the original full v3 Linux/GCC/Clang/symbol/section gap. The preserved
+v2 source root can be passed explicitly to `evaluation/verify_native_records.py`;
+that option verifies all original input bindings and data but does not certify
+v3 execution or bypass a changed-current-source mismatch.
+
+## Retained v2 records and earlier protocols
+
 The current checksum-locality gate adds three MR10 facts: nonintervened payload preserved, checksum material changed, and non-checksum carrier material preserved. Full compiled execution is now supplied under `results/current-native`: canonical run 38310980867 and mirror run 38310978633 each passed 116 real-tool tests and produced two complete 18,900-row matrices under `evidence-gated-v2-checksum-locality`. Exact run/commit/artifact identities and measured environments are in `provenance.json`; the supplied archives contain no job IDs or UTC step timestamps. Canonical outputs and mirror outputs remain separate. The 12-case comparison and 54 carrier/length snapshots in `tests/test_integrity_admission.py` remain portable owned-fixture evidence using mocked symbol/section utilities. Their nine old-rule versus three current-rule admissions are not full-campaign or product-defect counts. New derivations identify protocol from recorded admitted MR10 facts and refuse mixed or partial locality evidence; historical matrices continue to derive as `evidence-gated-v1` without backfilled facts.
 
 The current raw publication is lossless deterministic gzip, not altered CSV. See `results/current-native/README.md` for direct gzip readers and temporary unpacking for the existing plain-CSV derivation. Decompressed bytes match the exact private originals. All 14 canonical and 14 mirror derived files reproduce under data-only local derivation (CSV bytes and JSON values agree). The current TeX inputs are verified from the canonical derivation by `evaluation/verify_native_records.py --paper ../paper`; explicit `--write-paper` regenerates only the two changed inputs. The historical generator and its defaults remain unchanged. Outcome/holdout/plot values are unchanged, while the current median macro is 0.123 seconds (0.1229545 unrounded), maximum 1.779854 seconds. The earlier 0.072285 and 0.136894/0.677082-second measurements remain historical rather than being overwritten.

@@ -105,9 +105,19 @@ def parse_symbols(binary: Path, key: str, key_ignored: bool = False, checksum_by
     proc = subprocess.run(['nm', '-g', str(binary)], text=True, capture_output=True, timeout=20)
     if proc.returncode != 0:
         raise ExtractionError('tool', f'nm failed: {proc.stderr.strip()}')
+    names = [line.split()[-1] for line in proc.stdout.splitlines() if line.split()]
+    return parse_symbol_names(names, key, key_ignored, checksum_bypass)
+
+
+def parse_symbol_names(names: list[str], key: str, key_ignored: bool = False,
+                       checksum_bypass: bool = False) -> bytes:
+    """Decode one captured name view; never invoke an observation utility.
+
+    This is the same parser family, not an independently implemented decoder.
+    The split lets strict rejection and locality use the same observed names.
+    """
     rows: list[tuple[bytes, int, int, int, bytes, bytes]] = []
-    for line in proc.stdout.splitlines():
-        name = line.split()[-1] if line.split() else ''
+    for name in names:
         match = SYMBOL_RE.match(name)
         if match:
             tag_hex, length_hex, idx_hex, total_hex, chunk_hex, checksum_hex = match.groups()

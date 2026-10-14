@@ -1,6 +1,7 @@
 {
   "schema_version": "1.0",
-  "protocol": "evidence-gated-v2-checksum-locality",
+  "protocol": "evidence-gated-v3-snapshot-coherence",
+  "previous_current_matrix_protocol": "evidence-gated-v2-checksum-locality",
   "retained_matrix_protocol": "evidence-gated-v1",
   "scope": "Explicit interface contract for the revised executor; matching labels are not a proof of semantic correctness.",
   "relations": [
@@ -260,6 +261,9 @@
         "nonintervened_payload_preserved",
         "checksum_material_changed",
         "nonchecksum_material_preserved",
+        "source_snapshot_matches_request",
+        "followup_snapshot_current",
+        "followup_unchanged_during_extraction",
         "isolated_workspace",
         "source_carrier_valid",
         "source_payload_recovered",
@@ -267,13 +271,14 @@
       ],
       "observation_keys": [
         "integrity_intervention",
+        "integrity_snapshots",
         "followup",
         "followup_carrier",
         "source",
         "source_carrier"
       ],
       "observer_boundary": "seed-free pipeline instance sharing the record parser",
-      "predicate": "After a pre-intervention snapshot establishes unchanged decoded payload and all non-checksum carrier material, an actual checksum change, and strict observer checksum rejection, extraction returns exactly the checksum rejection kind.",
+      "predicate": "Strict rejection and locality use one immutable captured view; the source snapshot matches the request and the follow-up matches its snapshot before and after tested extraction. After unchanged decoded payload/non-checksum material and an actual checksum change are established, extraction returns exactly the checksum rejection kind.",
       "exposure_rule": "INCONSISTENT only; no failed admission or infrastructure error is an exposure"
     },
     {

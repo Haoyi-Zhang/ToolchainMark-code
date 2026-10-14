@@ -6,26 +6,6 @@
   "author_count": 4,
   "native_author_rows": 4,
   "distinct_affiliations": 2,
-  "affiliation_groups": [
-    {
-      "authors": [
-        "Haoyi Zhang",
-        "Zhaojie Zhang",
-        "Md Maruf Hasan"
-      ],
-      "institution": "Xi'an Jiaotong-Liverpool University",
-      "city": "Suzhou",
-      "country": "China"
-    },
-    {
-      "authors": [
-        "Huaijin Ran"
-      ],
-      "institution": "Nanyang Technological University",
-      "city": "Singapore",
-      "country": "Singapore"
-    }
-  ],
   "corresponding_author": "Huaijin Ran",
   "source_hashes": {
     "main_tex": "36502b652cb3570092133f949687fd3538eeccfce67eac66030be38da961f9c0",

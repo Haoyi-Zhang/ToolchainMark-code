@@ -1,10 +1,41 @@
 # Contract-aware watermark validation artifact
 
-## Current protocol and evidence
+The [frozen research protocol](RESEARCH-PROTOCOL.md)
+defines relation admission, verdict handling and denominator separation across
+the retained campaigns. The v3 extension below does not relabel v2 measurements.
 
-The current MR10 admission gate is `evidence-gated-v2-checksum-locality`. A seed-free snapshot taken before the intervention must establish preserved decoded payload, unchanged non-checksum carrier material, and an actual checksum change; the existing strict checksum-rejection observation and typed extractor predicate are still required. String snapshots cover all binary bytes outside the selected checksum; section snapshots cover all designated-section bytes outside it; symbol snapshots cover the complete indexed carrier-name set excluding its checksum fields. Unrelated ELF layout and host behavior are not certified by MR10.
+## Active snapshot-coherence extension
 
-The current gate and repaired native inputs have completed fresh native campaigns. Canonical run 38310980867 at `c8367e792913794672baff73cee2a62df2975574` (artifact 11775931468) and mirror run 38310978633 at `777877f94814a217b7a73c24c9c3f568469d492e` (artifact 11775174136) each passed 116 real-tool regression tests and executed two complete matrices. The logs record 34.507 and 16.658 seconds respectively, without skips. Each has exactly 18,900 unique planned keys, 756 satisfied clean and 972 satisfied stage-isolation cases, and 17,172 active cases (11,898 satisfied, 4,266 inconsistent, 1,008 inadmissible). Sensitivity remains 1,242/1,296 expanded units and 69/72 design units. All 1,206 admitted MR10 rows contain the added locality facts; all 54 M16/MR10 cases remain inconsistent. Canonical and mirror non-timing fields agree exactly. They execute the same bound native inputs, not independent implementations.
+Active MR10 admission is `evidence-gated-v3-snapshot-coherence`: strict rejection
+and locality use one captured buffer/view, the source snapshot matches the
+request, and the live follow-up matches its snapshot before and after tested
+extraction. A detected net change is inadmissible, including restoration to a
+valid record before CLEAN extraction. Endpoint equality does not rule out ABA,
+hostile writers, unfaithful utilities or shared-parser errors; no security or
+atomic-filesystem guarantee is added.
+
+The optional [owned native tool](owned_native_tool/README.md) implements the
+same experimental wire format separately and completes embed/LLVM object/
+extract/native-object execution on its owned arithmetic fixtures. The full
+activity has 704 rows (320 clean, 384 integrity controls), 832 emitted objects,
+5760 native calls and zero same-information direct-oracle disagreements over
+416 integrity comparisons. It is a Windows MCJIT ELF-object activity, not a
+Linux executable, independently maintained product or new watermark algorithm.
+Neither it nor the portable controls certify v3 execution of the full original
+18900-row campaign. New source/data bindings and replays are separate.
+
+The sections below retain the v2 evidence history. Their descriptions of the
+then-current inputs/runs do not bind the modified v3 source to those runs.
+`evaluation/verify_native_records.py --source-root PATH --paper ../paper`
+can check a complete preserved v2 input root against all 71 published bindings;
+without that explicit root, the current-source check correctly rejects changed
+inputs. A data-only verification is not native execution.
+
+## Retained v2 checksum-locality protocol and evidence
+
+The retained v2 MR10 admission gate was `evidence-gated-v2-checksum-locality`. A seed-free snapshot taken before the intervention had to establish preserved decoded payload, unchanged non-checksum carrier material, and an actual checksum change; the existing strict checksum-rejection observation and typed extractor predicate were still required. String snapshots covered all binary bytes outside the selected checksum; section snapshots covered all designated-section bytes outside it; symbol snapshots covered the complete indexed carrier-name set excluding its checksum fields. Unrelated ELF layout and host behavior were not certified by MR10.
+
+That v2 gate and its repaired native inputs completed fresh native campaigns. Canonical run 38310980867 at `c8367e792913794672baff73cee2a62df2975574` (artifact 11775931468) and mirror run 38310978633 at `777877f94814a217b7a73c24c9c3f568469d492e` (artifact 11775174136) each passed 116 real-tool regression tests and executed two complete matrices. The logs record 34.507 and 16.658 seconds respectively, without skips. Each has exactly 18,900 unique planned keys, 756 satisfied clean and 972 satisfied stage-isolation cases, and 17,172 active cases (11,898 satisfied, 4,266 inconsistent, 1,008 inadmissible). Sensitivity remains 1,242/1,296 expanded units and 69/72 design units. All 1,206 admitted MR10 rows contain the added locality facts; all 54 M16/MR10 cases remain inconsistent. Canonical and mirror non-timing fields agree exactly. They execute the same bound native inputs, not independent implementations.
 
 See [current native evidence](results/current-native/README.md) for lossless `first.csv.gz`/`second.csv.gz`, derived files, logs, exact measured environments, run/commit/artifact provenance, source snapshots, and temporary unpacking for rederivation. The current canonical first-row duration median/maximum is 0.1229545/1.779854 seconds with Python 3.12.15. Current TeX inputs are checked against this derivation by `evaluation/verify_native_records.py --paper ../paper`; the historical table generator remains unchanged, and all 71 native-input paths match their exact fresh bindings, including the new regression module and the validated workflow trigger. The successful run/head/artifact identities were supplied by the coordinator; the archives do not provide job IDs, full repository tree objects or UTC step timestamps. Outcome/selection numbers match retained measurements, but the evidence contract and timings differ. No native program was rerun to integrate these results.
 

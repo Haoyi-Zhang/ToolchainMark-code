@@ -65,16 +65,19 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--paper',type=Path,help='Optional paper directory; checks only, unless --write-paper is explicit')
     parser.add_argument('--write-paper',action='store_true')
+    parser.add_argument('--source-root',type=Path,
+                        help='Explicit preserved v2 input root for historical-source binding; does not certify current code')
     args=parser.parse_args()
     if args.write_paper and args.paper is None: parser.error('--write-paper requires --paper')
     binding=json.loads((DATA/'native-inputs.json').read_text(encoding='utf-8'))
     expected={entry['path'] for entry in binding['native_paths']}
-    actual={f.relative_to(ROOT).as_posix() for prefix in ('src','hosts','scripts','specs','tests')
-            for f in (ROOT/prefix).rglob('*') if f.is_file() and '__pycache__' not in f.parts and f.suffix!='.pyc'}
+    input_root=ROOT if args.source_root is None else args.source_root.resolve()
+    actual={f.relative_to(input_root).as_posix() for prefix in ('src','hosts','scripts','specs','tests')
+            for f in (input_root/prefix).rglob('*') if f.is_file() and '__pycache__' not in f.parts and f.suffix!='.pyc'}
     actual.add('.github/workflows/native-compiler-campaign.yml')
     assert actual==expected,'Native input path set changed'
     for entry in binding['native_paths']:
-        data=(ROOT/entry['path']).read_bytes()
+        data=(input_root/entry['path']).read_bytes()
         digest=hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
         assert digest==entry['git_blob_sha'], 'Native input changed: '+entry['path']
     spec=importlib.util.spec_from_file_location('native_data_derive',ROOT/'scripts/derive_admission_study.py')
@@ -128,6 +131,8 @@ def main():
     print(json.dumps(dict(verdict='PASS',scope='Data-only verification; no native execution and no default paper writes.',
                           applicable_native_runs=[binding['canonical_run'],binding['mirror_run']],
                           unchanged_native_input_files=len(binding['native_paths']),
+                          source_binding='current-root' if args.source_root is None else 'explicit-preserved-v2-root',
+                          certifies_v3_native_execution=False,
                           matrix_rows={k:len(v) for k,v in matrices.items()},
                           canonical_mirror_field_comparisons=len(a)*len(fields),
                           paper_checked=args.paper is not None,paper_write_requested=args.write_paper),indent=2))

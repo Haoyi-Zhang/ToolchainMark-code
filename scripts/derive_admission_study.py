@@ -18,6 +18,8 @@ SUITES={'round_trip':['MR01'],'host_semantics':['MR01','MR02'],
 DESIGN='H01-gcd.c'
 LOCALITY_FACTS=frozenset({'nonintervened_payload_preserved','checksum_material_changed',
                          'nonchecksum_material_preserved'})
+COHERENCE_FACTS=frozenset({'source_snapshot_matches_request','followup_snapshot_current',
+                         'followup_unchanged_during_extraction'})
 
 
 def matrix_protocol(rr):
@@ -34,12 +36,15 @@ def matrix_protocol(rr):
         facts=set(json.loads(row['admission_json']))
         if facts & LOCALITY_FACTS and not LOCALITY_FACTS<=facts:
             raise ValueError('incomplete checksum-locality evidence on admitted MR10 row')
-        versions.add(LOCALITY_FACTS<=facts)
+        if facts & COHERENCE_FACTS and not (COHERENCE_FACTS | LOCALITY_FACTS)<=facts:
+            raise ValueError('incomplete snapshot-coherence evidence on admitted MR10 row')
+        versions.add(3 if COHERENCE_FACTS<=facts else 2 if LOCALITY_FACTS<=facts else 1)
     if len(versions)>1:
-        raise ValueError('cannot pool retained and checksum-locality MR10 protocols')
+        raise ValueError('cannot pool different MR10 admission protocols')
     if not versions:
         return 'unresolved-no-admitted-MR10'
-    return 'evidence-gated-v2-checksum-locality' if versions=={True} else 'evidence-gated-v1'
+    return {1:'evidence-gated-v1', 2:'evidence-gated-v2-checksum-locality',
+            3:'evidence-gated-v3-snapshot-coherence'}[next(iter(versions))]
 
 
 def rows(path):

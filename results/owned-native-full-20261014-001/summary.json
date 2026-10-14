@@ -1,0 +1,70 @@
+{
+  "small": false,
+  "source_versions": {
+    "src/tosem02/admission.py": "632d95967a2680cd2d2179f56965268897ea2c248b11ecade35605ac1c28ee27",
+    "src/tosem02/integrity.py": "485762ac4f281815dd69e98f87ac2d217f20138351c4fdbed5764e981d410aa2",
+    "src/tosem02/record.py": "1daf9519b91f24ccc11262cf236cacec79447e75e2cc06c9b8d0265c332f909e",
+    "owned_native_tool/tool.py": "8b6229cb1e213d51064cb6997a700c797b577232bd696c712f70123ea280061f",
+    "owned_native_tool/adapter.py": "1518782a0863693838fc21ca62952b944973fed8f006b744bebf596b62ba401b",
+    "evaluation/run_owned_native.py": "9cbbec608936647a972b9e5e3108fa32f1d5d8c174c002189713a91f9d9f48e7"
+  },
+  "rows": 704,
+  "verdicts": {
+    "SATISFIED": 352,
+    "INCONSISTENT": 32,
+    "INADMISSIBLE": 320
+  },
+  "cohorts": {
+    "clean-workflow": {
+      "SATISFIED": 320
+    },
+    "integrity-challenge": {
+      "SATISFIED": 32,
+      "INCONSISTENT": 32,
+      "INADMISSIBLE": 320
+    }
+  },
+  "emitted_objects": 832,
+  "emitted_object_bytes": 710144,
+  "native_calls": 5760,
+  "host_reference_differences": 0,
+  "direct_integrity_disagreements": 0,
+  "case_wall_sum": 3.2010323002177756,
+  "case_cpu_sum": 3.171875,
+  "activity_wall_seconds": 3.2835572000185493,
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.28000-SP0",
+    "llvmlite": "0.46.0",
+    "llvm": [
+      20,
+      1,
+      8
+    ],
+    "default_triple": "x86_64-pc-windows-msvc",
+    "object_format": "ELF64 little-endian ET_REL EM_X86_64",
+    "abi": "Windows AMD64; actual object loaded by MCJIT",
+    "clocks": {
+      "perf_counter": {
+        "implementation": "QueryPerformanceCounter()",
+        "monotonic": true,
+        "adjustable": false,
+        "resolution": 1e-07
+      },
+      "process_time": {
+        "implementation": "GetProcessTimes()",
+        "monotonic": true,
+        "adjustable": false,
+        "resolution": 1e-07
+      },
+      "time": {
+        "implementation": "GetSystemTimeAsFileTime()",
+        "monotonic": false,
+        "adjustable": true,
+        "resolution": 0.015625
+      }
+    }
+  },
+  "scope": "Owned separate implementation/shared WMR2 specification; one data carrier; Windows native object execution, not original Linux executable campaign, production product, security or novelty."
+}

@@ -15,7 +15,7 @@ from unittest.mock import patch
 from tosem02.admission import evaluate, inspect_carrier
 from tosem02.catalog import artifact_root
 from tosem02.evidence_catalog import load
-from tosem02.integrity import checksum_material, intervention_facts
+from tosem02.integrity import checksum_material, checksum_snapshot, intervention_facts
 from tosem02.model import BuildResult
 from tosem02.pipeline import Pipeline
 from tosem02.record import locate_record, make_record, symbol_names
@@ -206,17 +206,58 @@ class IntegrityAdmissionTests(unittest.TestCase):
                     {'kind': 'rejection', 'value': 'checksum'}]):
             pipeline = IntegrityModelPipeline('string', 'none')
             outcome = evaluate('MR10', pipeline, artifact_root() / 'hosts/H01-gcd.c', Path(tmp) / 'case')
-        self.assertEqual(outcome.reason, 'checksum_material_changed')
+        # A live-path mock cannot override the strict decision on the captured
+        # bytes. The no-op is rejected before any locality/predicate credit.
+        self.assertEqual(outcome.reason, 'integrity_corruption_established')
         self.assertFalse(outcome.exposed)
         self.assertEqual(pipeline.followup_extractions, 0)
 
     def test_material_observer_failure_is_not_an_extractor_kill(self):
-        with tempfile.TemporaryDirectory() as tmp, patch('tosem02.admission.checksum_material',
+        with tempfile.TemporaryDirectory() as tmp, patch('tosem02.admission.checksum_snapshot',
                 side_effect=TimeoutError('owned observation timeout')):
             outcome = evaluate('MR10', IntegrityModelPipeline('string'),
                                artifact_root() / 'hosts/H01-gcd.c', Path(tmp) / 'case')
         self.assertEqual((outcome.verdict, outcome.reason), ('INADMISSIBLE', 'execution-error:TimeoutError'))
         self.assertFalse(outcome.exposed)
+
+    def test_restored_artifact_is_not_a_clean_extractor_violation(self):
+        class Restored(IntegrityModelPipeline):
+            def extract(self, binary, key):
+                if self.followup is not None and binary == self.followup:
+                    binary.write_bytes(self.source.read_bytes())
+                return super().extract(binary, key)
+        for carrier in ('string', 'section', 'symbol'):
+            with self.subTest(carrier=carrier):
+                outcome, physical = self.call(Restored(carrier))
+                self.assertEqual(outcome.verdict, 'INADMISSIBLE')
+                self.assertEqual(outcome.reason, 'followup_unchanged_during_extraction')
+                self.assertFalse(outcome.exposed)
+                self.assertEqual(physical, {'kind':'payload','value':PAYLOAD1.hex()})
+
+    def test_material_and_strict_symbol_decisions_use_one_name_view(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            source = Path(tmp) / 'names'
+            source.write_text('\n'.join(symbol_names(PAYLOAD1, KEY1)), encoding='ascii')
+            with patch('tosem02.integrity.subprocess.run', side_effect=model_utility) as observed:
+                snapshot = checksum_snapshot('symbol', source, KEY1)
+            self.assertEqual(observed.call_count, 1)
+            self.assertEqual(snapshot.strict, {'kind':'payload','value':PAYLOAD1.hex()})
+            self.assertEqual(snapshot.material.payload, PAYLOAD1)
+            self.assertEqual(snapshot.artifact_bytes, source.read_bytes())
+
+    def test_private_observation_isolated_from_live_path_restoration(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            source = Path(tmp) / 'section'
+            original = make_record(PAYLOAD1, KEY1)
+            source.write_bytes(original)
+            def changing_live_path(argv, **kwargs):
+                source.write_bytes(make_record(b'other', KEY1))
+                return model_utility(argv, **kwargs)
+            with patch('subprocess.run', side_effect=changing_live_path):
+                snapshot = checksum_snapshot('section', source, KEY1)
+            self.assertEqual(snapshot.artifact_bytes, original)
+            self.assertEqual(snapshot.material.payload, PAYLOAD1)
+            self.assertNotEqual(source.read_bytes(), original)
 
 
 class IntegrityProtocolTests(unittest.TestCase):
@@ -241,6 +282,13 @@ class IntegrityProtocolTests(unittest.TestCase):
             self.module.matrix_protocol([old, new])
         with self.assertRaises(ValueError):
             self.module.matrix_protocol([self.row({'checksum_material_changed'})])
+        coherent = self.row({'integrity_corruption_established'} |
+                            self.module.LOCALITY_FACTS | self.module.COHERENCE_FACTS)
+        self.assertEqual(self.module.matrix_protocol([coherent]), 'evidence-gated-v3-snapshot-coherence')
+        with self.assertRaises(ValueError):
+            self.module.matrix_protocol([new, coherent])
+        with self.assertRaises(ValueError):
+            self.module.matrix_protocol([self.row({'followup_snapshot_current'})])
 
 
 if __name__ == '__main__':

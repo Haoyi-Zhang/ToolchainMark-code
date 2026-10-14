@@ -13,7 +13,7 @@ from typing import Any
 import shutil
 
 from .model import BuildRequest, BuildResult, ExtractionError
-from .integrity import checksum_material, intervention_facts
+from .integrity import checksum_snapshot, intervention_facts
 from .pipeline import Pipeline, run_host
 from .relations import INPUTS, KEY1, KEY2, PAYLOAD1, PAYLOAD2
 
@@ -74,10 +74,12 @@ def inspect_carrier(carrier: str, binary: Path, key: str) -> dict[str, str]:
     return extract_observation(observer, binary, key)
 
 
-def evaluate(relation: str, pipeline: Pipeline, host: Path, root: Path) -> ScientificOutcome:
+def evaluate(relation: str, pipeline: Pipeline, host: Path, root: Path, *,
+             default_compiler: str = 'gcc', default_optimization: str = 'O2') -> ScientificOutcome:
     evidence = Evidence()
     try:
-        ok = _evaluate(relation, pipeline, host, root, evidence)
+        ok = _evaluate(relation, pipeline, host, root, evidence,
+                       default_compiler, default_optimization)
         return ScientificOutcome('SATISFIED' if ok else 'INCONSISTENT',
                                  'predicate-satisfied' if ok else 'predicate-violated',
                                  evidence.phase, dict(evidence.facts), dict(evidence.observations))
@@ -92,15 +94,18 @@ def evaluate(relation: str, pipeline: Pipeline, host: Path, root: Path) -> Scien
                                  evidence.phase, dict(evidence.facts), dict(evidence.observations))
 
 
-def _evaluate(relation: str, pipeline: Pipeline, host: Path, root: Path, e: Evidence) -> bool:
+def _evaluate(relation: str, pipeline: Pipeline, host: Path, root: Path, e: Evidence,
+              default_compiler: str = 'gcc', default_optimization: str = 'O2') -> bool:
     if relation not in {f'MR{i:02d}' for i in range(1, 15)}:
         raise ValueError('unknown relation')
     e.require('subject_exists', host.is_file())
     e.require('isolated_workspace', not root.exists() or not any(root.iterdir()))
     root.mkdir(parents=True, exist_ok=True)
 
-    def build(label: str, payload: bytes = PAYLOAD1, compiler: str = 'gcc',
-              optimization: str = 'O2', marked: bool = True, guarded: bool = False) -> BuildResult:
+    def build(label: str, payload: bytes = PAYLOAD1, compiler: str | None = None,
+              optimization: str | None = None, marked: bool = True, guarded: bool = False) -> BuildResult:
+        compiler = default_compiler if compiler is None else compiler
+        optimization = default_optimization if optimization is None else optimization
         result = pipeline.build(BuildRequest(host, payload, KEY1, compiler, optimization,
                                             root / label, marked, guarded))
         if result.return_code != 0 or not result.binary.is_file():
@@ -182,22 +187,34 @@ def _evaluate(relation: str, pipeline: Pipeline, host: Path, root: Path, e: Evid
         e.phase = 'intervention-admission'
         # Freeze material before invoking the adapter: an in-place mutation
         # must not rewrite the source against which preservation is checked.
-        source_material = (checksum_material(pipeline.carrier, base.binary, KEY1)
+        source_snapshot = (checksum_snapshot(pipeline.carrier, base.binary, KEY1)
                            if relation == 'MR10' else None)
+        if relation == 'MR10':
+            e.require('source_snapshot_matches_request',
+                      payload_matches(source_snapshot.strict, PAYLOAD1))
+            e.observations['integrity_snapshots'] = {'source': source_snapshot.identity()}
         target = (pipeline.remove_carrier if relation == 'MR09' else pipeline.corrupt_carrier)(base, root / 'followup')
-        physical = inspect_carrier(pipeline.carrier, target, KEY1)
+        target_snapshot = (checksum_snapshot(pipeline.carrier, target, KEY1,
+                                             source=source_snapshot.material)
+                           if relation == 'MR10' else None)
+        physical = (target_snapshot.strict if relation == 'MR10'
+                    else inspect_carrier(pipeline.carrier, target, KEY1))
         e.observations['followup_carrier'] = physical
         expected = 'absent' if relation == 'MR09' else 'checksum'
         e.require('carrier_removed' if relation == 'MR09' else 'integrity_corruption_established',
                   physical == {'kind': 'rejection', 'value': expected})
         if relation == 'MR10':
-            facts = intervention_facts(source_material, checksum_material(pipeline.carrier, target, KEY1,
-                                                                          source=source_material))
+            e.observations['integrity_snapshots']['followup'] = target_snapshot.identity()
+            facts = intervention_facts(source_snapshot.material, target_snapshot.material)
             e.observations['integrity_intervention'] = facts
             for name, established in facts.items():
                 e.require(name, established)
+            e.require('followup_snapshot_current', target.read_bytes() == target_snapshot.artifact_bytes)
         e.phase = 'rejection-observation'; obs = extract_observation(pipeline, target, KEY1)
         e.observations['followup'] = obs
+        if relation == 'MR10':
+            e.require('followup_unchanged_during_extraction',
+                      target.read_bytes() == target_snapshot.artifact_bytes)
         return obs == {'kind': 'rejection', 'value': expected}
     if relation == 'MR11':
         result = build('requested', compiler='clang', optimization='Os'); e.phase = 'trace-observation'
