@@ -5,14 +5,24 @@ records described below are retained v2 results, not executions of the modified
 source. `matrix_protocol` recognizes v1/v2/v3 from complete recorded facts and
 refuses partial or mixed admitted protocols; no old fact is backfilled.
 
-For the separate owned native activity see `owned_native_tool/README.md` and
-`results/owned-native-full-20261014-001`. Its actual-object execution and replay
-do not close the original full v3 Linux/GCC/Clang/symbol/section gap. The preserved
-v2 source root can be passed explicitly to `evaluation/verify_native_records.py`.
-By default the verifier checks all 71 historical input blobs using unchanged
-current bytes, the original source snapshot, and two separately recovered
-historical inputs (a regression module and the package verifier). It reports current-source divergence rather than assigning old
-runs to changed code. Neither option certifies v3 native execution.
+Complete native execution of the active gate is published separately under
+`results/native-execution/`: two Linux campaigns, each with two original
+18,900-row matrices, 119 passing actual-tool regressions, environments, logs
+and exact 71-source bindings. Use `evaluation/verify_native_execution.py` for
+read-only member, source, admission, rerun and full derived-result checks.
+The expanded paper tables and their timing macro retain the checksum-locality
+derivation below; the article reports snapshot-coherence execution and its
+per-row timings separately.
+
+The separate owned-object activity is documented in `owned_native_tool/README.md`
+and `results/owned-native-full-20261014-001`; the complete Linux compiler campaigns
+are in `results/native-execution/`. For retained checksum-locality results,
+`evaluation/verify_native_records.py` accepts an explicit preserved source root.
+Its default checks all 71 historical input blobs against unchanged current bytes,
+the original source snapshot, and two separately recovered historical inputs
+(a regression module and the package verifier). Its report identifies source
+divergence and binds those results to their historical producer, while
+`evaluation/verify_native_execution.py` checks the active snapshot-coherence runs.
 
 ## Retained v2 records and earlier protocols
 

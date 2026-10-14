@@ -47,6 +47,10 @@ jobs:
           done
           python -B evaluation/verify_native_records.py 2>&1 | tee "$OUT/current-native-records.log"
           python -O -B evaluation/verify_native_records.py 2>&1 | tee "$OUT/current-native-records-optimized.log"
+          python -B -m unittest discover -s evaluation -p 'test_native_execution.py' -v 2>&1 | tee "$OUT/current-v3-native-tests.log"
+          python -O -B -m unittest discover -s evaluation -p 'test_native_execution.py' -v 2>&1 | tee "$OUT/current-v3-native-optimized-tests.log"
+          python -B evaluation/verify_native_execution.py 2>&1 | tee "$OUT/current-v3-native-records.log"
+          python -O -B evaluation/verify_native_execution.py 2>&1 | tee "$OUT/current-v3-native-optimized-records.log"
           CHECKS
       - name: Preserve raw observations and failed checks
         if: always()

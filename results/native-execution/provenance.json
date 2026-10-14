@@ -1,0 +1,272 @@
+{
+  "protocol": "evidence-gated-v3-snapshot-coherence",
+  "description": "Two independently scheduled executions of the same code tree and input plan; each contains two complete native matrices. Not an independent implementation or external-team replication.",
+  "shared_git_tree": "a8b749feb4df9f78ac00828bc7512951e1cde851",
+  "source_inputs": "source-inputs.json",
+  "run_records": {
+    "primary": {
+      "repository": "Haoyi-Zhang/ToolchainMark",
+      "run_id": 38624209055,
+      "job_id": 116059121152,
+      "head_sha": "9c82a7dd69c8138c5ebcca818b5c7f4475509155",
+      "artifact_id": 11923959918,
+      "artifact_name": "native-compiler-evidence",
+      "original_zip_bytes": 637722,
+      "original_zip_sha256": "5bd2fb80f41f85b28cf88086aeab6a597b5f499224ce84fb29f6ae44bcda3793",
+      "members": [
+        {
+          "original_zip_member": "native-dependencies.log",
+          "published_path": "primary/native-dependencies.txt",
+          "bytes": 6831,
+          "sha256": "5b4ee6d9f2dd8dae074cc53f724e5e3e6a630a3122bccaf791b0263324a8bcba"
+        },
+        {
+          "original_zip_member": "native-tests.log",
+          "published_path": "primary/native-tests.txt",
+          "bytes": 17770,
+          "sha256": "73c8ce62d9466afbf23f054e50b313b0fdddd8cf75e5e7291cbb5ee69a755393"
+        },
+        {
+          "original_zip_member": "native-campaign.log",
+          "published_path": "primary/native-campaign.txt",
+          "bytes": 5663,
+          "sha256": "e54f5ac4efd56af8db74413b24f5e00b6daf6b1dc9526512f78bb95432da752a"
+        },
+        {
+          "original_zip_member": "native-environment.json",
+          "published_path": "primary/native-environment.json",
+          "bytes": 492,
+          "sha256": "8d354b653b1e5cb2d9f66c7f7e84eedd9eed4b06df5b1b8c70b09275dfc1d511"
+        },
+        {
+          "original_zip_member": "native-study/derived/admission_failures.csv",
+          "published_path": "primary/derived/admission_failures.csv",
+          "bytes": 159,
+          "sha256": "addef4eefece65bf50851ca2571ea088d3c8c3065cd0e1da918d1f93c96710a5"
+        },
+        {
+          "original_zip_member": "native-study/derived/bootstrap.csv",
+          "published_path": "primary/derived/bootstrap.csv",
+          "bytes": 721283,
+          "sha256": "50776aabbf432e97b82cd04ff27b0aacb7189d090d662deb8bacf6d355f51cb0"
+        },
+        {
+          "original_zip_member": "native-study/derived/bootstrap_summary.json",
+          "published_path": "primary/derived/bootstrap_summary.json",
+          "bytes": 385,
+          "sha256": "eba4cecc7e94ad1e8123bbb99941fc0774f9ba48d3c176735fd7653475a4e82b"
+        },
+        {
+          "original_zip_member": "native-study/derived/carrier_holdout.csv",
+          "published_path": "primary/derived/carrier_holdout.csv",
+          "bytes": 300,
+          "sha256": "a97f091efa2a6e38a50fa4aa35d0ff5db7bfecc3ba57c406082f6bd1f2a91990"
+        },
+        {
+          "original_zip_member": "native-study/derived/class_holdout.csv",
+          "published_path": "primary/derived/class_holdout.csv",
+          "bytes": 874,
+          "sha256": "d70ac7cc4390c641cbb9245c53f351344aa5e3d5d8f6680079ad507699c91872"
+        },
+        {
+          "original_zip_member": "native-study/derived/legacy_transitions.csv",
+          "published_path": "primary/derived/legacy_transitions.csv",
+          "bytes": 143,
+          "sha256": "0526cb498e059523f39f14cb1d703e01d02032aba2b862694fd7295191ae0601"
+        },
+        {
+          "original_zip_member": "native-study/derived/operator_holdout.csv",
+          "published_path": "primary/derived/operator_holdout.csv",
+          "bytes": 1468,
+          "sha256": "fdab6fc5baae83ba126a85672c0b2e65d7a98b63b585c21937f9c8873db416dc"
+        },
+        {
+          "original_zip_member": "native-study/derived/paired_comparison.json",
+          "published_path": "primary/derived/paired_comparison.json",
+          "bytes": 475,
+          "sha256": "f7d14a31f92e7b264545ba08c3db95c87d92bc2b9ae184a8b1323adfdf1796f6"
+        },
+        {
+          "original_zip_member": "native-study/derived/relation_outcomes.csv",
+          "published_path": "primary/derived/relation_outcomes.csv",
+          "bytes": 498,
+          "sha256": "ef844c66ff829d8fd460b9298156d84b301a9bbce32c9351b77097b97ddcfd3e"
+        },
+        {
+          "original_zip_member": "native-study/derived/rerun_comparison.json",
+          "published_path": "primary/derived/rerun_comparison.json",
+          "bytes": 583,
+          "sha256": "cad35366ee0078579bc1b79e8a998b77f1b6322158cb59de043fe29d7e6bc3ad"
+        },
+        {
+          "original_zip_member": "native-study/derived/scientific_checks.json",
+          "published_path": "primary/derived/scientific_checks.json",
+          "bytes": 194,
+          "sha256": "20938175c0ff5313ee2ae3209823568894d5d9f97a6061fc280182145e759064"
+        },
+        {
+          "original_zip_member": "native-study/derived/suites.csv",
+          "published_path": "primary/derived/suites.csv",
+          "bytes": 251,
+          "sha256": "7fbdd7b693252fc912e014faf3719eebf2c89d769b0220b94a339dc2ed31d348"
+        },
+        {
+          "original_zip_member": "native-study/derived/summary.json",
+          "published_path": "primary/derived/summary.json",
+          "bytes": 4115,
+          "sha256": "5533d0c4e5bc877eb29686c03f4c7e5a3382b04898b20d22a3d1e4a2f638513c"
+        },
+        {
+          "original_zip_member": "native-study/derived/unit_outcomes.csv",
+          "published_path": "primary/derived/unit_outcomes.csv",
+          "bytes": 176088,
+          "sha256": "7fb92ad60b62a669fd07cea7b5d5ee5af08d371986ac79c760c9d0f02404628e"
+        },
+        {
+          "original_zip_member": "native-study/first.csv",
+          "published_path": "primary/first.csv",
+          "bytes": 8895898,
+          "sha256": "4836112e5a3ab3fae7f9dc6a6a4503c04f70982a18a4609be238903ee606be47"
+        },
+        {
+          "original_zip_member": "native-study/second.csv",
+          "published_path": "primary/second.csv",
+          "bytes": 8895803,
+          "sha256": "6c35a910194d5e5042e01dfb6acf70cfc4481ceddde0603d5cb8e6f0de237ff4"
+        }
+      ]
+    },
+    "mirror": {
+      "repository": "Haoyi-Zhang/ToolchainMark-code",
+      "run_id": 38624220772,
+      "job_id": 116059160214,
+      "head_sha": "f681510ac5553eff8bdfdfe1013bd7671093ffec",
+      "artifact_id": 11923829435,
+      "artifact_name": "native-compiler-evidence",
+      "original_zip_bytes": 643588,
+      "original_zip_sha256": "4cca934c6ba0e039fac81735db9a9446282837dc5765b383c55af8243465e634",
+      "members": [
+        {
+          "original_zip_member": "native-tests.log",
+          "published_path": "mirror/native-tests.txt",
+          "bytes": 17770,
+          "sha256": "d30a4ceea70575b070e2ec33726f3f3162694706b86abfe9b6217ffb0d9d3315"
+        },
+        {
+          "original_zip_member": "native-environment.json",
+          "published_path": "mirror/native-environment.json",
+          "bytes": 492,
+          "sha256": "8d354b653b1e5cb2d9f66c7f7e84eedd9eed4b06df5b1b8c70b09275dfc1d511"
+        },
+        {
+          "original_zip_member": "native-dependencies.log",
+          "published_path": "mirror/native-dependencies.txt",
+          "bytes": 6831,
+          "sha256": "0370b65685710d9e419f6904bfa4c5c794f595e5f073d0a299d5ae0637f88001"
+        },
+        {
+          "original_zip_member": "native-campaign.log",
+          "published_path": "mirror/native-campaign.txt",
+          "bytes": 5673,
+          "sha256": "810f689b4bb2f0049c9a0b6ed049b00f0f8342698a7f6f590ff3b54c948329a0"
+        },
+        {
+          "original_zip_member": "native-study/derived/admission_failures.csv",
+          "published_path": "mirror/derived/admission_failures.csv",
+          "bytes": 159,
+          "sha256": "addef4eefece65bf50851ca2571ea088d3c8c3065cd0e1da918d1f93c96710a5"
+        },
+        {
+          "original_zip_member": "native-study/derived/bootstrap.csv",
+          "published_path": "mirror/derived/bootstrap.csv",
+          "bytes": 721283,
+          "sha256": "50776aabbf432e97b82cd04ff27b0aacb7189d090d662deb8bacf6d355f51cb0"
+        },
+        {
+          "original_zip_member": "native-study/derived/bootstrap_summary.json",
+          "published_path": "mirror/derived/bootstrap_summary.json",
+          "bytes": 385,
+          "sha256": "eba4cecc7e94ad1e8123bbb99941fc0774f9ba48d3c176735fd7653475a4e82b"
+        },
+        {
+          "original_zip_member": "native-study/derived/carrier_holdout.csv",
+          "published_path": "mirror/derived/carrier_holdout.csv",
+          "bytes": 300,
+          "sha256": "a97f091efa2a6e38a50fa4aa35d0ff5db7bfecc3ba57c406082f6bd1f2a91990"
+        },
+        {
+          "original_zip_member": "native-study/derived/class_holdout.csv",
+          "published_path": "mirror/derived/class_holdout.csv",
+          "bytes": 874,
+          "sha256": "d70ac7cc4390c641cbb9245c53f351344aa5e3d5d8f6680079ad507699c91872"
+        },
+        {
+          "original_zip_member": "native-study/derived/legacy_transitions.csv",
+          "published_path": "mirror/derived/legacy_transitions.csv",
+          "bytes": 143,
+          "sha256": "0526cb498e059523f39f14cb1d703e01d02032aba2b862694fd7295191ae0601"
+        },
+        {
+          "original_zip_member": "native-study/derived/operator_holdout.csv",
+          "published_path": "mirror/derived/operator_holdout.csv",
+          "bytes": 1468,
+          "sha256": "fdab6fc5baae83ba126a85672c0b2e65d7a98b63b585c21937f9c8873db416dc"
+        },
+        {
+          "original_zip_member": "native-study/derived/paired_comparison.json",
+          "published_path": "mirror/derived/paired_comparison.json",
+          "bytes": 475,
+          "sha256": "f7d14a31f92e7b264545ba08c3db95c87d92bc2b9ae184a8b1323adfdf1796f6"
+        },
+        {
+          "original_zip_member": "native-study/derived/relation_outcomes.csv",
+          "published_path": "mirror/derived/relation_outcomes.csv",
+          "bytes": 498,
+          "sha256": "ef844c66ff829d8fd460b9298156d84b301a9bbce32c9351b77097b97ddcfd3e"
+        },
+        {
+          "original_zip_member": "native-study/derived/rerun_comparison.json",
+          "published_path": "mirror/derived/rerun_comparison.json",
+          "bytes": 583,
+          "sha256": "31bdb0b66e3f610eeca28ca0c5ac23f3af74b7a04d1f24f2b66d7c8044479f65"
+        },
+        {
+          "original_zip_member": "native-study/derived/scientific_checks.json",
+          "published_path": "mirror/derived/scientific_checks.json",
+          "bytes": 194,
+          "sha256": "20938175c0ff5313ee2ae3209823568894d5d9f97a6061fc280182145e759064"
+        },
+        {
+          "original_zip_member": "native-study/derived/suites.csv",
+          "published_path": "mirror/derived/suites.csv",
+          "bytes": 251,
+          "sha256": "7fbdd7b693252fc912e014faf3719eebf2c89d769b0220b94a339dc2ed31d348"
+        },
+        {
+          "original_zip_member": "native-study/derived/summary.json",
+          "published_path": "mirror/derived/summary.json",
+          "bytes": 4125,
+          "sha256": "ac826bfa542e7084b0a8b252eff017e45e79b87f7a2c53693b9166c3a2fd12c2"
+        },
+        {
+          "original_zip_member": "native-study/derived/unit_outcomes.csv",
+          "published_path": "mirror/derived/unit_outcomes.csv",
+          "bytes": 176088,
+          "sha256": "7fb92ad60b62a669fd07cea7b5d5ee5af08d371986ac79c760c9d0f02404628e"
+        },
+        {
+          "original_zip_member": "native-study/first.csv",
+          "published_path": "mirror/first.csv",
+          "bytes": 8895736,
+          "sha256": "6b38acf9217b8b38344693aa6a7ef94496f241985c15d93c80004be12930faaf"
+        },
+        {
+          "original_zip_member": "native-study/second.csv",
+          "published_path": "mirror/second.csv",
+          "bytes": 8895813,
+          "sha256": "7b7c06843051ddb2c80f347ed5063fa656f720b9fcd732ccf4c3c49dd0deefca"
+        }
+      ]
+    }
+  }
+}

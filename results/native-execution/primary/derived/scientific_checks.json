@@ -1,0 +1,9 @@
+{
+  "checks": {
+    "clean_controls_admitted_and_satisfied": true,
+    "planned_denominators_complete": true,
+    "rerun_matches_when_requested": true
+  },
+  "failed": [],
+  "verdict": "PASS"
+}

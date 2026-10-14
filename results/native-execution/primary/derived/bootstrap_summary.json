@@ -1,0 +1,21 @@
+{
+  "median": 0.9583333333333334,
+  "minimum": 0.6,
+  "nonempty_out_of_bag": 10000,
+  "perfect": 1884,
+  "replicates": 10000,
+  "seed": 20260923,
+  "selection_counts": {
+    "MR02": 10000,
+    "MR04": 10000,
+    "MR05": 379,
+    "MR06": 9688,
+    "MR07": 9700,
+    "MR10": 10000,
+    "MR11": 9999,
+    "MR12": 9614,
+    "MR13": 9611,
+    "MR14": 9626
+  },
+  "suite_size_median": 9.0
+}

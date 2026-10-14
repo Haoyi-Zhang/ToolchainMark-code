@@ -21,8 +21,14 @@ activity has 704 rows (320 clean, 384 integrity controls), 832 emitted objects,
 5760 native calls and zero same-information direct-oracle disagreements over
 416 integrity comparisons. It is a Windows MCJIT ELF-object activity, not a
 Linux executable, independently maintained product or new watermark algorithm.
-Neither it nor the portable controls certify v3 execution of the full original
-18900-row campaign. New source/data bindings and replays are separate.
+The full Linux execution of the snapshot-coherence gate is supplied separately
+in [native execution records](results/native-execution/README.md). Two campaigns
+each run the complete 18,900-case plan twice and pass 119 actual-tool regressions.
+Every matrix records the complete locality and coherence facts for 1,206
+admitted integrity cases. Four original CSV matrices, derived results, logs,
+environments and 71 source-input identities are published with a data-only
+reader. This full three-carrier activity and the owned object tool have
+different interfaces and retain separate records.
 
 The sections below retain the v2 evidence history. Their descriptions of the
 then-current inputs/runs do not bind the modified v3 source to those runs.
