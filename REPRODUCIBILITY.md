@@ -19,8 +19,8 @@ and `results/owned-native-full-20261014-001`; the complete Linux compiler campai
 are in `results/native-execution/`. For retained checksum-locality results,
 `evaluation/verify_native_records.py` accepts an explicit preserved source root.
 Its default checks all 71 historical input blobs against unchanged current bytes,
-the original source snapshot, and two separately recovered historical inputs
-(a regression module and the package verifier). Its report identifies source
+the original source snapshot, and three preserved historical inputs
+(a regression module, the package verifier and the earlier recheck module). Its report identifies source
 divergence and binds those results to their historical producer, while
 `evaluation/verify_native_execution.py` checks the active snapshot-coherence runs.
 

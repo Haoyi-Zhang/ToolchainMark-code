@@ -33,8 +33,8 @@ different interfaces and retain separate records.
 The sections below retain the v2 evidence history. Their descriptions of the
 then-current inputs/runs do not bind the modified v3 source to those runs.
 `evaluation/verify_native_records.py` checks all 71 historical input blobs:
-unchanged current files supply 63, the original 23-file source snapshot supplies
-six changed files, and two later recovered source files supply the remaining
+unchanged current files supply 62, the original 23-file source snapshot supplies
+six changed files, and three preserved source files supply the remaining
 changed inputs. It reports current divergence separately and rederives the old
 matrices with the current analysis script. An explicit `--source-root PATH` can
 instead check a complete preserved v2 root. Neither path certifies native

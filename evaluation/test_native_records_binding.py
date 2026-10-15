@@ -45,8 +45,8 @@ class NativeSourceBindingTests(unittest.TestCase):
         report=self.verify()
         self.assertEqual(report['historical_native_input_files'],71)
         self.assertEqual(report['original_snapshot_files_used'],6)
-        self.assertEqual(report['later_recovered_files_used'],2)
-        self.assertEqual(report['current_identical_files'],63)
+        self.assertEqual(report['later_recovered_files_used'],3)
+        self.assertEqual(report['current_identical_files'],62)
         self.assertIn('scripts/derive_admission_study.py',report['current_diverged_paths'])
         self.assertEqual(report['current_only_paths'],[])
 
@@ -65,6 +65,12 @@ class NativeSourceBindingTests(unittest.TestCase):
     def test_missing_original_snapshot_is_rejected(self):
         (self.data/'source-snapshot/scripts/derive_admission_study.py').unlink()
         with self.assertRaisesRegex(ValueError,'Original snapshot bytes differ'):
+            self.verify()
+
+    def test_corrupted_preserved_recheck_is_rejected(self):
+        path=self.data/'historical-source-recovery/src/tosem02/recheck.py'
+        path.write_bytes(path.read_bytes()+b'\n')
+        with self.assertRaisesRegex(ValueError,'Later recovery bytes differ'):
             self.verify()
 
     def test_changed_manifest_digest_is_not_rebased(self):

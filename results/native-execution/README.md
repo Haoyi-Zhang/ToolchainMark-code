@@ -14,11 +14,12 @@ renamed from `.log` to `.txt` without changing their bytes. `provenance.json`
 binds every published file to its original ZIP member, byte count, SHA-256,
 run/head/job/artifact identity, and the ZIP's SHA-256. The full original ZIPs
 are retained by the project coordinator rather than duplicated here.
-`source-inputs.json` records the 71 current native-input path/blob identities
-matched against the untruncated Git tree common to both run heads. The older
-v2 records in `results/current-native/` remain separate and unchanged; 63 of
-their 71 input paths have identical bytes here, while eight current inputs
-changed. Old v2 outputs must not be relabelled as v3 executions.
+`source-inputs.json` records the 71 producer path/blob identities matched
+against the untruncated Git tree common to both run heads. `source-snapshot/`
+preserves the package checker and recheck module from that execution; other
+inputs retain byte-identical working copies. The recorded v2 and v3 producer
+manifests share 63 of their 71 input blobs. Their measurement records remain
+separate in `results/current-native/` and this directory.
 
 The primary first matrix has 756 satisfied clean controls, 972 satisfied
 stage-isolation rows, and 17,172 fault-active rows: 11,898 satisfied, 4,266
@@ -39,7 +40,7 @@ python3 -B evaluation/verify_native_execution.py
 python3 -O -B evaluation/verify_native_execution.py
 ```
 
-It checks the 71 current input bytes, each published member's original ZIP
+It checks the 71 recorded producer inputs against current or preserved bytes, each published member's original ZIP
 identity, all four exact planned key domains and v3 admission records, rerun
 agreement, and full rederivation of both sets of 14 derived files. These checks
 verify the published data and its producer binding. Observation semantics are

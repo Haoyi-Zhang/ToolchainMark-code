@@ -4,6 +4,8 @@ import gzip
 import importlib.util
 import io
 import json
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -45,6 +47,134 @@ class PackageIntegrityTests(unittest.TestCase):
 
     def checked(self, paths):
         return PACKAGE.check_manifest(self.root, paths)[0]
+
+    def review_fixture(self, options="manuscript,review,screen"):
+        paper = self.root / "paper"
+        (paper / "main.tex").write_text(
+            "\\documentclass[" + options + "]{acmart}\n\\begin{document}\nowned fixture\n\\end{document}\n",
+            encoding="utf-8")
+        (self.root / "artifact/submission-materials-map.json").write_text(json.dumps({
+            "main_review_candidate": "paper/main.pdf", "supplement": "paper/online-supplement.pdf",
+        }), encoding="utf-8")
+        return paper
+
+    def recheck_module(self):
+        with patch.object(sys, "path", [str(SCRIPT.parents[1] / "src"), *sys.path]):
+            return importlib.import_module("tosem02.recheck")
+
+    def test_unique_main_review_class_and_materials_mapping(self):
+        paper = self.review_fixture()
+        # A commented declaration is not an alternative active entry.
+        source = (paper / "main.tex").read_text(encoding="utf-8")
+        (paper / "main.tex").write_text("% \\documentclass[sigconf]{acmart}\n" + source,
+                                       encoding="utf-8")
+        self.assertTrue(all(PACKAGE.check_review_entry(self.root)[0].values()))
+        self.assertTrue(all(self.recheck_module().check_paper_entry(self.root)[0].values()))
+        self.assertNotIn("paper/submission-manuscript.tex", PACKAGE.REQUIRED)
+        for name in ("paper/main.pdf", "paper/main.bbl", "paper/online-supplement.pdf"):
+            self.assertIn(name, PACKAGE.REQUIRED)
+
+    def test_bad_or_multiple_main_classes_are_rejected(self):
+        for options in ("acmsmall,review,screen", "sigconf,review,screen", "manuscript,screen",
+                        "manuscript,review=false,screen", "manuscript,review,screen,twocolumn",
+                        "manuscript,review,review"):
+            with self.subTest(options=options):
+                self.review_fixture(options)
+                checks = PACKAGE.check_review_entry(self.root)[0]
+                self.assertFalse(checks["main_uses_initial_review_class"])
+                self.assertFalse(self.recheck_module().check_paper_entry(self.root)[0]
+                                 ["main_uses_initial_review_class"])
+        paper = self.review_fixture()
+        source = (paper / "main.tex").read_text(encoding="utf-8")
+        (paper / "main.tex").write_text("\\documentclass{article}\n" + source, encoding="utf-8")
+        self.assertFalse(PACKAGE.check_review_entry(self.root)[0]["main_uses_initial_review_class"])
+        (paper / "main.tex").write_text("% \\documentclass[manuscript,review,screen]{acmart}\n",
+                                       encoding="utf-8")
+        self.assertFalse(PACKAGE.check_review_entry(self.root)[0]["main_uses_initial_review_class"])
+
+    def test_duplicate_wrapper_family_and_second_article_are_rejected(self):
+        paper = self.review_fixture()
+        for suffix in ("tex", "pdf", "bbl", "aux", "blg", "log", "out"):
+            with self.subTest(suffix=suffix):
+                wrapper = paper / ("submission-manuscript." + suffix)
+                wrapper.write_bytes(b"owned duplicate fixture")
+                self.assertFalse(PACKAGE.check_review_entry(self.root)[0]["main_is_unique_review_entry"])
+                self.assertEqual(PACKAGE.file_role("paper/" + wrapper.name), "duplicate-review-entry")
+                wrapper.unlink()
+        (paper / "review-copy.tex").write_text("\\documentclass{acmart}\n", encoding="utf-8")
+        self.assertFalse(PACKAGE.check_review_entry(self.root)[0]["main_is_unique_review_entry"])
+
+    def test_stale_wrapper_materials_mapping_is_rejected(self):
+        self.review_fixture()
+        (self.root / "artifact/submission-materials-map.json").write_text(json.dumps({
+            "main_review_candidate": "paper/submission-manuscript.pdf",
+            "supplement": "paper/online-supplement.pdf",
+        }), encoding="utf-8")
+        self.assertFalse(PACKAGE.check_review_entry(self.root)[0]["submission_map_uses_main"])
+
+    def test_build_preflight_checks_class_and_duplicate_without_tex_execution(self):
+        build_path = SCRIPT.parents[2] / "paper/build.sh"
+        if not build_path.is_file():
+            self.skipTest("optional sibling paper source is not present")
+        build = build_path.read_text(encoding="utf-8")
+        preflight = build.split("<<'PYENTRY'\n", 1)[1].split("\nPYENTRY", 1)[0]
+        paper = self.review_fixture()
+
+        def run_preflight():
+            return subprocess.run([sys.executable, "-B", "-c", preflight], cwd=paper,
+                                  text=True, capture_output=True, check=False)
+
+        self.assertEqual(run_preflight().returncode, 0)
+        self.review_fixture("acmsmall,review,screen")
+        self.assertNotEqual(run_preflight().returncode, 0)
+        self.review_fixture()
+        (paper / "submission-manuscript.pdf").write_bytes(b"owned duplicate fixture")
+        self.assertNotEqual(run_preflight().returncode, 0)
+
+    def test_unique_entry_does_not_replace_required_input_checks(self):
+        paper = self.review_fixture()
+        (paper / "online-supplement.tex").write_text("owned supplement\n", encoding="utf-8")
+        (paper / "acmart.cls").write_text("owned class fixture\n", encoding="utf-8")
+        with (paper / "main.tex").open("a", encoding="utf-8") as stream:
+            stream.write("\\input{science-method}\n")
+        self.assertTrue(all(PACKAGE.check_review_entry(self.root)[0].values()))
+        self.assertFalse(PACKAGE.check_paper_dependencies(self.root)[0])
+        (paper / "science-method.tex").write_text("\\input{generated/numerical}\n", encoding="utf-8")
+        passed, details = PACKAGE.check_paper_dependencies(self.root)
+        self.assertFalse(passed)
+        self.assertIn("generated/numerical.tex", details["missing_or_empty"])
+        (paper / "generated").mkdir()
+        (paper / "generated/numerical.tex").write_text("owned numerical input\n", encoding="utf-8")
+        self.assertTrue(PACKAGE.check_paper_dependencies(self.root)[0])
+
+    def test_visual_bindings_still_require_main_and_supplement(self):
+        paper = self.review_fixture()
+        for name in ("main", "online-supplement"):
+            (paper / (name + ".pdf")).write_bytes(("owned " + name).encode("utf-8"))
+        visual = {"pdfs": {name: {"sha256": PACKAGE.sha256(paper / (name + ".pdf"))}
+                           for name in ("main", "online-supplement")}}
+        visual["pdfs"]["submission-manuscript"] = {"sha256": "0" * 64}
+        recheck = self.recheck_module()
+        self.assertTrue(recheck.check_review_pdf_bindings(paper, visual))
+        (paper / "main.pdf").write_bytes(b"changed owned fixture")
+        self.assertFalse(recheck.check_review_pdf_bindings(paper, visual))
+        self.assertFalse(recheck.check_review_pdf_bindings(paper, {"pdfs": {}}))
+
+    def test_cli_recheck_uses_current_full_package_checker(self):
+        module=self.recheck_module()
+        expected={"verdict":"PASS","checks":{"owned_science":True,"unique_main":True}}
+        checker=type('OwnedPackageChecker',(),{})()
+        checker.audit_project=lambda root:expected
+        with patch.object(module,'package_checker',return_value=checker):
+            self.assertIs(module.recheck(self.root/'artifact'),expected)
+
+    def test_cli_recheck_does_not_ignore_failed_package_gate(self):
+        module=self.recheck_module()
+        checker=type('OwnedPackageChecker',(),{})()
+        checker.audit_project=lambda root:{"verdict":"FAIL","checks":{"owned_science":False}}
+        with patch.object(module,'package_checker',return_value=checker):
+            with self.assertRaisesRegex(RuntimeError,'owned_science'):
+                module.recheck(self.root/'artifact')
 
     def test_exact_manifest_bytes_and_portable_roles(self):
         paths = self.manifest()

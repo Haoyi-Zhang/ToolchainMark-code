@@ -31,7 +31,7 @@ ACTIVE_SHELL = {"paper/build.sh"} | {
         "verify_release.sh", "verify_science.sh"
     )
 }
-TEX_STEMS = {"main", "online-supplement", "submission-manuscript"}
+TEX_STEMS = {"main", "online-supplement"}
 TEX_AUX = {".aux", ".blg", ".log", ".out", ".toc", ".fls", ".fdb_latexmk", ".synctex.gz"}
 NATIVE_BASE = "artifact/results/current-native/"
 RESULT_CONTAINERS = {
@@ -60,7 +60,9 @@ REQUIRED = {
     "artifact/results/current-native/source-snapshot/scripts/derive_admission_study.py",
     "artifact/results/current-native/historical-source-recovery/scripts/verify_package.py",
     "artifact/results/current-native/historical-source-recovery/tests/test_evidence_catalog.py",
-    "paper/main.tex", "paper/submission-manuscript.tex", "paper/online-supplement.tex",
+    "paper/main.tex", "paper/main.pdf", "paper/main.bbl",
+    "paper/online-supplement.tex", "paper/online-supplement.pdf",
+    "artifact/submission-materials-map.json",
     "paper/references.bib", "paper/generated/admission-results.tex",
     "paper/generated/admission-overview.tex",
 } | RESULT_CONTAINERS | RESULT_LOGS | ACTIVE_SHELL
@@ -98,6 +100,9 @@ def publication_mode(relative: str) -> str:
 def file_role(relative: str) -> str:
     """Return a role or a concrete invalid/debris label."""
     path = PurePosixPath(relative)
+    if len(path.parts) == 2 and path.parts[0] == "paper" and \
+            path.name.casefold().startswith("submission-manuscript."):
+        return "duplicate-review-entry"
     if any(part in {".git", "__pycache__", ".pytest_cache", ".venv", "venv", "node_modules"}
            for part in path.parts):
         return "cache-or-repository-internals"
@@ -195,7 +200,8 @@ def check_publication(root: Path, files: list[Path], links: list[str], shared: l
     invalid_roles = {name: file_role(name) for name in relative
                      if file_role(name) in {"cache-or-repository-internals",
                                             "temporary-or-backup",
-                                            "unexpected-container-or-auxiliary"}}
+                                            "unexpected-container-or-auxiliary",
+                                            "duplicate-review-entry"}}
     missing = sorted(name for name in REQUIRED if name not in relative or relative[name].stat().st_size == 0)
     private = []
     process = []
@@ -324,6 +330,50 @@ def check_references(root: Path):
         return False, {"error": type(error).__name__ + ": " + str(error)}
 
 
+def check_review_entry(root: Path):
+    """Require one acmart review article and no duplicate submission wrapper."""
+    paper = root / "paper"
+    errors = []
+
+    def uncommented(path):
+        return re.sub(r"(?<!\\)%[^\n]*", "", path.read_text(encoding="utf-8"))
+
+    try:
+        main = uncommented(paper / "main.tex").split(r"\begin{document}", 1)[0]
+    except (OSError, UnicodeError) as error:
+        main = ""
+        errors.append("main.tex: " + type(error).__name__)
+    classes = re.findall(r"\\documentclass\s*(?:\[([^\]]*)\])?\s*\{([^{}]+)\}", main)
+    options = [value.strip() for value in classes[0][0].split(",")] if len(classes) == 1 else []
+    review_class = len(re.findall(r"\\documentclass\b", main)) == len(classes) == 1 and \
+        classes[0][1].strip() == "acmart" and len(options) == 3 and \
+        set(options) == {"manuscript", "review", "screen"}
+    duplicates = {path.name for path in paper.iterdir()
+                  if path.name.casefold().startswith("submission-manuscript.")} if paper.is_dir() else set()
+    for path in paper.glob("*.tex"):
+        if path.name in {"main.tex", "online-supplement.tex"}:
+            continue
+        try:
+            if re.search(r"\\documentclass\b", uncommented(path)):
+                duplicates.add(path.name)
+        except (OSError, UnicodeError) as error:
+            errors.append(path.name + ": " + type(error).__name__)
+    try:
+        materials = json.loads((root / "artifact/submission-materials-map.json").read_text(encoding="utf-8"))
+        mapped = materials.get("main_review_candidate") == "paper/main.pdf" and \
+            materials.get("supplement") == "paper/online-supplement.pdf" and \
+            "journal_layout" not in materials
+    except (OSError, UnicodeError, ValueError, AttributeError) as error:
+        mapped = False
+        errors.append("submission-materials-map.json: " + type(error).__name__)
+    return {
+        "main_uses_initial_review_class": review_class,
+        "main_is_unique_review_entry": not duplicates and not errors,
+        "submission_map_uses_main": mapped,
+    }, {"duplicate_review_files": sorted(duplicates), "entry_read_errors": errors,
+        "main_documentclasses": classes}
+
+
 def check_paper_dependencies(root: Path):
     """Check literal local TeX consumers, not installation-provided font files."""
     paper = root / "paper"
@@ -402,10 +452,9 @@ def audit_project(root: Path):
     archives_ok, archive_errors = check_archives(root)
     checks["required_evidence_archives_readable"] = archives_ok
     details["archive_errors"] = archive_errors
-    main = root / "paper/main.tex"
-    submission = root / "paper/submission-manuscript.tex"
-    checks["main_and_submission_source_identical"] = main.is_file() and submission.is_file() and \
-        sha256(main) == sha256(submission)
+    entry_checks, entry_details = check_review_entry(root)
+    checks.update(entry_checks)
+    details["review_entry"] = entry_details
     references_ok, references = check_references(root)
     checks["current_local_reference_structure"] = references_ok
     details["reference_structure"] = references

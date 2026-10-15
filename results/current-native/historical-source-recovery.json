@@ -1,5 +1,5 @@
 {
-  "scope": "Later byte-for-byte recovery of two historical inputs missing from the original 23-file source-snapshot. This is not a new native execution, a revised measured result, or a full Git tree.",
+  "scope": "Byte-for-byte preservation of historical inputs absent from the original23-file snapshot; recorded Git blobs remain unchanged. No new native execution or revised measurement.",
   "repository": "Haoyi-Zhang/ToolchainMark",
   "head_sha": "c8367e792913794672baff73cee2a62df2975574",
   "mirror_repository": "Haoyi-Zhang/ToolchainMark-code",
@@ -16,6 +16,13 @@
       "git_blob_sha": "21fb75c7f5d2a33bf2af43e1ac5aae00960bf3f9",
       "source_url": "https://raw.githubusercontent.com/Haoyi-Zhang/ToolchainMark/c8367e792913794672baff73cee2a62df2975574/scripts/verify_package.py",
       "mirror_source_url": "https://raw.githubusercontent.com/Haoyi-Zhang/ToolchainMark-code/777877f94814a217b7a73c24c9c3f568469d492e/scripts/verify_package.py"
+    },
+    {
+      "path": "src/tosem02/recheck.py",
+      "git_blob_sha": "88821500d6af57fe5c76b6ea6fde69a22a3c756c",
+      "source_kind": "Pre-edit source retained locally and verified against the recorded historical Git blob",
+      "source_url": "https://raw.githubusercontent.com/Haoyi-Zhang/ToolchainMark/c8367e792913794672baff73cee2a62df2975574/src/tosem02/recheck.py",
+      "mirror_source_url": "https://raw.githubusercontent.com/Haoyi-Zhang/ToolchainMark-code/777877f94814a217b7a73c24c9c3f568469d492e/src/tosem02/recheck.py"
     }
   ]
 }

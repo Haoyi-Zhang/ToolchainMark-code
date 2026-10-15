@@ -2,6 +2,7 @@
 import copy
 import csv
 import json
+import shutil
 import tempfile
 import unittest
 from pathlib import Path
@@ -38,6 +39,17 @@ class NativeExecutionEvidenceTests(unittest.TestCase):
             (root / "source-inputs.json").write_text(json.dumps(source), encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "input count differs"):
                 verify_source_inputs(root, ROOT, self.provenance)
+
+    def test_preserved_producer_bytes_remain_bound_to_original_manifest(self):
+        with tempfile.TemporaryDirectory(prefix="native-preserved-input-test-") as temporary:
+            root=Path(temporary)
+            shutil.copy2(DATA/'source-inputs.json',root/'source-inputs.json')
+            shutil.copytree(DATA/'source-snapshot',root/'source-snapshot')
+            self.assertEqual(verify_source_inputs(root,ROOT,self.provenance),71)
+            preserved=root/'source-snapshot/src/tosem02/recheck.py'
+            preserved.write_bytes(preserved.read_bytes()+b'\n')
+            with self.assertRaisesRegex(ValueError,'input digest differs'):
+                verify_source_inputs(root,ROOT,self.provenance)
 
     def test_wrong_run_head_is_rejected(self):
         bad = copy.deepcopy(self.provenance)

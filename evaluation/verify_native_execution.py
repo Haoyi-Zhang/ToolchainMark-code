@@ -1,6 +1,6 @@
 """Read-only verification of the published complete current-v3 native records.
 
-This verifies recorded bytes, the 71 current producer inputs, row/admission
+This verifies recorded bytes, the 71 recorded producer inputs, row/admission
 semantics, reruns, and data-only rederivation. It does not compile or execute
 native subjects, contact GitHub, or write into the artifact tree.
 """
@@ -146,12 +146,16 @@ def verify_source_inputs(data_root, source_root, provenance):
         require(name == ".github/workflows/native-compiler-campaign.yml" or
                 PurePosixPath(name).parts[0] in {"src", "hosts", "scripts", "specs", "tests"},
                 "Invalid current native input scope: " + name)
-        path = data_path(source_root, name)
-        require(path.is_file() and path.stat().st_size == entry["bytes"],
-                "Native input missing or byte count differs: " + name)
-        require(GIT_BLOB.fullmatch(entry["git_blob_sha1"]) is not None and
-                git_blob(path) == entry["git_blob_sha1"] and
-                digest(path) == entry["sha256"],
+        def matches(path):
+            return path.is_file() and path.stat().st_size == entry["bytes"] and \
+                GIT_BLOB.fullmatch(entry["git_blob_sha1"]) is not None and \
+                git_blob(path) == entry["git_blob_sha1"] and digest(path) == entry["sha256"]
+        current = data_path(source_root, name)
+        preserved = data_path(data_root / "source-snapshot", name)
+        # Packaging maintenance may change a producer input after measurement.
+        # Its preserved bytes must still match every original recorded identity.
+        path = current if matches(current) else preserved
+        require(matches(path),
                 "Current native input digest differs: " + name)
     return len(names)
 
